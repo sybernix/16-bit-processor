@@ -1,0 +1,416 @@
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 10 - 29.5.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 10 - 29.5.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 11 - 24.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 12 - 25.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.xst" -ofn "G:/User/Desktop/Phase 13 - 26.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "I:/Phase 14 - 27.6.2017/Processor to test/computer.xst" -ofn "I:/Phase 14 - 27.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 15 - 28.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 15 - 28.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 16 - 29.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 18 - 30.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 18 - 30.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 18 - 30.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 18 - 30.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 18 - 30.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 18 - 30.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 19 - 30.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 19 - 30.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 19 - 30.6.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 19 - 30.6.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 
+xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc computer.ucf -p xc6slx45-csg324-3 "computer.ngc" computer.ngd  
+map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o computer_map.ncd computer.ngd computer.pcf 
+par -w -intstyle ise -ol high -mt off computer_map.ncd computer.ncd computer.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf -ucf computer.ucf 
+bitgen -intstyle ise -f computer.ut computer.ncd 

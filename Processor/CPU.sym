@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="CPU">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2017-5-13T15:29:19</timestamp>
+    <attr value="CPU" name="VeriModel" />
+    <pin polarity="Input" x="0" y="-544" name="clk" />
+    <pin polarity="Input" x="0" y="-288" name="instruction(10:0)" />
+    <pin polarity="Input" x="0" y="-32" name="RAM2DR(7:0)" />
+    <pin polarity="Output" x="560" y="-544" name="RAMWriteEnable" />
+    <pin polarity="Output" x="560" y="-480" name="Z" />
+    <pin polarity="Output" x="560" y="-416" name="AR2BusAMuxRAM(15:0)" />
+    <pin polarity="Output" x="560" y="-352" name="AC2BusAMux(15:0)" />
+    <pin polarity="Output" x="560" y="-288" name="DR2BusAMuxRAM(15:0)" />
+    <pin polarity="Output" x="560" y="-224" name="IROut(15:0)" />
+    <pin polarity="Output" x="560" y="-160" name="PC2BusAMux(15:0)" />
+    <pin polarity="Output" x="560" y="-96" name="R2ALU(15:0)" />
+    <pin polarity="Output" x="560" y="-32" name="TR2BusAMux(15:0)" />
+    <graph>
+        <rect width="432" x="64" y="-576" height="576" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="280" y="-584" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-544" type="pin clk" />
+        <line x2="0" y1="-544" y2="-544" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-288" type="pin instruction(10:0)" />
+        <rect width="64" x="0" y="-300" height="24" />
+        <line x2="0" y1="-288" y2="-288" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin RAM2DR(7:0)" />
+        <rect width="64" x="0" y="-44" height="24" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-544" type="pin RAMWriteEnable" />
+        <line x2="560" y1="-544" y2="-544" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-480" type="pin Z" />
+        <line x2="560" y1="-480" y2="-480" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-416" type="pin AR2BusAMuxRAM(15:0)" />
+        <rect width="64" x="496" y="-428" height="24" />
+        <line x2="560" y1="-416" y2="-416" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-352" type="pin AC2BusAMux(15:0)" />
+        <rect width="64" x="496" y="-364" height="24" />
+        <line x2="560" y1="-352" y2="-352" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-288" type="pin DR2BusAMuxRAM(15:0)" />
+        <rect width="64" x="496" y="-300" height="24" />
+        <line x2="560" y1="-288" y2="-288" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-224" type="pin IROut(15:0)" />
+        <rect width="64" x="496" y="-236" height="24" />
+        <line x2="560" y1="-224" y2="-224" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-160" type="pin PC2BusAMux(15:0)" />
+        <rect width="64" x="496" y="-172" height="24" />
+        <line x2="560" y1="-160" y2="-160" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-96" type="pin R2ALU(15:0)" />
+        <rect width="64" x="496" y="-108" height="24" />
+        <line x2="560" y1="-96" y2="-96" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-32" type="pin TR2BusAMux(15:0)" />
+        <rect width="64" x="496" y="-44" height="24" />
+        <line x2="560" y1="-32" y2="-32" x1="496" />
+    </graph>
+</symbol>

@@ -1,0 +1,192 @@
+CLAC
+STAC
+[address of Y]
+STAC
+[address of Y]
+STAC
+[intermediate]
+LDAC
+[ADDRESS OT THE FIRST PIXEL (n+1)]
+STAC
+[address of index1]
+STAC
+[address of index2]
+MVAC2R
+LDAC
+[address of 1]
+ADD
+LOAD
+MVAC2TR
+LDAC
+[address of 1]
+MVAC2R
+LDAC
+[address of index1]
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+[address of index1]
+MVAC2R
+LDAC
+[address of n]
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+[address of n]
+MVAC2R
+LDAC
+[address of index1]
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+[address of 3]
+MVAC2R
+MVTR2AC
+RSHIFT
+STAC
+[intermediate]
+
+LDAC
+[address of index1]
+MVAC2R
+LDAC
+[address of n-1]
+ADD
+LOAD
+MVAC2TR
+LDAC
+[address of n-1]
+MVAC2R
+LDAC
+[address of index1]
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+
+LDAC
+[address of index1]
+MVAC2R
+LDAC
+[address of n+1]
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+[address of n+1]
+MVAC2R
+LDAC
+[address of index1]
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+[address of 4]
+MVAC2R
+MVTR2AC
+RSHIFT
+MVAC2R
+LDAC
+[intermediate]
+ADD
+STAC
+[intermediate]
+LDAC
+[address of index1]
+LOAD
+MVAC2TR
+LDAC
+[address of 2]
+MVAC2R
+MVTR2AC
+RSHIFT
+MVAC2R
+LDAC
+[intermediate]
+ADD
+STAC
+[address of index3]
+
+
+LDAC
+[address of index1]
+MVAC2R
+LDAC
+[address of 2]
+ADD
+STAC
+[address of index1]
+LDAC
+[address of 1]
+MVAC2R
+LDAC
+[address of X]
+ADD
+STAC
+[address of X]
+LDAC
+[address of index3]
+MVAC2R
+LDAC
+[address of 1]
+ADD
+STAC
+[address of index3]
+LDAC
+[address of n/2-1]
+MVAC2R
+LDAC
+[address of X]
+SUB
+JUMNZ
+[JUMP ADDRESS]
+LDAC
+[address of index2]
+MVAC2R
+LDAC
+[address of 2n]
+ADD
+STAC
+[address of index2]
+STAC
+[address of index1]
+LDAC
+[address of 1]
+MVAC2R
+LDAC
+[address of Y]
+ADD
+STAC
+[address of Y]
+CLAC
+STAC
+[address of X]
+LDAC
+[address of n/2-1]
+MVAC2R
+LDAC
+[address of Y]
+SUB
+JUMNZ
+[JUMP ADDRESS]
+END

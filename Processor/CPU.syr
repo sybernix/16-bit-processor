@@ -1,0 +1,690 @@
+Release 14.5 - xst P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: CPU.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "CPU.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "CPU"
+Output Format                      : NGC
+Target Device                      : xc6slx45-3-csg324
+
+---- Source Options
+Top Module Name                    : CPU
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\writeEnableMux.v" into library work
+Parsing module <writeEnableMux>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\Register.v" into library work
+Parsing module <register>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\IRRegister.v" into library work
+Parsing module <IRRegister>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\BusAMux.v" into library work
+Parsing module <busAMux>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\ALU.v" into library work
+Parsing module <ALU>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\processingUnit.v" into library work
+Parsing module <processingUnit>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\controlUnit.v" into library work
+Parsing module <controlUnit>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\CPU.v" into library work
+Parsing module <CPU>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <CPU>.
+
+Elaborating module <processingUnit>.
+
+Elaborating module <register>.
+
+Elaborating module <IRRegister>.
+
+Elaborating module <busAMux>.
+
+Elaborating module <writeEnableMux>.
+
+Elaborating module <ALU>.
+
+Elaborating module <controlUnit>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <CPU>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\CPU.v".
+    Summary:
+	no macro.
+Unit <CPU> synthesized.
+
+Synthesizing Unit <processingUnit>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\processingUnit.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <processingUnit> synthesized.
+
+Synthesizing Unit <register>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\Register.v".
+WARNING:Xst:647 - Input <UART2RAMCompleted> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit register for signal <dataOut>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <register> synthesized.
+
+Synthesizing Unit <IRRegister>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\IRRegister.v".
+WARNING:Xst:647 - Input <UART2RAMCompleted> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 6-bit register for signal <dataOut>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+Unit <IRRegister> synthesized.
+
+Synthesizing Unit <busAMux>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\BusAMux.v".
+        ac = 3'b000
+        ar = 3'b001
+        pc = 3'b010
+        dr = 3'b011
+        tr = 3'b100
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2935 - Signal 'EndOperations', unconnected in block 'busAMux', is tied to its initial value (0).
+    Found 16-bit 7-to-1 multiplexer for signal <busAout> created at line 36.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <busAMux> synthesized.
+
+Synthesizing Unit <writeEnableMux>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\writeEnableMux.v".
+        ac = 3'b000
+        ar = 3'b001
+        dr = 3'b010
+        ir = 3'b011
+        pc = 3'b100
+        r = 3'b101
+        tr = 3'b110
+        pcanddr = 3'b111
+    Found 8x1-bit Read Only RAM for signal <PCWE>
+    Found 8x1-bit Read Only RAM for signal <DRWE>
+    Found 8x1-bit Read Only RAM for signal <TRWE>
+    Found 8x1-bit Read Only RAM for signal <RWE>
+    Found 8x1-bit Read Only RAM for signal <IRWE>
+    Found 8x1-bit Read Only RAM for signal <ARWE>
+    Found 8x1-bit Read Only RAM for signal <ACWE>
+    Summary:
+	inferred   7 RAM(s).
+Unit <writeEnableMux> synthesized.
+
+Synthesizing Unit <ALU>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\ALU.v".
+        NOP = 2'b00
+        ADD = 2'b01
+        SUB = 2'b10
+        LSHIFT = 2'b11
+        RSHIFT = 3'b100
+        MOVR = 3'b101
+        INC = 3'b110
+    Found 1-bit register for signal <Z>.
+    Found 16-bit subtractor for signal <dataIn[15]_RIn[15]_sub_2_OUT> created at line 45.
+    Found 16-bit adder for signal <RIn[15]_dataIn[15]_add_0_OUT> created at line 44.
+    Found 16-bit adder for signal <dataIn[15]_GND_7_o_add_4_OUT> created at line 51.
+    Found 16-bit shifter logical left for signal <dataIn[15]_RIn[15]_shift_left_2_OUT> created at line 46
+    Found 16-bit shifter logical right for signal <dataIn[15]_RIn[15]_shift_right_3_OUT> created at line 47
+    Found 16-bit 8-to-1 multiplexer for signal <dataOut> created at line 42.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 D-type flip-flop(s).
+	inferred  15 Multiplexer(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <ALU> synthesized.
+
+Synthesizing Unit <controlUnit>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 14 - 27.6.2017\Processor to test\controlUnit.v".
+        fetch1 = 0
+        fetch2 = 1
+        fetch3 = 2
+        fetch4 = 3
+        ADD1 = 4
+        SUB1 = 5
+        NOP = 6
+        LDAC1 = 7
+        LDAC2 = 8
+        LDAC3 = 9
+        LDAC4 = 10
+        LDAC5 = 11
+        LDAC6 = 12
+        LDAC7 = 13
+        MVAC2R1 = 14
+        MVR2AC1 = 15
+        MVAC2TR1 = 16
+        MVTR2DR1 = 17
+        STAC1 = 18
+        STAC2 = 19
+        STAC3 = 20
+        STAC4 = 21
+        STAC5 = 22
+        STAC6 = 23
+        JUMP1 = 24
+        JUMP2 = 25
+        JUMP3 = 26
+        JUMP4 = 27
+        JUMPZ1 = 28
+        JUMPZ2 = 29
+        JUMPZ3 = 30
+        JUMPZ4 = 31
+        CLAC1 = 32
+        LSHIFT1 = 33
+        RSHIFT1 = 34
+        ENDOPS = 35
+    Found 19-bit register for signal <instruction>.
+    Found 1-bit register for signal <RAMorALUOut2DRIn>.
+    Summary:
+	inferred  20 D-type flip-flop(s).
+	inferred  18 Multiplexer(s).
+Unit <controlUnit> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 7
+ 8x1-bit single-port Read Only RAM                     : 7
+# Adders/Subtractors                                   : 1
+ 16-bit addsub                                         : 1
+# Registers                                            : 10
+ 1-bit register                                        : 2
+ 16-bit register                                       : 6
+ 19-bit register                                       : 1
+ 6-bit register                                        : 1
+# Multiplexers                                         : 35
+ 1-bit 2-to-1 multiplexer                              : 1
+ 16-bit 2-to-1 multiplexer                             : 15
+ 16-bit 7-to-1 multiplexer                             : 1
+ 19-bit 2-to-1 multiplexer                             : 17
+ 6-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:2677 - Node <instruction_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <instruction_18> of sequential type is unconnected in block <controlUnit>.
+
+Synthesizing (advanced) Unit <writeEnableMux>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_PCWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <PCWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_DRWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <DRWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_TRWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <TRWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_RWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <RWE>           |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_IRWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <IRWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_ARWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <ARWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_ACWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <ACWE>          |          |
+    -----------------------------------------------------------------------
+Unit <writeEnableMux> synthesized (advanced).
+WARNING:Xst:2677 - Node <instruction_18> of sequential type is unconnected in block <controlUnit>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 7
+ 8x1-bit single-port distributed Read Only RAM         : 7
+# Adders/Subtractors                                   : 1
+ 16-bit addsub                                         : 1
+# Registers                                            : 122
+ Flip-Flops                                            : 122
+# Multiplexers                                         : 35
+ 1-bit 2-to-1 multiplexer                              : 1
+ 16-bit 2-to-1 multiplexer                             : 15
+ 16-bit 7-to-1 multiplexer                             : 1
+ 19-bit 2-to-1 multiplexer                             : 17
+ 6-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <instruction_6> has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <CPU> ...
+
+Optimizing unit <register> ...
+
+Optimizing unit <processingUnit> ...
+
+Optimizing unit <ALU> ...
+
+Optimizing unit <controlUnit> ...
+WARNING:Xst:2677 - Node <processingUnit/ALU/Z> of sequential type is unconnected in block <CPU>.
+WARNING:Xst:2677 - Node <controlUnit/instruction_7> of sequential type is unconnected in block <CPU>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block CPU, actual ratio is 1.
+FlipFlop controlUnit/instruction_12 has been replicated 5 time(s)
+FlipFlop controlUnit/instruction_13 has been replicated 4 time(s)
+FlipFlop controlUnit/instruction_14 has been replicated 2 time(s)
+FlipFlop controlUnit/instruction_15 has been replicated 2 time(s)
+FlipFlop controlUnit/instruction_16 has been replicated 2 time(s)
+FlipFlop controlUnit/instruction_17 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 135
+ Flip-Flops                                            : 135
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : CPU.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 282
+#      GND                         : 1
+#      LUT2                        : 6
+#      LUT3                        : 38
+#      LUT4                        : 31
+#      LUT5                        : 39
+#      LUT6                        : 135
+#      MUXCY                       : 15
+#      MUXF7                       : 1
+#      XORCY                       : 16
+# FlipFlops/Latches                : 135
+#      FDE                         : 103
+#      FDE_1                       : 32
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 161
+#      IBUF                        : 17
+#      OBUF                        : 144
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx45csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             135  out of  54576     0%  
+ Number of Slice LUTs:                  249  out of  27288     0%  
+    Number used as Logic:               249  out of  27288     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    328
+   Number with an unused Flip Flop:     193  out of    328    58%  
+   Number with an unused LUT:            79  out of    328    24%  
+   Number of fully used LUT-FF pairs:    56  out of    328    17%  
+   Number of unique control sets:         9
+
+IO Utilization: 
+ Number of IOs:                         162
+ Number of bonded IOBs:                 162  out of    218    74%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRL/BUFHCEs:         1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 135   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 15.658ns (Maximum Frequency: 63.867MHz)
+   Minimum input arrival time before clock: 4.019ns
+   Maximum output required time after clock: 11.036ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 15.658ns (frequency: 63.867MHz)
+  Total number of paths / destination ports: 380238 / 269
+-------------------------------------------------------------------------
+Delay:               7.829ns (Levels of Logic = 22)
+  Source:            controlUnit/instruction_13_1 (FF)
+  Destination:       processingUnit/DR/dataOut_15 (FF)
+  Source Clock:      clk falling
+  Destination Clock: clk rising
+
+  Data Path: controlUnit/instruction_13_1 to processingUnit/DR/dataOut_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE_1:C->Q            9   0.447   0.934  controlUnit/instruction_13_1 (controlUnit/instruction_13_1)
+     LUT6:I4->O            2   0.203   0.617  processingUnit/busAMux/Mmux_busAout71 (processingUnit/busAMux/Mmux_busAout7)
+     LUT5:I4->O            6   0.205   0.973  processingUnit/busAMux/Mmux_busAout72 (busA2ALU_15_OBUF)
+     LUT5:I2->O            3   0.205   0.651  processingUnit/ALU/Sh451 (processingUnit/ALU/Sh45)
+     LUT5:I4->O            2   0.205   0.721  processingUnit/ALU/Sh4911 (processingUnit/ALU/Sh491)
+     LUT6:I4->O            1   0.203   0.580  processingUnit/ALU/Mmux_dataOut7_A87 (processingUnit/ALU/Mmux_dataOut7_rs_A<1>)
+     LUT5:I4->O            1   0.205   0.000  processingUnit/ALU/Mmux_dataOut7_rs_lut<1> (processingUnit/ALU/Mmux_dataOut7_rs_lut<1>)
+     MUXCY:S->O            1   0.172   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<1> (processingUnit/ALU/Mmux_dataOut7_rs_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<2> (processingUnit/ALU/Mmux_dataOut7_rs_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<3> (processingUnit/ALU/Mmux_dataOut7_rs_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<4> (processingUnit/ALU/Mmux_dataOut7_rs_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<5> (processingUnit/ALU/Mmux_dataOut7_rs_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<6> (processingUnit/ALU/Mmux_dataOut7_rs_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<7> (processingUnit/ALU/Mmux_dataOut7_rs_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<8> (processingUnit/ALU/Mmux_dataOut7_rs_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<9> (processingUnit/ALU/Mmux_dataOut7_rs_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<10> (processingUnit/ALU/Mmux_dataOut7_rs_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<11> (processingUnit/ALU/Mmux_dataOut7_rs_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<12> (processingUnit/ALU/Mmux_dataOut7_rs_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<13> (processingUnit/ALU/Mmux_dataOut7_rs_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<14> (processingUnit/ALU/Mmux_dataOut7_rs_cy<14>)
+     XORCY:CI->O           7   0.180   0.774  processingUnit/ALU/Mmux_dataOut7_rs_xor<15> (ALUOut_15_OBUF)
+     LUT3:I2->O            1   0.205   0.000  processingUnit/Mmux_DRInput71 (processingUnit/DRInput<15>)
+     FDE:D                     0.102          processingUnit/DR/dataOut_15
+    ----------------------------------------
+    Total                      7.829ns (2.579ns logic, 5.250ns route)
+                                       (32.9% logic, 67.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 49 / 49
+-------------------------------------------------------------------------
+Offset:              4.019ns (Levels of Logic = 2)
+  Source:            UART2RAMCompleted (PAD)
+  Destination:       controlUnit/instruction_17 (FF)
+  Destination Clock: clk falling
+
+  Data Path: UART2RAMCompleted to controlUnit/instruction_17
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.981  UART2RAMCompleted_IBUF (UART2RAMCompleted_IBUF)
+     LUT6:I0->O           32   0.203   1.291  controlUnit/_n0120_inv1 (controlUnit/_n0120_inv)
+     FDE_1:CE                  0.322          controlUnit/instruction_0
+    ----------------------------------------
+    Total                      4.019ns (1.747ns logic, 2.272ns route)
+                                       (43.5% logic, 56.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 62042 / 143
+-------------------------------------------------------------------------
+Offset:              11.036ns (Levels of Logic = 22)
+  Source:            processingUnit/R/dataOut_13 (FF)
+  Destination:       ALUOut<15> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: processingUnit/R/dataOut_13 to ALUOut<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              5   0.447   1.079  processingUnit/R/dataOut_13 (processingUnit/R/dataOut_13)
+     LUT6:I0->O            7   0.203   1.118  processingUnit/ALU/out2 (processingUnit/ALU/out1)
+     LUT5:I0->O           17   0.203   1.256  processingUnit/ALU/Mmux_dataOut7_A1031 (processingUnit/ALU/Mmux_dataOut7_A103)
+     LUT6:I3->O            1   0.205   0.580  processingUnit/ALU/Mmux_dataOut7_A82 (processingUnit/ALU/Mmux_dataOut7_A81)
+     LUT6:I5->O            1   0.205   0.808  processingUnit/ALU/Mmux_dataOut7_A84 (processingUnit/ALU/Mmux_dataOut7_A83)
+     LUT6:I3->O            1   0.205   0.580  processingUnit/ALU/Mmux_dataOut7_A87 (processingUnit/ALU/Mmux_dataOut7_rs_A<1>)
+     LUT5:I4->O            1   0.205   0.000  processingUnit/ALU/Mmux_dataOut7_rs_lut<1> (processingUnit/ALU/Mmux_dataOut7_rs_lut<1>)
+     MUXCY:S->O            1   0.172   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<1> (processingUnit/ALU/Mmux_dataOut7_rs_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<2> (processingUnit/ALU/Mmux_dataOut7_rs_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<3> (processingUnit/ALU/Mmux_dataOut7_rs_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<4> (processingUnit/ALU/Mmux_dataOut7_rs_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<5> (processingUnit/ALU/Mmux_dataOut7_rs_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<6> (processingUnit/ALU/Mmux_dataOut7_rs_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<7> (processingUnit/ALU/Mmux_dataOut7_rs_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<8> (processingUnit/ALU/Mmux_dataOut7_rs_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<9> (processingUnit/ALU/Mmux_dataOut7_rs_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<10> (processingUnit/ALU/Mmux_dataOut7_rs_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<11> (processingUnit/ALU/Mmux_dataOut7_rs_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<12> (processingUnit/ALU/Mmux_dataOut7_rs_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<13> (processingUnit/ALU/Mmux_dataOut7_rs_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  processingUnit/ALU/Mmux_dataOut7_rs_cy<14> (processingUnit/ALU/Mmux_dataOut7_rs_cy<14>)
+     XORCY:CI->O           7   0.180   0.773  processingUnit/ALU/Mmux_dataOut7_rs_xor<15> (ALUOut_15_OBUF)
+     OBUF:I->O                 2.571          ALUOut_15_OBUF (ALUOut<15>)
+    ----------------------------------------
+    Total                     11.036ns (4.843ns logic, 6.193ns route)
+                                       (43.9% logic, 56.1% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    8.773|    7.829|    3.401|         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.31 secs
+ 
+--> 
+
+Total memory usage is 276048 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    8 (   0 filtered)
+

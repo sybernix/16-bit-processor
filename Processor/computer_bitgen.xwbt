@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.ncd
+OUTFILE=E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test
+LICENSE=WebPack
+USER_INFO=__0_0_0

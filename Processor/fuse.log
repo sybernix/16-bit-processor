@@ -1,0 +1,60 @@
+Running: C:\Xilinx\14.5\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer_isim_beh.exe -prj E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer_beh.prj work.computer work.glbl 
+ISim P.58f (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/ipcore_dir/clkop.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/ipcore_dir/clkop/example_design/clkop_exdes.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/writeEnableMux.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/Register.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/IRRegister.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/BusAMux.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/ALU.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/tx.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/rx.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/processingUnit.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/ipcore_dir/memory1.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/controlUnit.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/clock_divider.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/UART.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/RAM.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/CPU.v" into library work
+Analyzing Verilog file "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.5/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module IBUFG
+Compiling module dcm_sp_clock_divide_by_2
+Compiling module dcm_sp_maximum_period_check(cloc...
+Compiling module dcm_sp_maximum_period_check(cloc...
+Compiling module dcm_sp_clock_lost
+Compiling module DCM_SP(CLKDV_DIVIDE=10.0,CLKFX_D...
+Compiling module BUFG
+Compiling module clkop
+Compiling module register
+Compiling module IRRegister
+Compiling module busAMux
+Compiling module writeEnableMux
+Compiling module ALU
+Compiling module processingUnit
+Compiling module controlUnit
+Compiling module CPU
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module memory1
+Compiling module RAM
+Compiling module clock_divider
+Compiling module transmitter
+Compiling module reciever
+Compiling module UART
+Compiling module computer
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: The system cannot find the path specified, "isim\computer_isim_beh.exe.sim\libPortability.dll".
+Compiled 28 Verilog Units
+Built simulation executable E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer_isim_beh.exe
+Fuse Memory Usage: 35028 KB
+Fuse CPU Usage: 733 ms

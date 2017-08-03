@@ -1,0 +1,2 @@
+vhdtdtfi -lib work {E:/Education/MyStuffFifthSemi/Circuit Systems and Design/Processor/writeEnableMux.v} -lang verilog -prj Processor -o writeEnableMux.spl -module writeEnableMux -template E:/dir/xilinx/14.5/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 writeEnableMux.spl {E:/Education/MyStuffFifthSemi/Circuit Systems and Design/Processor/writeEnableMux.sym} 

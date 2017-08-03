@@ -1,0 +1,1241 @@
+--------------------------------------------------------------------------------
+Release 14.5 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.5\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml computer.twx computer.ncd -o computer.twr computer.pcf
+-ucf computer.ucf
+
+Design file:              computer.ncd
+Physical constraint file: computer.pcf
+Device,package,speed:     xc6slx45,csg324,C,-3 (PRODUCTION 1.23 2013-03-26)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: NET "clkop/clkin1" PERIOD = 10 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   5.340ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "clkop/clkin1" PERIOD = 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 4.660ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 2.670ns (Tdcmpw_CLKIN_100_150)
+  Physical resource: clkop/dcm_sp_inst/CLKIN
+  Logical resource: clkop/dcm_sp_inst/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: clkop/dcm_sp_inst_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 4.660ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 2.670ns (Tdcmpw_CLKIN_100_150)
+  Physical resource: clkop/dcm_sp_inst/CLKIN
+  Logical resource: clkop/dcm_sp_inst/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: clkop/dcm_sp_inst_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 6.430ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 3.570ns (280.112MHz) (Tdcmper_CLKIN)
+  Physical resource: clkop/dcm_sp_inst/CLKIN
+  Logical resource: clkop/dcm_sp_inst/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: clkop/dcm_sp_inst_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "clkop/clk0" derived from  NET 
+"clkop/clkin1" PERIOD = 10 ns HIGH 50%;  duty cycle corrected to 10 nS  HIGH 5 
+nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 2336 paths analyzed, 296 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   5.182ns.
+--------------------------------------------------------------------------------
+
+Paths for end point UART/recive/data_ready (SLICE_X33Y73.C2), 16 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     4.818ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_6 (FF)
+  Destination:          UART/recive/data_ready (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      5.043ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.004ns (0.476 - 0.480)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_6 to UART/recive/data_ready
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X35Y84.CQ      Tcko                  0.391   UART/recive/counter<7>
+                                                       UART/recive/counter_6
+    SLICE_X43Y84.B2      net (fanout=6)        1.281   UART/recive/counter<6>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X33Y73.C2      net (fanout=22)       1.891   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X33Y73.CLK     Tas                   0.322   UART/recive/data_ready
+                                                       UART/recive/data_ready_data_ready_MUX_364_o
+                                                       UART/recive/data_ready
+    -------------------------------------------------  ---------------------------
+    Total                                      5.043ns (1.231ns logic, 3.812ns route)
+                                                       (24.4% logic, 75.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.927ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_0 (FF)
+  Destination:          UART/recive/data_ready (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.933ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.005ns (0.476 - 0.481)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_0 to UART/recive/data_ready
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X38Y84.AQ      Tcko                  0.447   UART/recive/counter<3>
+                                                       UART/recive/counter_0
+    SLICE_X43Y84.B1      net (fanout=5)        1.115   UART/recive/counter<0>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X33Y73.C2      net (fanout=22)       1.891   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X33Y73.CLK     Tas                   0.322   UART/recive/data_ready
+                                                       UART/recive/data_ready_data_ready_MUX_364_o
+                                                       UART/recive/data_ready
+    -------------------------------------------------  ---------------------------
+    Total                                      4.933ns (1.287ns logic, 3.646ns route)
+                                                       (26.1% logic, 73.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.128ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_12 (FF)
+  Destination:          UART/recive/data_ready (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.738ns (Levels of Logic = 3)
+  Clock Path Skew:      0.001ns (0.476 - 0.475)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_12 to UART/recive/data_ready
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X38Y86.AQ      Tcko                  0.447   UART/recive/counter<13>
+                                                       UART/recive/counter_12
+    SLICE_X43Y84.B3      net (fanout=6)        0.920   UART/recive/counter<12>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X33Y73.C2      net (fanout=22)       1.891   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X33Y73.CLK     Tas                   0.322   UART/recive/data_ready
+                                                       UART/recive/data_ready_data_ready_MUX_364_o
+                                                       UART/recive/data_ready
+    -------------------------------------------------  ---------------------------
+    Total                                      4.738ns (1.287ns logic, 3.451ns route)
+                                                       (27.2% logic, 72.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point UART/recive/buffer_1 (SLICE_X39Y79.C1), 34 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.120ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_6 (FF)
+  Destination:          UART/recive/buffer_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.751ns (Levels of Logic = 4)
+  Clock Path Skew:      0.006ns (0.486 - 0.480)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_6 to UART/recive/buffer_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X35Y84.CQ      Tcko                  0.391   UART/recive/counter<7>
+                                                       UART/recive/counter_6
+    SLICE_X43Y84.B2      net (fanout=6)        1.281   UART/recive/counter<6>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X39Y79.B6      net (fanout=22)       0.739   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X39Y79.B       Tilo                  0.259   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>311
+    SLICE_X39Y79.C1      net (fanout=8)        0.601   UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>31
+    SLICE_X39Y79.CLK     Tas                   0.322   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<1>5
+                                                       UART/recive/buffer_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.751ns (1.490ns logic, 3.261ns route)
+                                                       (31.4% logic, 68.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.229ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_0 (FF)
+  Destination:          UART/recive/buffer_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.641ns (Levels of Logic = 4)
+  Clock Path Skew:      0.005ns (0.486 - 0.481)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_0 to UART/recive/buffer_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X38Y84.AQ      Tcko                  0.447   UART/recive/counter<3>
+                                                       UART/recive/counter_0
+    SLICE_X43Y84.B1      net (fanout=5)        1.115   UART/recive/counter<0>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X39Y79.B6      net (fanout=22)       0.739   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X39Y79.B       Tilo                  0.259   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>311
+    SLICE_X39Y79.C1      net (fanout=8)        0.601   UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>31
+    SLICE_X39Y79.CLK     Tas                   0.322   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<1>5
+                                                       UART/recive/buffer_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.641ns (1.546ns logic, 3.095ns route)
+                                                       (33.3% logic, 66.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.430ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_12 (FF)
+  Destination:          UART/recive/buffer_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.446ns (Levels of Logic = 4)
+  Clock Path Skew:      0.011ns (0.486 - 0.475)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_12 to UART/recive/buffer_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X38Y86.AQ      Tcko                  0.447   UART/recive/counter<13>
+                                                       UART/recive/counter_12
+    SLICE_X43Y84.B3      net (fanout=6)        0.920   UART/recive/counter<12>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X39Y79.B6      net (fanout=22)       0.739   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X39Y79.B       Tilo                  0.259   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>311
+    SLICE_X39Y79.C1      net (fanout=8)        0.601   UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>31
+    SLICE_X39Y79.CLK     Tas                   0.322   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<1>5
+                                                       UART/recive/buffer_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.446ns (1.546ns logic, 2.900ns route)
+                                                       (34.8% logic, 65.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point UART/recive/buffer_3 (SLICE_X37Y79.A4), 34 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.223ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_6 (FF)
+  Destination:          UART/recive/buffer_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.648ns (Levels of Logic = 4)
+  Clock Path Skew:      0.006ns (0.486 - 0.480)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_6 to UART/recive/buffer_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X35Y84.CQ      Tcko                  0.391   UART/recive/counter<7>
+                                                       UART/recive/counter_6
+    SLICE_X43Y84.B2      net (fanout=6)        1.281   UART/recive/counter<6>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X39Y79.B6      net (fanout=22)       0.739   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X39Y79.B       Tilo                  0.259   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>311
+    SLICE_X37Y79.A4      net (fanout=8)        0.498   UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>31
+    SLICE_X37Y79.CLK     Tas                   0.322   UART/recive/buffer<6>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<3>5
+                                                       UART/recive/buffer_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.648ns (1.490ns logic, 3.158ns route)
+                                                       (32.1% logic, 67.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.332ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_0 (FF)
+  Destination:          UART/recive/buffer_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.538ns (Levels of Logic = 4)
+  Clock Path Skew:      0.005ns (0.486 - 0.481)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_0 to UART/recive/buffer_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X38Y84.AQ      Tcko                  0.447   UART/recive/counter<3>
+                                                       UART/recive/counter_0
+    SLICE_X43Y84.B1      net (fanout=5)        1.115   UART/recive/counter<0>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X39Y79.B6      net (fanout=22)       0.739   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X39Y79.B       Tilo                  0.259   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>311
+    SLICE_X37Y79.A4      net (fanout=8)        0.498   UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>31
+    SLICE_X37Y79.CLK     Tas                   0.322   UART/recive/buffer<6>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<3>5
+                                                       UART/recive/buffer_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.538ns (1.546ns logic, 2.992ns route)
+                                                       (34.1% logic, 65.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.533ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               UART/recive/counter_12 (FF)
+  Destination:          UART/recive/buffer_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.343ns (Levels of Logic = 4)
+  Clock Path Skew:      0.011ns (0.486 - 0.475)
+  Source Clock:         clkUART rising at 0.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.135ns
+
+  Clock Uncertainty:          0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: UART/recive/counter_12 to UART/recive/buffer_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X38Y86.AQ      Tcko                  0.447   UART/recive/counter<13>
+                                                       UART/recive/counter_12
+    SLICE_X43Y84.B3      net (fanout=6)        0.920   UART/recive/counter<12>
+    SLICE_X43Y84.B       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>1
+    SLICE_X41Y84.A4      net (fanout=1)        0.640   UART/recive/GND_21_o_GND_21_o_equal_9_o<15>
+    SLICE_X41Y84.A       Tilo                  0.259   UART/recive/GND_21_o_GND_21_o_equal_33_o<15>
+                                                       UART/recive/GND_21_o_GND_21_o_equal_9_o<15>3
+    SLICE_X39Y79.B6      net (fanout=22)       0.739   UART/recive/GND_21_o_GND_21_o_equal_9_o
+    SLICE_X39Y79.B       Tilo                  0.259   UART/recive/buffer<2>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>311
+    SLICE_X37Y79.A4      net (fanout=8)        0.498   UART/recive/buffer[7]_buffer[7]_mux_57_OUT<0>31
+    SLICE_X37Y79.CLK     Tas                   0.322   UART/recive/buffer<6>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<3>5
+                                                       UART/recive/buffer_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.343ns (1.546ns logic, 2.797ns route)
+                                                       (35.6% logic, 64.4% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "clkop/clk0" derived from
+ NET "clkop/clkin1" PERIOD = 10 ns HIGH 50%;
+ duty cycle corrected to 10 nS  HIGH 5 nS 
+
+--------------------------------------------------------------------------------
+
+Paths for end point UART/recive/bit_counter_3 (SLICE_X40Y80.D6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.421ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               UART/recive/bit_counter_3 (FF)
+  Destination:          UART/recive/bit_counter_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.421ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clkUART rising at 10.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: UART/recive/bit_counter_3 to UART/recive/bit_counter_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y80.DQ      Tcko                  0.200   UART/recive/bit_counter<3>
+                                                       UART/recive/bit_counter_3
+    SLICE_X40Y80.D6      net (fanout=5)        0.031   UART/recive/bit_counter<3>
+    SLICE_X40Y80.CLK     Tah         (-Th)    -0.190   UART/recive/bit_counter<3>
+                                                       UART/recive/bit_counter_3_dpot
+                                                       UART/recive/bit_counter_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.421ns (0.390ns logic, 0.031ns route)
+                                                       (92.6% logic, 7.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point UART/recive/bit_counter_0 (SLICE_X40Y80.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.429ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               UART/recive/bit_counter_0 (FF)
+  Destination:          UART/recive/bit_counter_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.429ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clkUART rising at 10.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: UART/recive/bit_counter_0 to UART/recive/bit_counter_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y80.AQ      Tcko                  0.200   UART/recive/bit_counter<3>
+                                                       UART/recive/bit_counter_0
+    SLICE_X40Y80.A6      net (fanout=11)       0.039   UART/recive/bit_counter<0>
+    SLICE_X40Y80.CLK     Tah         (-Th)    -0.190   UART/recive/bit_counter<3>
+                                                       UART/recive/bit_counter_0_dpot
+                                                       UART/recive/bit_counter_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.429ns (0.390ns logic, 0.039ns route)
+                                                       (90.9% logic, 9.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point UART/recive/buffer_6 (SLICE_X37Y79.D6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.447ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               UART/recive/buffer_6 (FF)
+  Destination:          UART/recive/buffer_6 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.447ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clkUART rising at 10.000ns
+  Destination Clock:    clkUART rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: UART/recive/buffer_6 to UART/recive/buffer_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X37Y79.DQ      Tcko                  0.198   UART/recive/buffer<6>
+                                                       UART/recive/buffer_6
+    SLICE_X37Y79.D6      net (fanout=3)        0.034   UART/recive/buffer<6>
+    SLICE_X37Y79.CLK     Tah         (-Th)    -0.215   UART/recive/buffer<6>
+                                                       UART/recive/buffer[7]_buffer[7]_mux_57_OUT<6>5
+                                                       UART/recive/buffer_6
+    -------------------------------------------------  ---------------------------
+    Total                                      0.447ns (0.413ns logic, 0.034ns route)
+                                                       (92.4% logic, 7.6% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "clkop/clk0" derived from
+ NET "clkop/clkin1" PERIOD = 10 ns HIGH 50%;
+ duty cycle corrected to 10 nS  HIGH 5 nS 
+
+--------------------------------------------------------------------------------
+Slack: 6.430ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 3.570ns (280.112MHz) (Tdcmper_CLKOUT)
+  Physical resource: clkop/dcm_sp_inst/CLK0
+  Logical resource: clkop/dcm_sp_inst/CLK0
+  Location pin: DCM_X0Y1.CLK0
+  Clock network: clkop/clk0
+--------------------------------------------------------------------------------
+Slack: 8.270ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.730ns (578.035MHz) (Tbcper_I)
+  Physical resource: clkop/clkout1_buf/I0
+  Logical resource: clkop/clkout1_buf/I0
+  Location pin: BUFGMUX_X2Y3.I0
+  Clock network: clkop/clk0
+--------------------------------------------------------------------------------
+Slack: 9.075ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 0.925ns (1081.081MHz) (Tbufper_I)
+  Physical resource: SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_1/I
+  Logical resource: SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_1/I
+  Location pin: BUFIO2FB_X3Y12.I
+  Clock network: clkUART
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "clkop/clkfx" derived from  NET 
+"clkop/clkin1" PERIOD = 10 ns HIGH 50%;  multiplied by 10.00 to 100 nS and duty 
+cycle corrected to HIGH 50 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 444773 paths analyzed, 1995 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  23.968ns.
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/processingUnit/DR/dataOut_5 (SLICE_X52Y88.D2), 2663 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     38.016ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_12 (FF)
+  Destination:          CPU/processingUnit/DR/dataOut_5 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      10.783ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.066ns (0.538 - 0.604)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_12 to CPU/processingUnit/DR/dataOut_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y52.CMUX    Tshcko                0.455   CPU/controlUnit/instruction<3>
+                                                       CPU/controlUnit/instruction_12
+    SLICE_X34Y57.B3      net (fanout=34)       1.289   CPU/controlUnit/instruction<12>
+    SLICE_X34Y57.B       Tilo                  0.203   CPU/processingUnit/AC/dataOut<15>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout51
+    SLICE_X34Y57.A5      net (fanout=1)        0.222   CPU/processingUnit/busAMux/Mmux_busAout5
+    SLICE_X34Y57.A       Tilo                  0.203   CPU/processingUnit/AC/dataOut<15>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout52
+    SLICE_X40Y53.C2      net (fanout=7)        1.082   CPU/processingUnit/busA2ALU<13>
+    SLICE_X40Y53.C       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh451
+    SLICE_X40Y53.A1      net (fanout=3)        0.459   CPU/processingUnit/ALU/Sh45
+    SLICE_X40Y53.A       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh4911
+    SLICE_X40Y53.D3      net (fanout=2)        0.285   CPU/processingUnit/ALU/Sh491
+    SLICE_X40Y53.D       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A123
+    SLICE_X43Y57.C1      net (fanout=1)        1.018   CPU/processingUnit/ALU/Mmux_dataOut7_A122
+    SLICE_X43Y57.C       Tilo                  0.259   CPU/processingUnit/ALU/Mmux_dataOut7_A121
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A124
+    SLICE_X38Y55.B3      net (fanout=2)        1.031   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<5>
+    SLICE_X38Y55.BMUX    Topbb                 0.376   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<5>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X52Y88.D2      net (fanout=7)        3.132   CPU/processingUnit/ALUOut<5>
+    SLICE_X52Y88.CLK     Tas                   0.154   CPU/processingUnit/DR/dataOut<4>
+                                                       CPU/processingUnit/Mmux_DRInput121
+                                                       CPU/processingUnit/DR/dataOut_5
+    -------------------------------------------------  ---------------------------
+    Total                                     10.783ns (2.265ns logic, 8.518ns route)
+                                                       (21.0% logic, 79.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     38.020ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_12 (FF)
+  Destination:          CPU/processingUnit/DR/dataOut_5 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      10.779ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.066ns (0.538 - 0.604)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_12 to CPU/processingUnit/DR/dataOut_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y52.CMUX    Tshcko                0.455   CPU/controlUnit/instruction<3>
+                                                       CPU/controlUnit/instruction_12
+    SLICE_X37Y58.B1      net (fanout=34)       1.157   CPU/controlUnit/instruction<12>
+    SLICE_X37Y58.B       Tilo                  0.259   CPU/processingUnit/busAMux/Mmux_busAout4
+                                                       CPU/processingUnit/busAMux/Mmux_busAout41
+    SLICE_X37Y58.A5      net (fanout=1)        0.187   CPU/processingUnit/busAMux/Mmux_busAout4
+    SLICE_X37Y58.A       Tilo                  0.259   CPU/processingUnit/busAMux/Mmux_busAout4
+                                                       CPU/processingUnit/busAMux/Mmux_busAout42
+    SLICE_X43Y55.B5      net (fanout=9)        1.250   CPU/processingUnit/busA2ALU<12>
+    SLICE_X43Y55.B       Tilo                  0.259   CPU/processingUnit/ALU/Sh381
+                                                       CPU/processingUnit/ALU/Sh411
+    SLICE_X40Y53.D5      net (fanout=3)        0.778   CPU/processingUnit/ALU/Sh41
+    SLICE_X40Y53.D       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A123
+    SLICE_X43Y57.C1      net (fanout=1)        1.018   CPU/processingUnit/ALU/Mmux_dataOut7_A122
+    SLICE_X43Y57.C       Tilo                  0.259   CPU/processingUnit/ALU/Mmux_dataOut7_A121
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A124
+    SLICE_X38Y55.B3      net (fanout=2)        1.031   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<5>
+    SLICE_X38Y55.BMUX    Topbb                 0.376   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<5>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X52Y88.D2      net (fanout=7)        3.132   CPU/processingUnit/ALUOut<5>
+    SLICE_X52Y88.CLK     Tas                   0.154   CPU/processingUnit/DR/dataOut<4>
+                                                       CPU/processingUnit/Mmux_DRInput121
+                                                       CPU/processingUnit/DR/dataOut_5
+    -------------------------------------------------  ---------------------------
+    Total                                     10.779ns (2.226ns logic, 8.553ns route)
+                                                       (20.7% logic, 79.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     38.059ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_14 (FF)
+  Destination:          CPU/processingUnit/DR/dataOut_5 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      10.746ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.060ns (0.538 - 0.598)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_14 to CPU/processingUnit/DR/dataOut_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y54.AQ      Tcko                  0.408   CPU/controlUnit/instruction<13>
+                                                       CPU/controlUnit/instruction_14
+    SLICE_X37Y56.A5      net (fanout=18)       1.720   CPU/controlUnit/instruction<14>
+    SLICE_X37Y56.A       Tilo                  0.259   CPU/processingUnit/AR/dataOut<11>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout142
+    SLICE_X37Y56.C1      net (fanout=8)        0.841   CPU/processingUnit/busA2ALU<7>
+    SLICE_X37Y56.CMUX    Tilo                  0.313   CPU/processingUnit/AR/dataOut<11>
+                                                       CPU/processingUnit/ALU/Sh3611
+    SLICE_X40Y53.A6      net (fanout=2)        0.540   CPU/processingUnit/ALU/Sh361
+    SLICE_X40Y53.A       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh4911
+    SLICE_X40Y53.D3      net (fanout=2)        0.285   CPU/processingUnit/ALU/Sh491
+    SLICE_X40Y53.D       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A123
+    SLICE_X43Y57.C1      net (fanout=1)        1.018   CPU/processingUnit/ALU/Mmux_dataOut7_A122
+    SLICE_X43Y57.C       Tilo                  0.259   CPU/processingUnit/ALU/Mmux_dataOut7_A121
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A124
+    SLICE_X38Y55.B3      net (fanout=2)        1.031   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<5>
+    SLICE_X38Y55.BMUX    Topbb                 0.376   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<5>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X52Y88.D2      net (fanout=7)        3.132   CPU/processingUnit/ALUOut<5>
+    SLICE_X52Y88.CLK     Tas                   0.154   CPU/processingUnit/DR/dataOut<4>
+                                                       CPU/processingUnit/Mmux_DRInput121
+                                                       CPU/processingUnit/DR/dataOut_5
+    -------------------------------------------------  ---------------------------
+    Total                                     10.746ns (2.179ns logic, 8.567ns route)
+                                                       (20.3% logic, 79.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/processingUnit/ALU/Z (SLICE_X41Y55.B5), 61802 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     38.044ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_12 (FF)
+  Destination:          CPU/processingUnit/ALU/Z (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      10.799ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.022ns (0.232 - 0.254)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_12 to CPU/processingUnit/ALU/Z
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y52.CMUX    Tshcko                0.455   CPU/controlUnit/instruction<3>
+                                                       CPU/controlUnit/instruction_12
+    SLICE_X34Y57.B3      net (fanout=34)       1.289   CPU/controlUnit/instruction<12>
+    SLICE_X34Y57.B       Tilo                  0.203   CPU/processingUnit/AC/dataOut<15>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout51
+    SLICE_X34Y57.A5      net (fanout=1)        0.222   CPU/processingUnit/busAMux/Mmux_busAout5
+    SLICE_X34Y57.A       Tilo                  0.203   CPU/processingUnit/AC/dataOut<15>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout52
+    SLICE_X40Y53.C2      net (fanout=7)        1.082   CPU/processingUnit/busA2ALU<13>
+    SLICE_X40Y53.C       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh451
+    SLICE_X40Y53.A1      net (fanout=3)        0.459   CPU/processingUnit/ALU/Sh45
+    SLICE_X40Y53.A       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh4911
+    SLICE_X40Y53.D3      net (fanout=2)        0.285   CPU/processingUnit/ALU/Sh491
+    SLICE_X40Y53.D       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A123
+    SLICE_X43Y57.C1      net (fanout=1)        1.018   CPU/processingUnit/ALU/Mmux_dataOut7_A122
+    SLICE_X43Y57.C       Tilo                  0.259   CPU/processingUnit/ALU/Mmux_dataOut7_A121
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A124
+    SLICE_X38Y55.B3      net (fanout=2)        1.031   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<5>
+    SLICE_X38Y55.COUT    Topcyb                0.380   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<5>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X38Y56.CIN     net (fanout=1)        0.082   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X38Y56.COUT    Tbyp                  0.076   CPU/processingUnit/TR/dataOut<11>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<11>
+    SLICE_X38Y57.CIN     net (fanout=1)        0.003   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<11>
+    SLICE_X38Y57.AMUX    Tcina                 0.202   CPU/processingUnit/TR/dataOut<15>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_xor<15>
+    SLICE_X41Y55.C2      net (fanout=6)        1.006   CPU/processingUnit/ALUOut<12>
+    SLICE_X41Y55.C       Tilo                  0.259   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o3
+    SLICE_X41Y55.A2      net (fanout=1)        0.437   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o3
+    SLICE_X41Y55.A       Tilo                  0.259   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o4
+    SLICE_X41Y55.B5      net (fanout=1)        0.747   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o
+    SLICE_X41Y55.CLK     Tas                   0.227   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/Z_glue_set
+                                                       CPU/processingUnit/ALU/Z
+    -------------------------------------------------  ---------------------------
+    Total                                     10.799ns (3.138ns logic, 7.661ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     38.048ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_12 (FF)
+  Destination:          CPU/processingUnit/ALU/Z (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      10.795ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.022ns (0.232 - 0.254)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_12 to CPU/processingUnit/ALU/Z
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y52.CMUX    Tshcko                0.455   CPU/controlUnit/instruction<3>
+                                                       CPU/controlUnit/instruction_12
+    SLICE_X37Y58.B1      net (fanout=34)       1.157   CPU/controlUnit/instruction<12>
+    SLICE_X37Y58.B       Tilo                  0.259   CPU/processingUnit/busAMux/Mmux_busAout4
+                                                       CPU/processingUnit/busAMux/Mmux_busAout41
+    SLICE_X37Y58.A5      net (fanout=1)        0.187   CPU/processingUnit/busAMux/Mmux_busAout4
+    SLICE_X37Y58.A       Tilo                  0.259   CPU/processingUnit/busAMux/Mmux_busAout4
+                                                       CPU/processingUnit/busAMux/Mmux_busAout42
+    SLICE_X43Y55.B5      net (fanout=9)        1.250   CPU/processingUnit/busA2ALU<12>
+    SLICE_X43Y55.B       Tilo                  0.259   CPU/processingUnit/ALU/Sh381
+                                                       CPU/processingUnit/ALU/Sh411
+    SLICE_X40Y53.D5      net (fanout=3)        0.778   CPU/processingUnit/ALU/Sh41
+    SLICE_X40Y53.D       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A123
+    SLICE_X43Y57.C1      net (fanout=1)        1.018   CPU/processingUnit/ALU/Mmux_dataOut7_A122
+    SLICE_X43Y57.C       Tilo                  0.259   CPU/processingUnit/ALU/Mmux_dataOut7_A121
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A124
+    SLICE_X38Y55.B3      net (fanout=2)        1.031   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<5>
+    SLICE_X38Y55.COUT    Topcyb                0.380   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<5>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X38Y56.CIN     net (fanout=1)        0.082   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X38Y56.COUT    Tbyp                  0.076   CPU/processingUnit/TR/dataOut<11>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<11>
+    SLICE_X38Y57.CIN     net (fanout=1)        0.003   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<11>
+    SLICE_X38Y57.AMUX    Tcina                 0.202   CPU/processingUnit/TR/dataOut<15>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_xor<15>
+    SLICE_X41Y55.C2      net (fanout=6)        1.006   CPU/processingUnit/ALUOut<12>
+    SLICE_X41Y55.C       Tilo                  0.259   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o3
+    SLICE_X41Y55.A2      net (fanout=1)        0.437   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o3
+    SLICE_X41Y55.A       Tilo                  0.259   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o4
+    SLICE_X41Y55.B5      net (fanout=1)        0.747   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o
+    SLICE_X41Y55.CLK     Tas                   0.227   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/Z_glue_set
+                                                       CPU/processingUnit/ALU/Z
+    -------------------------------------------------  ---------------------------
+    Total                                     10.795ns (3.099ns logic, 7.696ns route)
+                                                       (28.7% logic, 71.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     38.092ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_14 (FF)
+  Destination:          CPU/processingUnit/ALU/Z (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      10.762ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.011ns (0.142 - 0.153)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_14 to CPU/processingUnit/ALU/Z
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y54.AQ      Tcko                  0.408   CPU/controlUnit/instruction<13>
+                                                       CPU/controlUnit/instruction_14
+    SLICE_X37Y56.A5      net (fanout=18)       1.720   CPU/controlUnit/instruction<14>
+    SLICE_X37Y56.A       Tilo                  0.259   CPU/processingUnit/AR/dataOut<11>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout142
+    SLICE_X37Y56.C1      net (fanout=8)        0.841   CPU/processingUnit/busA2ALU<7>
+    SLICE_X37Y56.CMUX    Tilo                  0.313   CPU/processingUnit/AR/dataOut<11>
+                                                       CPU/processingUnit/ALU/Sh3611
+    SLICE_X40Y53.A6      net (fanout=2)        0.540   CPU/processingUnit/ALU/Sh361
+    SLICE_X40Y53.A       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh4911
+    SLICE_X40Y53.D3      net (fanout=2)        0.285   CPU/processingUnit/ALU/Sh491
+    SLICE_X40Y53.D       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A123
+    SLICE_X43Y57.C1      net (fanout=1)        1.018   CPU/processingUnit/ALU/Mmux_dataOut7_A122
+    SLICE_X43Y57.C       Tilo                  0.259   CPU/processingUnit/ALU/Mmux_dataOut7_A121
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A124
+    SLICE_X38Y55.B3      net (fanout=2)        1.031   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<5>
+    SLICE_X38Y55.COUT    Topcyb                0.380   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<5>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X38Y56.CIN     net (fanout=1)        0.082   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X38Y56.COUT    Tbyp                  0.076   CPU/processingUnit/TR/dataOut<11>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<11>
+    SLICE_X38Y57.CIN     net (fanout=1)        0.003   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<11>
+    SLICE_X38Y57.AMUX    Tcina                 0.202   CPU/processingUnit/TR/dataOut<15>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_xor<15>
+    SLICE_X41Y55.C2      net (fanout=6)        1.006   CPU/processingUnit/ALUOut<12>
+    SLICE_X41Y55.C       Tilo                  0.259   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o3
+    SLICE_X41Y55.A2      net (fanout=1)        0.437   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o3
+    SLICE_X41Y55.A       Tilo                  0.259   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o4
+    SLICE_X41Y55.B5      net (fanout=1)        0.747   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o
+    SLICE_X41Y55.CLK     Tas                   0.227   CPU/processingUnit/ALU/GND_12_o_GND_12_o_AND_2_o1
+                                                       CPU/processingUnit/ALU/Z_glue_set
+                                                       CPU/processingUnit/ALU/Z
+    -------------------------------------------------  ---------------------------
+    Total                                     10.762ns (3.052ns logic, 7.710ns route)
+                                                       (28.4% logic, 71.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/processingUnit/DR/dataOut_4 (SLICE_X52Y88.D3), 2184 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     38.924ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_14 (FF)
+  Destination:          CPU/processingUnit/DR/dataOut_4 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      9.881ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.060ns (0.538 - 0.598)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_14 to CPU/processingUnit/DR/dataOut_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y54.AQ      Tcko                  0.408   CPU/controlUnit/instruction<13>
+                                                       CPU/controlUnit/instruction_14
+    SLICE_X37Y56.A5      net (fanout=18)       1.720   CPU/controlUnit/instruction<14>
+    SLICE_X37Y56.A       Tilo                  0.259   CPU/processingUnit/AR/dataOut<11>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout142
+    SLICE_X43Y55.D3      net (fanout=8)        0.872   CPU/processingUnit/busA2ALU<7>
+    SLICE_X43Y55.D       Tilo                  0.259   CPU/processingUnit/ALU/Sh381
+                                                       CPU/processingUnit/ALU/Sh3811
+    SLICE_X40Y53.B3      net (fanout=1)        0.886   CPU/processingUnit/ALU/Sh381
+    SLICE_X40Y53.B       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh5011
+    SLICE_X32Y55.A6      net (fanout=2)        0.568   CPU/processingUnit/ALU/Sh501
+    SLICE_X32Y55.A       Tilo                  0.205   CPU/processingUnit/ALU/Mmux_dataOut7_A9
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A94
+    SLICE_X38Y54.C5      net (fanout=2)        0.760   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<2>
+    SLICE_X38Y54.COUT    Topcyc                0.277   CPU/processingUnit/IR/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<2>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<3>
+    SLICE_X38Y55.CIN     net (fanout=1)        0.003   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<3>
+    SLICE_X38Y55.AMUX    Tcina                 0.202   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X52Y88.D3      net (fanout=7)        2.968   CPU/processingUnit/ALUOut<4>
+    SLICE_X52Y88.CLK     Tas                   0.289   CPU/processingUnit/DR/dataOut<4>
+                                                       CPU/processingUnit/Mmux_DRInput111
+                                                       CPU/processingUnit/DR/dataOut_4
+    -------------------------------------------------  ---------------------------
+    Total                                      9.881ns (2.104ns logic, 7.777ns route)
+                                                       (21.3% logic, 78.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     39.044ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_13 (FF)
+  Destination:          CPU/processingUnit/DR/dataOut_4 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      9.761ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.060ns (0.538 - 0.598)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_13 to CPU/processingUnit/DR/dataOut_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y54.CQ      Tcko                  0.408   CPU/controlUnit/instruction<13>
+                                                       CPU/controlUnit/instruction_13
+    SLICE_X40Y54.B4      net (fanout=34)       1.363   CPU/controlUnit/instruction<13>
+    SLICE_X40Y54.B       Tilo                  0.205   CPU/controlUnit/instruction<13>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout11
+    SLICE_X39Y55.B4      net (fanout=1)        0.638   CPU/processingUnit/busAMux/Mmux_busAout1
+    SLICE_X39Y55.BMUX    Tilo                  0.313   CPU/processingUnit/TR/dataOut<3>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout12
+    SLICE_X39Y55.D2      net (fanout=7)        0.655   CPU/processingUnit/busA2ALU<0>
+    SLICE_X39Y55.D       Tilo                  0.259   CPU/processingUnit/TR/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh21
+    SLICE_X32Y55.B5      net (fanout=4)        0.842   CPU/processingUnit/ALU/Sh2
+    SLICE_X32Y55.B       Tilo                  0.205   CPU/processingUnit/ALU/Mmux_dataOut7_A9
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A93
+    SLICE_X32Y55.A5      net (fanout=1)        0.169   CPU/processingUnit/ALU/Mmux_dataOut7_A92
+    SLICE_X32Y55.A       Tilo                  0.205   CPU/processingUnit/ALU/Mmux_dataOut7_A9
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A94
+    SLICE_X38Y54.C5      net (fanout=2)        0.760   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<2>
+    SLICE_X38Y54.COUT    Topcyc                0.277   CPU/processingUnit/IR/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_lut<2>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<3>
+    SLICE_X38Y55.CIN     net (fanout=1)        0.003   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<3>
+    SLICE_X38Y55.AMUX    Tcina                 0.202   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X52Y88.D3      net (fanout=7)        2.968   CPU/processingUnit/ALUOut<4>
+    SLICE_X52Y88.CLK     Tas                   0.289   CPU/processingUnit/DR/dataOut<4>
+                                                       CPU/processingUnit/Mmux_DRInput111
+                                                       CPU/processingUnit/DR/dataOut_4
+    -------------------------------------------------  ---------------------------
+    Total                                      9.761ns (2.363ns logic, 7.398ns route)
+                                                       (24.2% logic, 75.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     39.050ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/controlUnit/instruction_14 (FF)
+  Destination:          CPU/processingUnit/DR/dataOut_4 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      9.755ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.060ns (0.538 - 0.598)
+  Source Clock:         clkprocessor falling at 50.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: CPU/controlUnit/instruction_14 to CPU/processingUnit/DR/dataOut_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y54.AQ      Tcko                  0.408   CPU/controlUnit/instruction<13>
+                                                       CPU/controlUnit/instruction_14
+    SLICE_X37Y56.A5      net (fanout=18)       1.720   CPU/controlUnit/instruction<14>
+    SLICE_X37Y56.A       Tilo                  0.259   CPU/processingUnit/AR/dataOut<11>
+                                                       CPU/processingUnit/busAMux/Mmux_busAout142
+    SLICE_X43Y55.D3      net (fanout=8)        0.872   CPU/processingUnit/busA2ALU<7>
+    SLICE_X43Y55.D       Tilo                  0.259   CPU/processingUnit/ALU/Sh381
+                                                       CPU/processingUnit/ALU/Sh3811
+    SLICE_X40Y53.B3      net (fanout=1)        0.886   CPU/processingUnit/ALU/Sh381
+    SLICE_X40Y53.B       Tilo                  0.205   CPU/processingUnit/R/dataOut<3>
+                                                       CPU/processingUnit/ALU/Sh5011
+    SLICE_X32Y55.A6      net (fanout=2)        0.568   CPU/processingUnit/ALU/Sh501
+    SLICE_X32Y55.A       Tilo                  0.205   CPU/processingUnit/ALU/Mmux_dataOut7_A9
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_A94
+    SLICE_X38Y54.CX      net (fanout=2)        0.818   CPU/processingUnit/ALU/Mmux_dataOut7_rs_A<2>
+    SLICE_X38Y54.COUT    Tcxcy                 0.093   CPU/processingUnit/IR/dataOut<3>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<3>
+    SLICE_X38Y55.CIN     net (fanout=1)        0.003   CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<3>
+    SLICE_X38Y55.AMUX    Tcina                 0.202   CPU/processingUnit/TR/dataOut<7>
+                                                       CPU/processingUnit/ALU/Mmux_dataOut7_rs_cy<7>
+    SLICE_X52Y88.D3      net (fanout=7)        2.968   CPU/processingUnit/ALUOut<4>
+    SLICE_X52Y88.CLK     Tas                   0.289   CPU/processingUnit/DR/dataOut<4>
+                                                       CPU/processingUnit/Mmux_DRInput111
+                                                       CPU/processingUnit/DR/dataOut_4
+    -------------------------------------------------  ---------------------------
+    Total                                      9.755ns (1.920ns logic, 7.835ns route)
+                                                       (19.7% logic, 80.3% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "clkop/clkfx" derived from
+ NET "clkop/clkin1" PERIOD = 10 ns HIGH 50%;
+ multiplied by 10.00 to 100 nS and duty cycle corrected to HIGH 50 nS 
+
+--------------------------------------------------------------------------------
+
+Paths for end point RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram (RAMB16_X2Y28.ADDRA10), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.323ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/processingUnit/AR/dataOut_7 (FF)
+  Destination:          RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.329ns (Levels of Logic = 0)
+  Clock Path Skew:      0.006ns (0.068 - 0.062)
+  Source Clock:         clkprocessor rising at 100.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: CPU/processingUnit/AR/dataOut_7 to RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y56.DQ      Tcko                  0.200   CPU/processingUnit/AR/dataOut<7>
+                                                       CPU/processingUnit/AR/dataOut_7
+    RAMB16_X2Y28.ADDRA10 net (fanout=61)       0.195   CPU/processingUnit/AR/dataOut<7>
+    RAMB16_X2Y28.CLKA    Trckc_ADDRA (-Th)     0.066   RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+                                                       RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+    -------------------------------------------------  ---------------------------
+    Total                                      0.329ns (0.134ns logic, 0.195ns route)
+                                                       (40.7% logic, 59.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram (RAMB16_X2Y28.ADDRA8), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.416ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/processingUnit/AR/dataOut_5 (FF)
+  Destination:          RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.422ns (Levels of Logic = 0)
+  Clock Path Skew:      0.006ns (0.068 - 0.062)
+  Source Clock:         clkprocessor rising at 100.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: CPU/processingUnit/AR/dataOut_5 to RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X40Y56.BQ      Tcko                  0.200   CPU/processingUnit/AR/dataOut<7>
+                                                       CPU/processingUnit/AR/dataOut_5
+    RAMB16_X2Y28.ADDRA8  net (fanout=61)       0.288   CPU/processingUnit/AR/dataOut<5>
+    RAMB16_X2Y28.CLKA    Trckc_ADDRA (-Th)     0.066   RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+                                                       RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[31].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+    -------------------------------------------------  ---------------------------
+    Total                                      0.422ns (0.134ns logic, 0.288ns route)
+                                                       (31.8% logic, 68.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram (RAMB16_X3Y44.DIA0), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.417ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/processingUnit/DR/dataOut_4 (FF)
+  Destination:          RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.423ns (Levels of Logic = 0)
+  Clock Path Skew:      0.006ns (0.066 - 0.060)
+  Source Clock:         clkprocessor rising at 100.000ns
+  Destination Clock:    clkprocessor rising at 100.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: CPU/processingUnit/DR/dataOut_4 to RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y88.DQ      Tcko                  0.234   CPU/processingUnit/DR/dataOut<4>
+                                                       CPU/processingUnit/DR/dataOut_4
+    RAMB16_X3Y44.DIA0    net (fanout=5)        0.242   CPU/processingUnit/DR/dataOut<4>
+    RAMB16_X3Y44.CLKA    Trckd_DIA   (-Th)     0.053   RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+                                                       RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram
+    -------------------------------------------------  ---------------------------
+    Total                                      0.423ns (0.181ns logic, 0.242ns route)
+                                                       (42.8% logic, 57.2% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "clkop/clkfx" derived from
+ NET "clkop/clkin1" PERIOD = 10 ns HIGH 50%;
+ multiplied by 10.00 to 100 nS and duty cycle corrected to HIGH 50 nS 
+
+--------------------------------------------------------------------------------
+Slack: 96.876ns (period - min period limit)
+  Period: 100.000ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram/CLKA
+  Logical resource: RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram/CLKA
+  Location pin: RAMB16_X2Y42.CLKA
+  Clock network: clkprocessor
+--------------------------------------------------------------------------------
+Slack: 96.876ns (period - min period limit)
+  Period: 100.000ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKB(Fmax))
+  Physical resource: RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram/CLKB
+  Logical resource: RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram/CLKB
+  Location pin: RAMB16_X2Y42.CLKB
+  Clock network: clkprocessor
+--------------------------------------------------------------------------------
+Slack: 96.876ns (period - min period limit)
+  Period: 100.000ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram/CLKA
+  Logical resource: RAM/dualPortMemory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/TRUE_DP.PRIM18.ram/CLKA
+  Location pin: RAMB16_X1Y42.CLKA
+  Clock network: clkprocessor
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for clkop/clkin1
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|clkop/clkin1                   |     10.000ns|      5.340ns|      5.182ns|            0|            0|            0|       447109|
+| clkop/clk0                    |     10.000ns|      5.182ns|          N/A|            0|            0|         2336|            0|
+| clkop/clkfx                   |    100.000ns|     23.968ns|          N/A|            0|            0|       444773|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   13.966|   11.984|    5.562|    5.424|
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 447109 paths, 0 nets, and 3924 connections
+
+Design statistics:
+   Minimum period:  23.968ns{1}   (Maximum frequency:  41.722MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sat Jul 01 22:17:12 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 315 MB
+
+
+

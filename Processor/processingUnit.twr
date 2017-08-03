@@ -1,0 +1,380 @@
+--------------------------------------------------------------------------------
+Release 14.5 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.5\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml processingUnit.twx processingUnit.ncd -o
+processingUnit.twr processingUnit.pcf
+
+Design file:              processingUnit.ncd
+Physical constraint file: processingUnit.pcf
+Device,package,speed:     xc6slx45,csg324,C,-3 (PRODUCTION 1.23 2013-03-26)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk
+--------------------+------------+------------+------------+------------+------------------+--------+
+                    |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source              | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+--------------------+------------+------------+------------+------------+------------------+--------+
+ALUControlSignal<0> |    8.659(R)|      SLOW  |   -1.704(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUControlSignal<1> |    8.456(R)|      SLOW  |   -1.783(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUControlSignal<2> |    8.283(R)|      SLOW  |   -1.648(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<0>           |    3.779(R)|      SLOW  |   -2.616(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<1>           |    2.740(R)|      SLOW  |   -1.807(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<2>           |    3.067(R)|      SLOW  |   -2.025(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<3>           |    2.727(R)|      SLOW  |   -1.775(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<4>           |    2.923(R)|      SLOW  |   -1.926(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<5>           |    2.627(R)|      SLOW  |   -1.779(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<6>           |    2.563(R)|      SLOW  |   -1.671(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<7>           |    2.857(R)|      SLOW  |   -1.885(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<8>           |    2.530(R)|      SLOW  |   -1.608(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<9>           |    2.765(R)|      SLOW  |   -1.764(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<10>          |    2.765(R)|      SLOW  |   -1.771(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<11>          |    2.254(R)|      SLOW  |   -1.482(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<12>          |    2.616(R)|      SLOW  |   -1.652(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<13>          |    2.074(R)|      SLOW  |   -1.330(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<14>          |    3.088(R)|      SLOW  |   -2.083(R)|      FAST  |clk_BUFGP         |   0.000|
+RAM2DR<15>          |    2.591(R)|      SLOW  |   -1.611(R)|      FAST  |clk_BUFGP         |   0.000|
+RAMorALUOut2DRIn    |    2.990(R)|      SLOW  |   -1.666(R)|      FAST  |clk_BUFGP         |   0.000|
+busAMuxSelect<0>    |    9.532(R)|      SLOW  |   -2.076(R)|      FAST  |clk_BUFGP         |   0.000|
+busAMuxSelect<1>    |    9.724(R)|      SLOW  |   -2.061(R)|      FAST  |clk_BUFGP         |   0.000|
+busAMuxSelect<2>    |    9.100(R)|      SLOW  |   -2.191(R)|      FAST  |clk_BUFGP         |   0.000|
+writeEnableSelect<0>|    4.826(R)|      SLOW  |   -1.656(R)|      FAST  |clk_BUFGP         |   0.000|
+writeEnableSelect<1>|    4.828(R)|      SLOW  |   -1.673(R)|      FAST  |clk_BUFGP         |   0.000|
+writeEnableSelect<2>|    4.760(R)|      SLOW  |   -1.883(R)|      FAST  |clk_BUFGP         |   0.000|
+zClear              |    4.659(R)|      SLOW  |   -2.597(R)|      FAST  |clk_BUFGP         |   0.000|
+--------------------+------------+------------+------------+------------+------------------+--------+
+
+Clock clk to Pad
+-----------------+-----------------+------------+-----------------+------------+------------------+--------+
+                 |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination      |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+-----------------+-----------------+------------+-----------------+------------+------------------+--------+
+AC2BusAMux<0>    |         8.987(R)|      SLOW  |         4.952(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<1>    |         9.140(R)|      SLOW  |         5.034(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<2>    |         8.977(R)|      SLOW  |         4.945(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<3>    |         9.139(R)|      SLOW  |         5.033(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<4>    |         8.979(R)|      SLOW  |         4.948(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<5>    |         9.203(R)|      SLOW  |         5.077(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<6>    |         8.977(R)|      SLOW  |         4.946(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<7>    |         9.212(R)|      SLOW  |         5.083(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<8>    |         9.383(R)|      SLOW  |         5.183(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<9>    |         9.444(R)|      SLOW  |         5.240(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<10>   |         9.442(R)|      SLOW  |         5.209(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<11>   |        10.366(R)|      SLOW  |         5.745(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<12>   |        10.244(R)|      SLOW  |         5.699(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<13>   |        10.244(R)|      SLOW  |         5.714(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<14>   |        10.304(R)|      SLOW  |         5.712(R)|      FAST  |clk_BUFGP         |   0.000|
+AC2BusAMux<15>   |        10.338(R)|      SLOW  |         5.756(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<0>        |        17.062(R)|      SLOW  |         7.749(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<1>        |        17.230(R)|      SLOW  |         7.191(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<2>        |        17.204(R)|      SLOW  |         6.676(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<3>        |        17.406(R)|      SLOW  |         6.855(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<4>        |        17.354(R)|      SLOW  |         6.843(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<5>        |        17.167(R)|      SLOW  |         6.440(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<6>        |        16.839(R)|      SLOW  |         6.304(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<7>        |        16.979(R)|      SLOW  |         6.449(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<8>        |        16.895(R)|      SLOW  |         6.387(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<9>        |        17.249(R)|      SLOW  |         6.609(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<10>       |        17.174(R)|      SLOW  |         6.208(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<11>       |        17.044(R)|      SLOW  |         6.128(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<12>       |        16.948(R)|      SLOW  |         6.075(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<13>       |        16.868(R)|      SLOW  |         6.013(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<14>       |        16.845(R)|      SLOW  |         5.944(R)|      FAST  |clk_BUFGP         |   0.000|
+ALUOut<15>       |        16.981(R)|      SLOW  |         6.030(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<0> |         9.837(R)|      SLOW  |         5.554(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<1> |         9.599(R)|      SLOW  |         5.374(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<2> |         9.745(R)|      SLOW  |         5.487(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<3> |         9.746(R)|      SLOW  |         5.465(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<4> |         9.591(R)|      SLOW  |         5.364(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<5> |         9.603(R)|      SLOW  |         5.369(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<6> |         9.566(R)|      SLOW  |         5.387(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<7> |         9.550(R)|      SLOW  |         5.317(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<8> |         9.564(R)|      SLOW  |         5.351(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<9> |         9.420(R)|      SLOW  |         5.266(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<10>|         9.713(R)|      SLOW  |         5.454(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<11>|         9.713(R)|      SLOW  |         5.454(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<12>|         9.368(R)|      SLOW  |         5.247(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<13>|         9.345(R)|      SLOW  |         5.207(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<14>|         9.453(R)|      SLOW  |         5.271(R)|      FAST  |clk_BUFGP         |   0.000|
+AR2BusAMuxRAM<15>|         9.283(R)|      SLOW  |         5.167(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<0> |         8.670(R)|      SLOW  |         4.745(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<1> |         8.314(R)|      SLOW  |         4.511(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<2> |         8.558(R)|      SLOW  |         4.666(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<3> |         8.519(R)|      SLOW  |         4.636(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<4> |         8.540(R)|      SLOW  |         4.650(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<5> |         8.431(R)|      SLOW  |         4.568(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<6> |         8.905(R)|      SLOW  |         4.895(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<7> |         8.902(R)|      SLOW  |         4.890(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<8> |         8.750(R)|      SLOW  |         4.777(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<9> |         8.984(R)|      SLOW  |         4.900(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<10>|         9.133(R)|      SLOW  |         5.046(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<11>|         9.205(R)|      SLOW  |         5.046(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<12>|         9.247(R)|      SLOW  |         5.082(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<13>|         9.026(R)|      SLOW  |         4.961(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<14>|         9.256(R)|      SLOW  |         5.078(R)|      FAST  |clk_BUFGP         |   0.000|
+DR2BusAMuxRAM<15>|         9.369(R)|      SLOW  |         5.177(R)|      FAST  |clk_BUFGP         |   0.000|
+IROut<0>         |        10.010(R)|      SLOW  |         5.602(R)|      FAST  |clk_BUFGP         |   0.000|
+IROut<1>         |        10.010(R)|      SLOW  |         5.602(R)|      FAST  |clk_BUFGP         |   0.000|
+IROut<2>         |         9.860(R)|      SLOW  |         5.544(R)|      FAST  |clk_BUFGP         |   0.000|
+IROut<3>         |         9.860(R)|      SLOW  |         5.544(R)|      FAST  |clk_BUFGP         |   0.000|
+IROut<4>         |         9.907(R)|      SLOW  |         5.512(R)|      FAST  |clk_BUFGP         |   0.000|
+IROut<5>         |         9.906(R)|      SLOW  |         5.503(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<0>    |        12.896(R)|      SLOW  |         7.347(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<1>    |        13.158(R)|      SLOW  |         7.509(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<2>    |        11.071(R)|      SLOW  |         6.247(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<3>    |        11.084(R)|      SLOW  |         6.250(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<4>    |        10.722(R)|      SLOW  |         6.047(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<5>    |        10.719(R)|      SLOW  |         6.026(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<6>    |        10.806(R)|      SLOW  |         6.090(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<7>    |        10.806(R)|      SLOW  |         6.090(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<8>    |        10.824(R)|      SLOW  |         6.175(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<9>    |        10.480(R)|      SLOW  |         5.886(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<10>   |        10.593(R)|      SLOW  |         5.956(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<11>   |        10.604(R)|      SLOW  |         5.949(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<12>   |        10.707(R)|      SLOW  |         6.045(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<13>   |        10.925(R)|      SLOW  |         6.172(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<14>   |        10.658(R)|      SLOW  |         6.034(R)|      FAST  |clk_BUFGP         |   0.000|
+PC2BusAMux<15>   |        10.660(R)|      SLOW  |         6.003(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<0>         |         9.944(R)|      SLOW  |         5.509(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<1>         |        10.199(R)|      SLOW  |         5.677(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<2>         |        10.356(R)|      SLOW  |         5.803(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<3>         |        10.508(R)|      SLOW  |         5.853(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<4>         |         9.413(R)|      SLOW  |         5.141(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<5>         |         9.466(R)|      SLOW  |         5.187(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<6>         |         9.568(R)|      SLOW  |         5.278(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<7>         |         9.554(R)|      SLOW  |         5.264(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<8>         |        10.267(R)|      SLOW  |         5.735(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<9>         |        10.283(R)|      SLOW  |         5.715(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<10>        |        10.298(R)|      SLOW  |         5.794(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<11>        |        10.336(R)|      SLOW  |         5.801(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<12>        |        10.161(R)|      SLOW  |         5.673(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<13>        |        10.337(R)|      SLOW  |         5.762(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<14>        |        10.410(R)|      SLOW  |         5.842(R)|      FAST  |clk_BUFGP         |   0.000|
+R2ALU<15>        |        10.419(R)|      SLOW  |         5.851(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<0>    |         9.286(R)|      SLOW  |         5.231(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<1>    |         9.474(R)|      SLOW  |         5.345(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<2>    |         9.091(R)|      SLOW  |         5.070(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<3>    |         9.092(R)|      SLOW  |         5.058(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<4>    |         8.909(R)|      SLOW  |         4.979(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<5>    |         8.924(R)|      SLOW  |         4.989(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<6>    |         8.804(R)|      SLOW  |         4.888(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<7>    |         8.633(R)|      SLOW  |         4.782(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<8>    |         9.041(R)|      SLOW  |         5.026(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<9>    |         8.985(R)|      SLOW  |         4.979(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<10>   |         9.100(R)|      SLOW  |         5.083(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<11>   |         8.466(R)|      SLOW  |         4.663(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<12>   |         8.696(R)|      SLOW  |         4.801(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<13>   |         8.712(R)|      SLOW  |         4.842(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<14>   |         9.146(R)|      SLOW  |         5.124(R)|      FAST  |clk_BUFGP         |   0.000|
+TR2BusAMux<15>   |         8.837(R)|      SLOW  |         4.871(R)|      FAST  |clk_BUFGP         |   0.000|
+Z                |        10.438(R)|      SLOW  |         5.824(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<0>      |        11.858(R)|      SLOW  |         5.946(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<1>      |        11.209(R)|      SLOW  |         5.723(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<2>      |        13.221(R)|      SLOW  |         6.955(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<3>      |        12.662(R)|      SLOW  |         6.671(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<4>      |        11.036(R)|      SLOW  |         5.652(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<5>      |        11.467(R)|      SLOW  |         5.648(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<6>      |        11.522(R)|      SLOW  |         5.788(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<7>      |        10.791(R)|      SLOW  |         5.319(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<8>      |        12.085(R)|      SLOW  |         6.372(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<9>      |        12.199(R)|      SLOW  |         6.292(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<10>     |         9.559(R)|      SLOW  |         4.983(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<11>     |        12.974(R)|      SLOW  |         6.366(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<12>     |        12.920(R)|      SLOW  |         6.451(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<13>     |        10.572(R)|      SLOW  |         5.327(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<14>     |        10.123(R)|      SLOW  |         5.262(R)|      FAST  |clk_BUFGP         |   0.000|
+busA2ALU<15>     |        10.130(R)|      SLOW  |         5.430(R)|      FAST  |clk_BUFGP         |   0.000|
+-----------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    9.138|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+-------------------+---------------+---------+
+Source Pad         |Destination Pad|  Delay  |
+-------------------+---------------+---------+
+ALUControlSignal<0>|ALUOut<0>      |   16.251|
+ALUControlSignal<0>|ALUOut<1>      |   16.378|
+ALUControlSignal<0>|ALUOut<2>      |   16.561|
+ALUControlSignal<0>|ALUOut<3>      |   16.763|
+ALUControlSignal<0>|ALUOut<4>      |   16.711|
+ALUControlSignal<0>|ALUOut<5>      |   16.524|
+ALUControlSignal<0>|ALUOut<6>      |   16.196|
+ALUControlSignal<0>|ALUOut<7>      |   16.336|
+ALUControlSignal<0>|ALUOut<8>      |   16.252|
+ALUControlSignal<0>|ALUOut<9>      |   16.606|
+ALUControlSignal<0>|ALUOut<10>     |   16.531|
+ALUControlSignal<0>|ALUOut<11>     |   16.401|
+ALUControlSignal<0>|ALUOut<12>     |   16.305|
+ALUControlSignal<0>|ALUOut<13>     |   16.225|
+ALUControlSignal<0>|ALUOut<14>     |   16.202|
+ALUControlSignal<0>|ALUOut<15>     |   16.338|
+ALUControlSignal<1>|ALUOut<0>      |   16.320|
+ALUControlSignal<1>|ALUOut<1>      |   16.447|
+ALUControlSignal<1>|ALUOut<2>      |   16.358|
+ALUControlSignal<1>|ALUOut<3>      |   16.560|
+ALUControlSignal<1>|ALUOut<4>      |   16.508|
+ALUControlSignal<1>|ALUOut<5>      |   16.321|
+ALUControlSignal<1>|ALUOut<6>      |   15.993|
+ALUControlSignal<1>|ALUOut<7>      |   16.133|
+ALUControlSignal<1>|ALUOut<8>      |   16.049|
+ALUControlSignal<1>|ALUOut<9>      |   16.403|
+ALUControlSignal<1>|ALUOut<10>     |   16.328|
+ALUControlSignal<1>|ALUOut<11>     |   16.198|
+ALUControlSignal<1>|ALUOut<12>     |   16.102|
+ALUControlSignal<1>|ALUOut<13>     |   16.022|
+ALUControlSignal<1>|ALUOut<14>     |   15.999|
+ALUControlSignal<1>|ALUOut<15>     |   16.135|
+ALUControlSignal<2>|ALUOut<0>      |   16.283|
+ALUControlSignal<2>|ALUOut<1>      |   16.410|
+ALUControlSignal<2>|ALUOut<2>      |   16.185|
+ALUControlSignal<2>|ALUOut<3>      |   16.387|
+ALUControlSignal<2>|ALUOut<4>      |   16.335|
+ALUControlSignal<2>|ALUOut<5>      |   16.148|
+ALUControlSignal<2>|ALUOut<6>      |   15.820|
+ALUControlSignal<2>|ALUOut<7>      |   15.960|
+ALUControlSignal<2>|ALUOut<8>      |   15.876|
+ALUControlSignal<2>|ALUOut<9>      |   16.230|
+ALUControlSignal<2>|ALUOut<10>     |   16.155|
+ALUControlSignal<2>|ALUOut<11>     |   16.025|
+ALUControlSignal<2>|ALUOut<12>     |   15.929|
+ALUControlSignal<2>|ALUOut<13>     |   15.849|
+ALUControlSignal<2>|ALUOut<14>     |   15.826|
+ALUControlSignal<2>|ALUOut<15>     |   15.962|
+busAMuxSelect<0>   |ALUOut<0>      |   17.396|
+busAMuxSelect<0>   |ALUOut<1>      |   17.564|
+busAMuxSelect<0>   |ALUOut<2>      |   17.434|
+busAMuxSelect<0>   |ALUOut<3>      |   17.636|
+busAMuxSelect<0>   |ALUOut<4>      |   17.584|
+busAMuxSelect<0>   |ALUOut<5>      |   17.397|
+busAMuxSelect<0>   |ALUOut<6>      |   17.069|
+busAMuxSelect<0>   |ALUOut<7>      |   17.209|
+busAMuxSelect<0>   |ALUOut<8>      |   17.125|
+busAMuxSelect<0>   |ALUOut<9>      |   17.479|
+busAMuxSelect<0>   |ALUOut<10>     |   17.404|
+busAMuxSelect<0>   |ALUOut<11>     |   17.274|
+busAMuxSelect<0>   |ALUOut<12>     |   17.178|
+busAMuxSelect<0>   |ALUOut<13>     |   17.098|
+busAMuxSelect<0>   |ALUOut<14>     |   17.075|
+busAMuxSelect<0>   |ALUOut<15>     |   17.211|
+busAMuxSelect<0>   |busA2ALU<0>    |   11.626|
+busAMuxSelect<0>   |busA2ALU<1>    |   11.516|
+busAMuxSelect<0>   |busA2ALU<2>    |   13.877|
+busAMuxSelect<0>   |busA2ALU<3>    |   12.520|
+busAMuxSelect<0>   |busA2ALU<4>    |   11.305|
+busAMuxSelect<0>   |busA2ALU<5>    |   11.589|
+busAMuxSelect<0>   |busA2ALU<6>    |   11.794|
+busAMuxSelect<0>   |busA2ALU<7>    |   11.275|
+busAMuxSelect<0>   |busA2ALU<8>    |   12.254|
+busAMuxSelect<0>   |busA2ALU<9>    |   12.746|
+busAMuxSelect<0>   |busA2ALU<10>   |   10.204|
+busAMuxSelect<0>   |busA2ALU<11>   |   13.205|
+busAMuxSelect<0>   |busA2ALU<12>   |   12.640|
+busAMuxSelect<0>   |busA2ALU<13>   |   10.694|
+busAMuxSelect<0>   |busA2ALU<14>   |   10.680|
+busAMuxSelect<0>   |busA2ALU<15>   |   11.002|
+busAMuxSelect<1>   |ALUOut<0>      |   17.516|
+busAMuxSelect<1>   |ALUOut<1>      |   17.684|
+busAMuxSelect<1>   |ALUOut<2>      |   17.626|
+busAMuxSelect<1>   |ALUOut<3>      |   17.828|
+busAMuxSelect<1>   |ALUOut<4>      |   17.776|
+busAMuxSelect<1>   |ALUOut<5>      |   17.589|
+busAMuxSelect<1>   |ALUOut<6>      |   17.261|
+busAMuxSelect<1>   |ALUOut<7>      |   17.401|
+busAMuxSelect<1>   |ALUOut<8>      |   17.317|
+busAMuxSelect<1>   |ALUOut<9>      |   17.671|
+busAMuxSelect<1>   |ALUOut<10>     |   17.596|
+busAMuxSelect<1>   |ALUOut<11>     |   17.466|
+busAMuxSelect<1>   |ALUOut<12>     |   17.370|
+busAMuxSelect<1>   |ALUOut<13>     |   17.290|
+busAMuxSelect<1>   |ALUOut<14>     |   17.267|
+busAMuxSelect<1>   |ALUOut<15>     |   17.403|
+busAMuxSelect<1>   |busA2ALU<0>    |   12.134|
+busAMuxSelect<1>   |busA2ALU<1>    |   11.570|
+busAMuxSelect<1>   |busA2ALU<2>    |   13.372|
+busAMuxSelect<1>   |busA2ALU<3>    |   12.537|
+busAMuxSelect<1>   |busA2ALU<4>    |   11.189|
+busAMuxSelect<1>   |busA2ALU<5>    |   11.659|
+busAMuxSelect<1>   |busA2ALU<6>    |   11.950|
+busAMuxSelect<1>   |busA2ALU<7>    |   11.245|
+busAMuxSelect<1>   |busA2ALU<8>    |   13.014|
+busAMuxSelect<1>   |busA2ALU<9>    |   12.783|
+busAMuxSelect<1>   |busA2ALU<10>   |   10.563|
+busAMuxSelect<1>   |busA2ALU<11>   |   13.397|
+busAMuxSelect<1>   |busA2ALU<12>   |   13.374|
+busAMuxSelect<1>   |busA2ALU<13>   |   10.695|
+busAMuxSelect<1>   |busA2ALU<14>   |   10.650|
+busAMuxSelect<1>   |busA2ALU<15>   |   10.508|
+busAMuxSelect<2>   |ALUOut<0>      |   17.010|
+busAMuxSelect<2>   |ALUOut<1>      |   17.178|
+busAMuxSelect<2>   |ALUOut<2>      |   17.002|
+busAMuxSelect<2>   |ALUOut<3>      |   17.204|
+busAMuxSelect<2>   |ALUOut<4>      |   17.152|
+busAMuxSelect<2>   |ALUOut<5>      |   16.965|
+busAMuxSelect<2>   |ALUOut<6>      |   16.637|
+busAMuxSelect<2>   |ALUOut<7>      |   16.777|
+busAMuxSelect<2>   |ALUOut<8>      |   16.693|
+busAMuxSelect<2>   |ALUOut<9>      |   17.047|
+busAMuxSelect<2>   |ALUOut<10>     |   16.972|
+busAMuxSelect<2>   |ALUOut<11>     |   16.842|
+busAMuxSelect<2>   |ALUOut<12>     |   16.746|
+busAMuxSelect<2>   |ALUOut<13>     |   16.666|
+busAMuxSelect<2>   |ALUOut<14>     |   16.643|
+busAMuxSelect<2>   |ALUOut<15>     |   16.779|
+busAMuxSelect<2>   |busA2ALU<0>    |   11.564|
+busAMuxSelect<2>   |busA2ALU<1>    |   11.376|
+busAMuxSelect<2>   |busA2ALU<2>    |   13.724|
+busAMuxSelect<2>   |busA2ALU<3>    |   12.567|
+busAMuxSelect<2>   |busA2ALU<4>    |   10.860|
+busAMuxSelect<2>   |busA2ALU<5>    |   11.527|
+busAMuxSelect<2>   |busA2ALU<6>    |   10.656|
+busAMuxSelect<2>   |busA2ALU<7>    |    9.885|
+busAMuxSelect<2>   |busA2ALU<8>    |   12.779|
+busAMuxSelect<2>   |busA2ALU<9>    |   12.384|
+busAMuxSelect<2>   |busA2ALU<10>   |    9.452|
+busAMuxSelect<2>   |busA2ALU<11>   |   11.914|
+busAMuxSelect<2>   |busA2ALU<12>   |   12.571|
+busAMuxSelect<2>   |busA2ALU<13>   |   10.301|
+busAMuxSelect<2>   |busA2ALU<14>   |    9.935|
+busAMuxSelect<2>   |busA2ALU<15>   |   10.635|
+-------------------+---------------+---------+
+
+
+Analysis completed Tue Jun 27 11:49:37 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 296 MB
+
+
+

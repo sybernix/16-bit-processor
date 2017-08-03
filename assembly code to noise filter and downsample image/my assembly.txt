@@ -1,0 +1,207 @@
+CLAC
+STAC
+address of x
+STAC
+address of y
+STAC
+address of intermediate
+LDAC
+address of 1
+MVAC2R
+LDAC
+address of n
+SUB
+STAC
+address of n-1
+ADD
+ADD
+STAC
+address of n+1
+MVAC2R
+LDAC
+address of first pixel
+ADD
+STAC
+address of a
+STAC
+address of b
+------------------------------ intialization
+LDAC
+address of 2
+MVAC2R
+LDAC
+address of a
+LOAD
+RSHIFT
+STAC
+address of intermediate
+------------------------------- center pixel operation
+LDAC
+address of 1
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2TR
+-------------------------------center left operation
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+-----------------------------center right operation
+LDAC
+address of n
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+-----------------------------top
+LDAC
+address of n
+MVAC2R
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+--------------------------bottom
+LDAC
+address of 3
+MVAC2R
+MVTR2AC
+RSHIFT
+MVAC2R
+LDAC
+address of intermediate
+ADD
+STAC
+address of intermediate
+-----------------------------center plus edges finished
+LDAC
+address of n+1
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2TR
+------------------------------top left
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+-----------------------bottom right
+LDAC
+address of n-1
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+--------------------------top right
+LDAC
+address of n-1
+MVAC2R
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+-----------------------bottom left
+LDAC
+address of 4
+MVAC2R
+MVTR2AC
+RSHIFT
+MVAC2R
+LDAC
+address of intermediate
+ADD
+STAC
+address of new pixel
+-----------------------------all 9 pixels handled
+LDAC
+special address
+MVAC2R
+LDAC
+address of 1
+ADD
+STAC
+special address
+------------------------------updating next new pixel value
+LDAC
+address of 2
+MVAC2R
+LDAC
+address of a
+ADD
+STAC
+address of a
+LDAC
+address of x
+MVAC2R
+LDAC
+address of 1
+ADD
+STAC
+address of x
+MVAC2R
+LDAC
+address of n/2
+SUB
+JPNZ
+27
+---------------------x loop end
+LDAC
+address of b
+MVAC2R
+LDAC
+address of 2n
+ADD
+STAC
+address of a
+STAC
+address of b
+CLAC
+STAC
+address of x
+LDAC
+address of y
+MVAC2R
+LDAC
+address of 1
+ADD
+STAC
+address of y
+MVAC2R
+LDAC
+address of n/2
+SUB
+JPNZ
+27
+--------------------y loop end
+ENDOPS

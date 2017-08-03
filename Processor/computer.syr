@@ -1,0 +1,961 @@
+Release 14.5 - xst P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: computer.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "computer.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "computer"
+Output Format                      : NGC
+Target Device                      : xc6slx45-3-csg324
+
+---- Source Options
+Top Module Name                    : computer
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ipcore_dir\clkop.v" into library work
+Parsing module <clkop>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ipcore_dir\clkop\example_design\clkop_exdes.v" into library work
+Parsing module <clkop_exdes>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\writeEnableMux.v" into library work
+Parsing module <writeEnableMux>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\Register.v" into library work
+Parsing module <register>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\IRRegister.v" into library work
+Parsing module <IRRegister>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\BusAMux.v" into library work
+Parsing module <busAMux>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ALU.v" into library work
+Parsing module <ALU>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\tx.v" into library work
+Parsing module <transmitter>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\rx.v" into library work
+Parsing module <reciever>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\processingUnit.v" into library work
+Parsing module <processingUnit>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ipcore_dir\memory1.v" into library work
+Parsing module <memory1>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\controlUnit.v" into library work
+Parsing module <controlUnit>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\clock_divider.v" into library work
+Parsing module <clock_divider>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\UART.v" into library work
+Parsing module <UART>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\RAM.v" into library work
+Parsing module <RAM>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\CPU.v" into library work
+Parsing module <CPU>.
+Analyzing Verilog file "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" into library work
+Parsing module <computer>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <computer>.
+
+Elaborating module <clkop>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <DCM_SP(CLKDV_DIVIDE=10.0,CLKFX_DIVIDE=20,CLKFX_MULTIPLY=2,CLKIN_DIVIDE_BY_2="FALSE",CLKIN_PERIOD=10.0,CLKOUT_PHASE_SHIFT="NONE",CLK_FEEDBACK="1X",DESKEW_ADJUST="SYSTEM_SYNCHRONOUS",PHASE_SHIFT=0,STARTUP_WAIT="FALSE")>.
+WARNING:HDLCompiler:1127 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ipcore_dir\clkop.v" Line 128: Assignment to locked_int ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ipcore_dir\clkop.v" Line 129: Assignment to status_int ignored, since the identifier is never used
+
+Elaborating module <BUFG>.
+
+Elaborating module <CPU>.
+
+Elaborating module <processingUnit>.
+
+Elaborating module <register>.
+
+Elaborating module <IRRegister>.
+
+Elaborating module <busAMux>.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\BusAMux.v" Line 30: Result of 32-bit expression is truncated to fit in 1-bit target.
+
+Elaborating module <writeEnableMux>.
+
+Elaborating module <ALU>.
+
+Elaborating module <controlUnit>.
+WARNING:HDLCompiler:1127 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" Line 49: Assignment to RAMorALUOut2DRIn ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" Line 50: Assignment to PC2BusAMux ignored, since the identifier is never used
+
+Elaborating module <RAM>.
+
+Elaborating module <memory1>.
+WARNING:HDLCompiler:1499 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ipcore_dir\memory1.v" Line 39: Empty module <memory1> remains a black box.
+
+Elaborating module <UART>.
+
+Elaborating module <clock_divider>.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\clock_divider.v" Line 38: Result of 17-bit expression is truncated to fit in 16-bit target.
+
+Elaborating module <transmitter>.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\tx.v" Line 58: Result of 8-bit expression is truncated to fit in 7-bit target.
+
+Elaborating module <reciever>.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\rx.v" Line 73: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\rx.v" Line 79: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\rx.v" Line 86: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\rx.v" Line 102: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\UART.v" Line 78: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\UART.v" Line 79: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\UART.v" Line 115: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:413 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\UART.v" Line 116: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:1127 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" Line 54: Assignment to clk_out ignored, since the identifier is never used
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <computer>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v".
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <IROut> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <AC2BusAMux> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <PC2BusAMux> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <R2ALU> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <TR2BusAMux> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <busA2ALU> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <ALUOut> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <opcode> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <busAMuxSelect> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <RAMorALUOut2DRIn> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <select> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 49: Output port <Z> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\computer.v" line 54: Output port <clk_out> of the instance <UART> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <computer> synthesized.
+
+Synthesizing Unit <clkop>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ipcore_dir\clkop.v".
+    Summary:
+	no macro.
+Unit <clkop> synthesized.
+
+Synthesizing Unit <CPU>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\CPU.v".
+    Summary:
+	no macro.
+Unit <CPU> synthesized.
+
+Synthesizing Unit <processingUnit>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\processingUnit.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <processingUnit> synthesized.
+
+Synthesizing Unit <register>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\Register.v".
+WARNING:Xst:647 - Input <UART2RAMCompleted> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit register for signal <dataOut>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <register> synthesized.
+
+Synthesizing Unit <IRRegister>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\IRRegister.v".
+WARNING:Xst:647 - Input <UART2RAMCompleted> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 6-bit register for signal <dataOut>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+Unit <IRRegister> synthesized.
+
+Synthesizing Unit <busAMux>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\BusAMux.v".
+        ac = 3'b000
+        ar = 3'b001
+        pc = 3'b010
+        dr = 3'b011
+        tr = 3'b100
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit 7-to-1 multiplexer for signal <busAout> created at line 34.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <busAMux> synthesized.
+
+Synthesizing Unit <writeEnableMux>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\writeEnableMux.v".
+        ac = 3'b000
+        ar = 3'b001
+        dr = 3'b010
+        ir = 3'b011
+        pc = 3'b100
+        r = 3'b101
+        tr = 3'b110
+        pcanddr = 3'b111
+    Found 8x1-bit Read Only RAM for signal <PCWE>
+    Found 8x1-bit Read Only RAM for signal <DRWE>
+    Found 8x1-bit Read Only RAM for signal <TRWE>
+    Found 8x1-bit Read Only RAM for signal <RWE>
+    Found 8x1-bit Read Only RAM for signal <IRWE>
+    Found 8x1-bit Read Only RAM for signal <ARWE>
+    Found 8x1-bit Read Only RAM for signal <ACWE>
+    Summary:
+	inferred   7 RAM(s).
+Unit <writeEnableMux> synthesized.
+
+Synthesizing Unit <ALU>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\ALU.v".
+        NOP = 2'b00
+        ADD = 2'b01
+        SUB = 2'b10
+        LSHIFT = 2'b11
+        RSHIFT = 3'b100
+        MOVR = 3'b101
+        INC = 3'b110
+    Found 1-bit register for signal <Z>.
+    Found 16-bit subtractor for signal <dataIn[15]_RIn[15]_sub_2_OUT> created at line 45.
+    Found 16-bit adder for signal <RIn[15]_dataIn[15]_add_0_OUT> created at line 44.
+    Found 16-bit adder for signal <dataIn[15]_GND_12_o_add_4_OUT> created at line 51.
+    Found 16-bit shifter logical left for signal <dataIn[15]_RIn[15]_shift_left_2_OUT> created at line 46
+    Found 16-bit shifter logical right for signal <dataIn[15]_RIn[15]_shift_right_3_OUT> created at line 47
+    Found 16-bit 8-to-1 multiplexer for signal <dataOut> created at line 42.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 D-type flip-flop(s).
+	inferred  15 Multiplexer(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <ALU> synthesized.
+
+Synthesizing Unit <controlUnit>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\controlUnit.v".
+        fetch1 = 0
+        fetch2 = 1
+        fetch3 = 2
+        fetch4 = 3
+        ADD1 = 4
+        SUB1 = 5
+        NOP = 6
+        LDAC1 = 7
+        LDAC2 = 8
+        LDAC3 = 9
+        LDAC4 = 10
+        LDAC5 = 11
+        LDAC6 = 12
+        LDAC7 = 13
+        MVAC2R1 = 14
+        MVR2AC1 = 15
+        MVAC2TR1 = 16
+        MVTR2DR1 = 17
+        STAC1 = 18
+        STAC2 = 19
+        STAC3 = 20
+        STAC4 = 21
+        STAC5 = 22
+        STAC6 = 23
+        JUMP1 = 24
+        JUMP2 = 25
+        JUMP3 = 26
+        JUMP4 = 27
+        JUMPZ1 = 28
+        JUMPZ2 = 29
+        JUMPZ3 = 30
+        JUMPZ4 = 31
+        CLAC1 = 32
+        LSHIFT1 = 33
+        RSHIFT1 = 34
+        ENDOPS = 35
+        LOAD1 = 36
+        LOAD2 = 37
+        LOAD3 = 38
+        LOAD4 = 39
+        MVTR2AC1 = 40
+    Found 19-bit register for signal <instruction>.
+    Found 1-bit register for signal <RAMorALUOut2DRIn>.
+    Summary:
+	inferred  20 D-type flip-flop(s).
+	inferred  41 Multiplexer(s).
+Unit <controlUnit> synthesized.
+
+Synthesizing Unit <RAM>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\RAM.v".
+    Summary:
+	no macro.
+Unit <RAM> synthesized.
+
+Synthesizing Unit <UART>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\UART.v".
+    Found 8-bit register for signal <UARTdata2RAM>.
+    Found 16-bit register for signal <RAMAddressByUART>.
+    Found 1-bit register for signal <RAMWriteEnableByUART>.
+    Found 16-bit register for signal <next_RAMAddressByUART>.
+    Found 16-bit register for signal <recieve_counter>.
+    Found 1-bit register for signal <clear>.
+    Found 1-bit register for signal <UART2RAMCompleted>.
+    Found 16-bit register for signal <send_counter>.
+    Found 8-bit register for signal <data_i>.
+    Found 1-bit register for signal <send>.
+    Found 1-bit register for signal <LED0>.
+    Found 1-bit register for signal <LED1>.
+    Found 1-bit register for signal <LED2>.
+    Found 1-bit register for signal <LED3>.
+    Found 1-bit register for signal <LED4>.
+    Found 1-bit register for signal <LED5>.
+    Found 1-bit register for signal <LED6>.
+    Found 3-bit register for signal <state>.
+    Found 16-bit adder for signal <recieve_counter[15]_GND_18_o_add_5_OUT> created at line 79.
+    Found 16-bit adder for signal <next_RAMAddressByUART[15]_GND_18_o_add_11_OUT> created at line 115.
+    Found 16-bit adder for signal <send_counter[15]_GND_18_o_add_12_OUT> created at line 116.
+    Found 3-bit 8-to-1 multiplexer for signal <state[2]_state[2]_mux_57_OUT> created at line 73.
+    HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <state> would allow inference of a finite state machine and as consequence better performance and smaller area.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  93 D-type flip-flop(s).
+	inferred  22 Multiplexer(s).
+Unit <UART> synthesized.
+
+Synthesizing Unit <clock_divider>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\clock_divider.v".
+    Found 1-bit register for signal <clk_out>.
+    Found 16-bit register for signal <counter>.
+    Found 16-bit adder for signal <counter[15]_GND_19_o_add_1_OUT> created at line 38.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  17 D-type flip-flop(s).
+Unit <clock_divider> synthesized.
+
+Synthesizing Unit <transmitter>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\tx.v".
+    Found 1-bit register for signal <tx>.
+    Found 1-bit register for signal <busy>.
+    Found 3-bit register for signal <state>.
+    Found 7-bit register for signal <bit_counter>.
+    Found finite state machine <FSM_2> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 7-bit adder for signal <bit_counter[6]_GND_20_o_add_7_OUT> created at line 58.
+    Found 1-bit 8-to-1 multiplexer for signal <bit_counter[2]_data[7]_Mux_6_o> created at line 57.
+    Found 7-bit comparator greater for signal <bit_counter[6]_GND_20_o_LessThan_6_o> created at line 56
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   9 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   6 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <transmitter> synthesized.
+
+Synthesizing Unit <reciever>.
+    Related source file is "E:\Circuit Systems and Design1\MyProcessor\Phase 21 - 1.7.2017\Processor to test\rx.v".
+    Found 8-bit register for signal <buffer>.
+    Found 1-bit register for signal <data_ready>.
+    Found 16-bit register for signal <counter>.
+    Found 3-bit register for signal <state>.
+    Found 6-bit register for signal <bit_counter>.
+    Found 8-bit register for signal <data>.
+    Found finite state machine <FSM_3> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 6-bit adder for signal <bit_counter[5]_GND_21_o_add_23_OUT> created at line 79.
+    Found 16-bit adder for signal <counter[15]_GND_21_o_add_36_OUT> created at line 102.
+    Found 16-bit 4-to-1 multiplexer for signal <_n0163> created at line 62.
+    Found 6-bit comparator lessequal for signal <n0019> created at line 78
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  39 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred  27 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <reciever> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 7
+ 8x1-bit single-port Read Only RAM                     : 7
+# Adders/Subtractors                                   : 8
+ 16-bit adder                                          : 5
+ 16-bit addsub                                         : 1
+ 6-bit adder                                           : 1
+ 7-bit adder                                           : 1
+# Registers                                            : 37
+ 1-bit register                                        : 16
+ 16-bit register                                       : 12
+ 19-bit register                                       : 1
+ 3-bit register                                        : 1
+ 6-bit register                                        : 2
+ 7-bit register                                        : 1
+ 8-bit register                                        : 4
+# Comparators                                          : 2
+ 6-bit comparator lessequal                            : 1
+ 7-bit comparator greater                              : 1
+# Multiplexers                                         : 113
+ 1-bit 2-to-1 multiplexer                              : 28
+ 1-bit 8-to-1 multiplexer                              : 1
+ 16-bit 2-to-1 multiplexer                             : 26
+ 16-bit 4-to-1 multiplexer                             : 1
+ 16-bit 7-to-1 multiplexer                             : 1
+ 19-bit 2-to-1 multiplexer                             : 40
+ 3-bit 2-to-1 multiplexer                              : 3
+ 3-bit 8-to-1 multiplexer                              : 1
+ 6-bit 2-to-1 multiplexer                              : 2
+ 7-bit 2-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 8
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# FSMs                                                 : 2
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/memory1.ngc>.
+Loading core <memory1> for timing and area information for instance <dualPortMemory>.
+INFO:Xst:2261 - The FF/Latch <RAMWriteEnableByUART> in Unit <UART> is equivalent to the following FF/Latch, which will be removed : <clear> 
+WARNING:Xst:2677 - Node <instruction_18> of sequential type is unconnected in block <controlUnit>.
+
+Synthesizing (advanced) Unit <UART>.
+The following registers are absorbed into counter <recieve_counter>: 1 register on signal <recieve_counter>.
+The following registers are absorbed into counter <send_counter>: 1 register on signal <send_counter>.
+Unit <UART> synthesized (advanced).
+
+Synthesizing (advanced) Unit <clock_divider>.
+The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
+Unit <clock_divider> synthesized (advanced).
+
+Synthesizing (advanced) Unit <reciever>.
+The following registers are absorbed into counter <bit_counter>: 1 register on signal <bit_counter>.
+Unit <reciever> synthesized (advanced).
+
+Synthesizing (advanced) Unit <writeEnableMux>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_PCWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <PCWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_DRWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <DRWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_TRWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <TRWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_RWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <RWE>           |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_IRWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <IRWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_ARWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <ARWE>          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_ACWE> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <select>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <ACWE>          |          |
+    -----------------------------------------------------------------------
+Unit <writeEnableMux> synthesized (advanced).
+WARNING:Xst:2677 - Node <instruction_18> of sequential type is unconnected in block <controlUnit>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 7
+ 8x1-bit single-port distributed Read Only RAM         : 7
+# Adders/Subtractors                                   : 4
+ 16-bit adder                                          : 2
+ 16-bit addsub                                         : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 4
+ 16-bit up counter                                     : 3
+ 6-bit up counter                                      : 1
+# Registers                                            : 226
+ Flip-Flops                                            : 226
+# Comparators                                          : 2
+ 6-bit comparator lessequal                            : 1
+ 7-bit comparator greater                              : 1
+# Multiplexers                                         : 117
+ 1-bit 2-to-1 multiplexer                              : 36
+ 1-bit 8-to-1 multiplexer                              : 1
+ 16-bit 2-to-1 multiplexer                             : 24
+ 16-bit 4-to-1 multiplexer                             : 1
+ 16-bit 7-to-1 multiplexer                             : 1
+ 19-bit 2-to-1 multiplexer                             : 40
+ 3-bit 2-to-1 multiplexer                              : 3
+ 3-bit 8-to-1 multiplexer                              : 1
+ 6-bit 2-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 7
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <RAMWriteEnableByUART> in Unit <UART> is equivalent to the following FF/Latch, which will be removed : <clear> 
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <UART/recive/FSM_3> on signal <state[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 00
+ 001   | 01
+ 010   | 11
+ 011   | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <UART/trans/FSM_2> on signal <state[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 00
+ 001   | 01
+ 010   | 10
+-------------------
+
+Optimizing unit <computer> ...
+
+Optimizing unit <register> ...
+
+Optimizing unit <UART> ...
+
+Optimizing unit <reciever> ...
+
+Optimizing unit <transmitter> ...
+
+Optimizing unit <processingUnit> ...
+
+Optimizing unit <ALU> ...
+
+Optimizing unit <controlUnit> ...
+WARNING:Xst:1293 - FF/Latch <UART/cd/counter_15> has a constant value of 0 in block <computer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <UART/cd/counter_14> has a constant value of 0 in block <computer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <UART/cd/counter_13> has a constant value of 0 in block <computer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <UART/trans/bit_counter_6> has a constant value of 0 in block <computer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <UART/trans/bit_counter_5> has a constant value of 0 in block <computer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <UART/trans/bit_counter_4> has a constant value of 0 in block <computer>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <UART/LED1> in Unit <computer> is equivalent to the following FF/Latch, which will be removed : <UART/RAMWriteEnableByUART> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block computer, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 276
+ Flip-Flops                                            : 276
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : computer.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1005
+#      GND                         : 2
+#      INV                         : 7
+#      LUT1                        : 42
+#      LUT2                        : 64
+#      LUT3                        : 94
+#      LUT4                        : 50
+#      LUT5                        : 166
+#      LUT6                        : 367
+#      MUXCY                       : 87
+#      MUXF7                       : 31
+#      VCC                         : 2
+#      XORCY                       : 93
+# FlipFlops/Latches                : 286
+#      FD                          : 15
+#      FDE                         : 239
+#      FDE_1                       : 18
+#      FDR                         : 14
+# RAMS                             : 60
+#      RAMB16BWER                  : 60
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 11
+#      IBUF                        : 1
+#      IBUFG                       : 1
+#      OBUF                        : 9
+# DCMs                             : 1
+#      DCM_SP                      : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx45csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             286  out of  54576     0%  
+ Number of Slice LUTs:                  790  out of  27288     2%  
+    Number used as Logic:               790  out of  27288     2%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    875
+   Number with an unused Flip Flop:     589  out of    875    67%  
+   Number with an unused LUT:            85  out of    875     9%  
+   Number of fully used LUT-FF pairs:   201  out of    875    22%  
+   Number of unique control sets:        30
+
+IO Utilization: 
+ Number of IOs:                          11
+ Number of bonded IOBs:                  11  out of    218     5%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:               60  out of    116    51%  
+    Number using Block RAM only:         60
+ Number of BUFG/BUFGCTRL/BUFHCEs:         3  out of     16    18%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+UART/cd/clk_out                    | BUFG                   | 99    |
+clk                                | DCM_SP:CLK0            | 55    |
+clk                                | DCM_SP:CLKFX           | 192   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 5.808ns (Maximum Frequency: 172.186MHz)
+   Minimum input arrival time before clock: 5.672ns
+   Maximum output required time after clock: 5.085ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'UART/cd/clk_out'
+  Clock period: 3.890ns (frequency: 257.097MHz)
+  Total number of paths / destination ports: 1263 / 177
+-------------------------------------------------------------------------
+Delay:               3.890ns (Levels of Logic = 1)
+  Source:            UART/state_2 (FF)
+  Destination:       UART/send_counter_15 (FF)
+  Source Clock:      UART/cd/clk_out rising
+  Destination Clock: UART/cd/clk_out rising
+
+  Data Path: UART/state_2 to UART/send_counter_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              68   0.447   1.914  UART/state_2 (UART/state_2)
+     LUT4:I0->O           16   0.203   1.004  UART/_n0305_inv1 (UART/_n0305_inv)
+     FDE:CE                    0.322          UART/RAMAddressByUART_0
+    ----------------------------------------
+    Total                      3.890ns (0.972ns logic, 2.918ns route)
+                                       (25.0% logic, 75.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.808ns (frequency: 172.186MHz)
+  Total number of paths / destination ports: 447109 / 1684
+-------------------------------------------------------------------------
+Delay:               5.808ns (Levels of Logic = 4)
+  Source:            UART/recive/counter_14 (FF)
+  Destination:       UART/recive/bit_counter_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: UART/recive/counter_14 to UART/recive/bit_counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              4   0.447   1.048  UART/recive/counter_14 (UART/recive/counter_14)
+     LUT6:I0->O            8   0.203   0.907  UART/recive/GND_21_o_GND_21_o_equal_9_o<15>2 (UART/recive/GND_21_o_GND_21_o_equal_33_o<15>1)
+     LUT6:I4->O           36   0.203   1.577  UART/recive/GND_21_o_GND_21_o_equal_33_o<15>3 (UART/recive/GND_21_o_GND_21_o_equal_33_o)
+     LUT4:I1->O            4   0.205   0.912  UART/recive/_n0197_inv1_rstpot (UART/recive/_n0197_inv1_rstpot)
+     LUT3:I0->O            1   0.205   0.000  UART/recive/bit_counter_0_dpot (UART/recive/bit_counter_0_dpot)
+     FDE:D                     0.102          UART/recive/bit_counter_0
+    ----------------------------------------
+    Total                      5.808ns (1.365ns logic, 4.443ns route)
+                                       (23.5% logic, 76.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 91 / 41
+-------------------------------------------------------------------------
+Offset:              5.672ns (Levels of Logic = 4)
+  Source:            rx (PAD)
+  Destination:       UART/recive/buffer_5 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rx to UART/recive/buffer_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            76   1.222   2.063  rx_IBUF (rx_IBUF)
+     LUT5:I0->O            6   0.203   0.992  UART/recive/GND_21_o_GND_21_o_equal_33_o<15>3_SW1 (N138)
+     LUT6:I2->O            1   0.203   0.684  UART/recive/buffer[7]_buffer[7]_mux_57_OUT<5>5_SW0 (N48)
+     LUT6:I4->O            1   0.203   0.000  UART/recive/buffer[7]_buffer[7]_mux_57_OUT<5>5 (UART/recive/buffer[7]_buffer[7]_mux_57_OUT<5>)
+     FD:D                      0.102          UART/recive/buffer_5
+    ----------------------------------------
+    Total                      5.672ns (1.933ns logic, 3.739ns route)
+                                       (34.1% logic, 65.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'UART/cd/clk_out'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              5.085ns (Levels of Logic = 1)
+  Source:            UART/LED1 (FF)
+  Destination:       LED1 (PAD)
+  Source Clock:      UART/cd/clk_out rising
+
+  Data Path: UART/LED1 to LED1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q            266   0.447   2.067  UART/LED1 (UART/LED1)
+     OBUF:I->O                 2.571          LED1_OBUF (LED1)
+    ----------------------------------------
+    Total                      5.085ns (3.018ns logic, 2.067ns route)
+                                       (59.3% logic, 40.7% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock UART/cd/clk_out
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+UART/cd/clk_out|    3.890|         |         |         |
+clk            |    4.152|    3.464|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+UART/cd/clk_out|    4.856|         |    4.032|         |
+clk            |   12.401|   12.232|    6.211|         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.38 secs
+ 
+--> 
+
+Total memory usage is 294688 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   28 (   0 filtered)
+Number of infos    :   24 (   0 filtered)
+
