@@ -41,7 +41,7 @@ The process of something in software usually takes particular amount of time to 
 ### 1.1 Processor and CPU design 
 The central processing unit (CPU) is an electronic circuitry within the computer that performs arithmetic, logical, control and input/output (I/O) operations to carry out the instructions of a computer program. Processing unit and control unit are the two fundamental components of a CPU. The principal components of processing unit includes arithmetic logic unit (ALU) that performs arithmetic and logic operations and processor registers that supply operands to the ALU and store the results of ALU operations. The control unit orchestrates the fetching (from memory) and execution of instructions by directing the coordinated operations of the ALU, registers and other components (Multiplexer and decoders).The processor is a register based, clock driven, multipurpose programmable electronic device which accepts binary data as input and process it according to the instructions stored in memory and provides the result as output. Processor incorporates the functions of central processing unit (CPU) of a computer on a single or few integrated circuits. The processor contains both combinational and sequential logic.  
 
-![Basic block diagram of CPU](images/figure_1.png)
+![Basic block diagram of CPU](images/figure_1.png)\
 *Basic block diagram of CPU*
 
 ### 1.2 Task  
@@ -323,10 +323,10 @@ The top module is interfaced with the board as follows.
 * The serial receiver and transmitter is connected with the micro USB port for serial communication. 
 * Some state indicating outputs are connected to onboard LEDs. 
 
-![External View of Top Module](images/figure_6.jpg)
+![External View of Top Module](images/figure_6.jpg)\
 *Figure 3. 1 External View of Top Module*
 
-![Internal Organization of the Top module](images/figure_7.jpg)
+![Internal Organization of the Top module](images/figure_7.jpg)\
 *Figure 3. 2 Internal Organization of the Top module*
 
 ### 3.2 Processor  
@@ -334,7 +334,7 @@ This is the logic circuitry that performs the task at hand namely down sampling 
 
 Our Processor implementation is sub divided into two units namely Processing unit and Control Unit. The Processing Unit is comprised of the complete data path (ALU, Registers, Buses etc.) and responsible for performing operations and data manipulation. While the control Unit overlooks the operation by decoding the instructions and releasing the control signals. These units and their sub modules are explained in detail in the following sections. 
 
-![Organization of Sub modules within the processor](images/figure_8.jpg)
+![Organization of Sub modules within the processor](images/figure_8.jpg)\
 *Figure 3. 3 Organization of Sub modules within the processor*
 
 ### 3.3 Processing Unit 
@@ -342,7 +342,7 @@ The Processing Unit is comprised of the complete data path and responsible for p
 
 A detailed internal diagram of the Processing unit is shown below.  
 
-![Organization of sub modules inside the Processing Unit](images/figure_9.jpg)
+![Organization of sub modules inside the Processing Unit](images/figure_9.jpg)\
 *Figure 3. 4 Organization of sub modules inside the Processing Unit*
 
 Each sub module of this section is explained in detail in their respective sections
@@ -350,7 +350,7 @@ Each sub module of this section is explained in detail in their respective secti
 ### 3.4 Registers 
 Registers are the modules which are used to store the data inside the processor while processing. There are seven registers in the implementation. Address Register (AR), Data Register (DR), Program Counter (PC), Instruction Register (IR), Accumulator (AC), Two general purpose registers (R, TR). All these registers can hold 16bits of data except IR which holds only 6bits of data. 
 
-![Register](images/figure_10.jpg)
+![Register](images/figure_10.jpg)\
 *Figure 3. 5 Register*
 
 All the registers are driven by the system clock (which is running at 10MHz). The registers have data_in through which data can be written to the registers. But at any given time the register will accept the data from data_in line only if the write_enable bit (which is another input) is set as high. The data in the registers are always exposed through the data_out line. The data_out of the registers AC, DR, PC, and TR are connected to Bus_A. The data_out of IR goes to the control unit as an input through IR2CU line. The data_out line of AR and DR are connected to RAM module through AR2RAM and DR2RAM respectively. The data_out of the register R is directly connected to ALU. 
@@ -395,7 +395,7 @@ Apart from the data inputs and outputs the ALU has few other IOs. The main one b
 
 Z flag is another output raised by ALU whenever the output of ALU becomes zero. This is used by the Control Unit whenever it wants to decide (e.g. JUMPNZ). Since Z is a flag (1bit register) it will hold the value until cleared. So, Control Unit has another dedicated bit, ZClear, which comes as an input to the ALU which will instruct the ALU to clear Z flag. 
 
-![alt_text](images/figure_11.jpg) 
+![alt_text](images/figure_11.jpg)\
 *Figure 3. 6 ALU*
 
 ### 3.6 BusAMUx 
@@ -508,7 +508,7 @@ The Select bit is used to select whether to execute the opcode in the IR or to u
 ### 3.9 RAM  
 The RAM module is the primary memory used in our system. It is used to store both the instructions (program) and the data.
 
-![Dual Port RAM](images/figure_12.png)
+![Dual Port RAM](images/figure_12.png)\
 *Figure 3. 7 Dual Port RAM*
 
 The RAM is designed with 16bit address so that it can cater 65536 memory locations. Each of this memory locations are 16bit wide. The processor implemented by us is designed as a twoport memory. This is done to offer two independent interfaces for the UART module and processor to access the RAM. Each interface has 4 inputs and 1 output. The input lines are clock, address (16bit), data_in (16bit), and write_enable (1bit). The output is data_out which is also 16bits wide. 
@@ -525,7 +525,7 @@ The clocking module implemented in our design has one input which is the onboard
 ### 3.11 UART Module 
 The UART Module is designed as a finite state machine which incorporates few other sub modules as well. The sub modules are clock divider, transmitter and a receiver. 
 
-![Sub modules of UART](images/figure_13.jpg)
+![Sub modules of UART](images/figure_13.jpg)\
 *Figure 3. 7 Sub modules of UART*
 
 #### Clock divider (UART) 
@@ -546,7 +546,7 @@ The receiver operates by constantly checking in its serial receiver line to go d
 #### State Diagram of the UART module 
 As described earlier the UART top module is implemented as a finite state machine and the state diagram of it can be seen below. 
 
-![State Diagram of UART Top Module](images/figure_14.jpg)
+![State Diagram of UART Top Module](images/figure_14.jpg)\
 *Figure 3. 8 State Diagram of UART Top Module*
 
 At first (State 0) the top module waits for the data_ready signal to be raised by the receiver sub module. When such it receives the signal, it writes the received data to the ram by forwarding it to the data_in of ram and setting write_enable of ram (State 1). Then in the next state it clears the recieved data increments the address resets the write_enable (State 2). 
@@ -594,7 +594,7 @@ Also note that the Gaussian kernel values are chosen to be inverse of the expone
 ![Flow chart for the algorithm](images/figure_15.png)\
 *Figure 4.2 – Flow chart for the algorithm*
 
-![Illustration of choosing pixels to apply kernel](images/figure_16.png)
+![Illustration of choosing pixels to apply kernel](images/figure_16.png)\
 *Figure 4.3 – Illustration of choosing pixels to apply kernel*
 
 In order to avoid edge filtering problems it was decided not to apply the Gaussian kernel to edge pixels. So for a 200x200 image the algorithm will produce 99x99 image.  
@@ -845,7 +845,7 @@ RAM was generated using IPCore generator and it was testing using ISim. Then Con
 
 After this we asserted the validity of results after every operation that ALU could do. Then 
 
-![Add Two Numbers](images/figure_17.png)
+![Add Two Numbers](images/figure_17.png)\
 *Figure 5.1 – Screenshot from the first time processing unit was successfully made to add two numbers. May 29th, 2017*
 
 UART was developed and started testing on the FPGA itself. It posed different challenges as some of our memory operations did not have enough delays to wait for the data to flow between RAM and registers. So modified the microinstructions with delays. After this processor started working. 
@@ -917,9 +917,8 @@ The reference image for comparison is generated using the algorithms for Gaussia
 ### 6.2 Results Verification And Analysis 
 Original image is filtered and down sampled by the implemented processor and CPU design and output is given as an image. It is possible to compare the accuracy using human eye but it is not perfect to determine the accuracy of the processor. Therefore we compared the data array of both reference image (MATLAB down sampled image) and processor down sampled image to get more accurate error. At last error array is generated by using both data arrays. 
 
-![Downsampled Images Comparison](images/figure_21.png)
-
-*Figure 6.4: Reference downsampled image using MATLAB (Left)*
+![Downsampled Images Comparison](images/figure_21.png)\
+*Figure 6.4: Reference downsampled image using MATLAB (Left)*\
 *FPGA processor downsampled image (Right)*
 
 ### 6.3 Error Analysis 
@@ -929,8 +928,8 @@ Since the result of the processed data has no errors when we compare with the re
 
 ## 7. Design Summary
 
-![drawing](images/figure_22.jpg)
-![drawing](images/figure_23.jpg)
-![drawing](images/figure_24.jpg)
-![drawing](images/figure_25.jpg)
+![drawing](images/figure_22.jpg)\
+![drawing](images/figure_23.jpg)\
+![drawing](images/figure_24.jpg)\
+![drawing](images/figure_25.jpg)\
 ![drawing](images/figure_26.png)
