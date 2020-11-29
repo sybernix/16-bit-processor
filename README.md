@@ -556,258 +556,74 @@ Then in state 2 it checks if all the data are received or not. If receiving is c
 When endops is received the UART top module moves to state 4 where it sends each byte and then moves to state 5 which turns off send to avoid corruption. The UART top module oscillates between these two states till all the required data are sent and then it moves to state six where variables are reset. Finally, the UART top module goes back to state 0. 
 
 ## 4. Algorithm 
-
-
-### 
-4.1 Introduction 
-
-
-    A custom algorithm was developed based on the following objectives of the program, 
-
-
-
+### 4.1 Introduction 
+A custom algorithm was developed based on the following objectives of the program, 
 1. Gaussian noise filter the image 
-2. Down sample the image to half of the original resolution 
+2. Down sample the image to half of the original resolution
 
-    There are plenty of resources for the above two tasks. We could find many algorithms which implemented the aforementioned tasks separately. We found a novel way to combine the two tasks in the same algorithm and reduce the generation of unnecessary information. Our algorithm reduces a lot of computational effort by cleverly doing only the necessary calculations. 
+There are plenty of resources for the above two tasks. We could find many algorithms which implemented the aforementioned tasks separately. We found a novel way to combine the two tasks in the same algorithm and reduce the generation of unnecessary information. Our algorithm reduces a lot of computational effort by cleverly doing only the necessary calculations. 
 
-
-    Gaussian noise filtering an image involves iterating through every pixel of the image and finding a local average for each pixel using a Gaussian kernel and replacing the original pixel with the Gaussian averaged value. For each pixel we have to do 8 additions and one division if we are to use a 3x3 Gaussian kernel. So for an nxm image we will have to do nxmx8 additions and nxm divisions i.e. totally nxmx9 operations. It is an O(nm) algorithm. 
-
+Gaussian noise filtering an image involves iterating through every pixel of the image and finding a local average for each pixel using a Gaussian kernel and replacing the original pixel with the Gaussian averaged value. For each pixel we have to do 8 additions and one division if we are to use a 3x3 Gaussian kernel. So for an nxm image we will have to do nxmx8 additions and nxm divisions i.e. totally nxmx9 operations. It is an O(nm) algorithm. 
 
 <table>
   <tr>
-   <td>
-1/16 
-   </td>
-   <td>1/8 
-   </td>
-   <td>1/16 
-   </td>
+   <td>1/16</td>
+   <td>1/8</td>
+   <td>1/16</td>
   </tr>
   <tr>
-   <td>1/8 
-   </td>
-   <td>1/4 
-   </td>
-   <td>1/8 
-   </td>
+   <td>1/8</td>
+   <td>1/4</td>
+   <td>1/8</td>
   </tr>
   <tr>
-   <td>1/16 
-   </td>
-   <td>1/8 
-   </td>
-   <td>1/16 
-   </td>
+   <td>1/16</td>
+   <td>1/8</td>
+   <td>1/16</td>
   </tr>
 </table>
 
+*Figure 4.1 - 3x3 Gaussian kernel*
 
+Down sampling an image can be done in many ways. To down sample to half of the original resolution we can either take alternative pixels along x as well as y axes to create a new image or apply a 2x2 kernel with equal weight to each place and apply the kernel in a non-overlapping fashion and take the values to create a new image. If we decide to take alternative pixels to generate an image it will involve iterating through the nxm image. So again it will be an O(nxm) algorithm. 
 
-    Figure 4.1 - 3x3 Gaussian kernel 
+Our approach to the problem is applying the Gaussian kernel not to every pixel but to alternative pixels along each axis so that we end up with (n/2)x(m/2) values with can be used to generate a down sampled image. This cuts down the number of operations we have to do by a factor of 2. 
 
+Also note that the Gaussian kernel values are chosen to be inverse of the exponents of 2 because the ALU that was built for the processor doesn’t have an actual division or multiplication operation which are costly. Instead right-shift and left-shift bit-wise operations were incorporated into the ALU to be used in place of division and multiplication respectively. These operations are computationally efficient and require less hardware to realize. Since the requirement of the project was very specific to Gaussian filtering and down sampling to half the original size, costly ALU operations were dropped in favor of shifting with the intention of cleverly exploiting the carefully chosen values for Gaussian kernel. This is not a limitation of the processor, but rather a hardware-efficient way of achieving the project goals. 
 
-    Down sampling an image can be done in many ways. To down sample to half of the original resolution we can either take alternative pixels along x as well as y axes to create a new image or apply a 2x2 kernel with equal weight to each place and apply the kernel in a non-overlapping fashion and take the values to create a new image. If we decide to take alternative pixels to generate an image it will involve iterating through the nxm image. So again it will be an O(nxm) algorithm. 
+![Flow chart for the algorithm](images/figure_15.png)
+*Figure 4.2 – Flow chart for the algorithm*
 
+![Illustration of choosing pixels to apply kernel](images/figure_16.png)
+*Figure 4.3 – Illustration of choosing pixels to apply kernel*
 
-    Our approach to the problem is applying the Gaussian kernel not to every pixel but to alternative pixels along each axis so that we end up with (n/2)x(m/2) values with can be used to generate a down sampled image. This cuts down the number of operations we have to do by a factor of 2. 
+In order to avoid edge filtering problems it was decided not to apply the Gaussian kernel to edge pixels. So for a 200x200 image the algorithm will produce 99x99 image.  
 
-
-    Also note that the Gaussian kernel values are chosen to be inverse of the exponents of 2 because the ALU that was built for the processor doesn’t have an actual division or multiplication operation which are costly. Instead right-shift and left-shift bit-wise operations were incorporated into the ALU to be used in place of division and multiplication respectively. These operations are computationally efficient and require less hardware to realize. Since the requirement of the project was very specific to Gaussian filtering and down sampling to half the original size, costly ALU operations were dropped in favor of shifting with the intention of cleverly exploiting the carefully chosen values for Gaussian kernel. This is not a limitation of the processor, but rather a hardware-efficient way of achieving the project goals. 
-
-
-
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/drawings/d/12345/export/png)
-
- 	Figure 4.2 – Flow chart for the algorithm 	 
-
- 
-
-
-<table>
-  <tr>
-   <td>
-
-<table>
-  <tr>
-   <td>
-     
-   </td>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-  <tr>
-   <td>
-     
-   </td>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-  <tr>
-   <td>
-     
-   </td>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-  <tr>
-   <td>
-     
-   </td>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-  <tr>
-   <td>
-     
-   </td>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-  <tr>
-   <td>
-     
-   </td>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-</table>
-
-
-   </td>
-   <td>
-    
-
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/drawings/d/12345/export/png)
-
-   </td>
-   <td>
-
-<table>
-  <tr>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-  <tr>
-   <td> 
-   </td>
-   <td>
-     
-   </td>
-  </tr>
-</table>
-
-
-   </td>
-  </tr>
-</table>
-
-
-
-    Figure 4.3 – Illustration of choosing pixels to apply kernel 
-
-
-    In order to avoid edge filtering problems it was decided not to apply the Gaussian kernel to edge pixels. So for a 200x200 image the algorithm will produce 99x99 image.  
-
-
-### 
-4.2 Matlab Code Used for Verification 
-
- 
-
-
+### 4.2 Matlab Code Used for Verification 
 ```
 [m,n] =size(testim); 
-
-
- testout = zeros(m/2-1);  k=1;  l=1;  i=2;  j=2;  while(i<m)      while(j<n) 
-         section = im2double(testim(i-1:i+1,j-1:j+1));          section = section.*255; 
-         value 	= 
-floor((section(1,1)+section(1,3)+section(3,1)+section(3,3))/16)+floo r((section(1,2)+section(2,1)+section(2,3)+section(3,2))/8)+floor(sec tion(2,2)/4); 
-         testout(l,k)=value;          k=k+1;          j = j+2;      end      i =i+2;      l=l+1;      k=1;      j=2;  end   
- testout =uint8(testout);  figure;  imshow(testout); 
+testout = zeros(m/2-1);
+k=1;
+l=1;
+i=2;
+j=2;
+while(i<m)
+    while(j<n) 
+        section = im2double(testim(i-1:i+1,j-1:j+1));
+        section = section.*255; 
+        value = floor((section(1,1) + section(1,3) + section(3,1) + section(3,3))/1 + floor((section(1,2) + section(2,1) + section(2,3) + section(3,2))/8) + floor(sec tion(2,2)/4); 
+        testout(l,k)=value;
+        k=k+1;
+        j=j+2;
+    end
+    i =i+2;
+    l=l+1;
+    k=1;
+    j=2;
+end   
+testout = uint8(testout);
+figure;
+imshow(testout); 
 ```
 
 
