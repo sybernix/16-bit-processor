@@ -839,80 +839,50 @@ The processor was built module-by-module in the following order,
 5. Control Unit 
 6. CPU 
 
-    The models were independently tested (Unit testing) using ISim. The storage capabilities of the register was tested by providing dummy inputs and checking the output. A clock with pulse period 40ns was used for the testing. ALU was tested for its ability to do all the operations by giving ALU control signals and inputs using ISim. 
+The models were independently tested (Unit testing) using ISim. The storage capabilities of the register was tested by providing dummy inputs and checking the output. A clock with pulse period 40ns was used for the testing. ALU was tested for its ability to do all the operations by giving ALU control signals and inputs using ISim. 
 
+RAM was generated using IPCore generator and it was testing using ISim. Then Control uni was written after finalizing the ISA and microinstructions. Testing and debugging the processing unit and CPU which comprises of registers, ALU, and control unit proved to be the hardest. Several bugs were discovered during testing and during this process we were able to gain insight to the principles and working of a computer processor.  
 
-    RAM was generated using IPCore generator and it was testing using ISim. Then Control uni was written after finalizing the ISA and microinstructions. Testing and debugging the processing unit and CPU which comprises of registers, ALU, and control unit proved to be the hardest. Several bugs were discovered during testing and during this process we were able to gain insight to the principles and working of a computer processor.  
+After this we asserted the validity of results after every operation that ALU could do. Then 
 
+![Add Two Numbers](images/figure_17.png)
+*Figure 5.1 – Screenshot from the first time processing unit was successfully made to add two numbers. May 29th, 2017*
 
-    After this we asserted the validity of results after every operation that ALU could do. Then 
+UART was developed and started testing on the FPGA itself. It posed different challenges as some of our memory operations did not have enough delays to wait for the data to flow between RAM and registers. So modified the microinstructions with delays. After this processor started working. 
 
-
-
-
-<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/drawings/d/12345/export/png)
-
-
-    UART was developed and started testing on the FPGA itself. It posed different challenges as some of our memory operations did not have enough delays to wait for the data to flow between RAM and registers. So modified the microinstructions with delays. After this processor started working. 
-
-
-### 
-5.2 Modifications 
-
-
-    During the project viva, we were asked to modify the code and enable ALU to perform some operations that were not included in the original ALU. For example, let’s see how to incorporate bitwise OR operation. We will replace ADD operation with OR. Code before modification, 
-
+### 5.2 Modifications 
+During the project viva, we were asked to modify the code and enable ALU to perform some operations that were not included in the original ALU. For example, let’s see how to incorporate bitwise OR operation. We will replace ADD operation with OR. Code before modification, 
 
 ```
-parameter NOP=2'b000, ADD=2'b001, SUB=2'b010,  
- 	LSHIFT=2'b011, RSHIFT=3'b100, MOVR=3'b101, INC=3'b110; 
-
+parameter NOP=2'b000, ADD=2'b001, SUB=2'b010, LSHIFT=2'b011, RSHIFT=3'b100, MOVR=3'b101, INC=3'b110; 
 
 always @(controlSignal or dataIn or RIn or zClear) 
  	begin 
- 	 	case (controlSignal)  	 	 	NOP: dataOut <= dataIn; 
+ 	 	case (controlSignal)
+            NOP: dataOut <= dataIn; 
  	 	 	ADD: dataOut <= RIn + dataIn; 
  	 	 	SUB: dataOut <= dataIn-RIn; 
  	 	 	LSHIFT: dataOut <= dataIn << RIn; 
  	 	 	RSHIFT: dataOut <= dataIn >> RIn; 
  	 	 	MOVR: dataOut <= RIn; 
- 	 	 	INC:  	 	 	 	begin 
- 	 	 	 	 	data = dataIn + 1; 
+ 	 	 	INC:
+                begin 
+ 	 	 	 	    data = dataIn + 1; 
  	 	 	 	 	dataOut <= data[15:0]; 
  	 	 	 	end 
  	 	 	default dataOut <= 16'b0000000000000000; 
  	 	endcase 
  	end 
- 	assign Z = !(|dataOut); endmodule 
+ 	assign Z = !(|dataOut);
+endmodule 
 ```
 
+We will replace 
+`ADD: dataOut <= RIn + dataIn;`
+With 
+`OR: dataOut <= RIn | dataIn;`
 
- 
-
-
-    We will replace 
-
-
-```
-ADD: dataOut <= RIn + dataIn;  
-```
-
-
-
-    With 
-
-
-```
-OR: dataOut <= RIn | dataIn; 
-```
-
-
-
-    Also made the respective changes to the parameter declarations. The following assembly code was loaded as .coe file into RAM to simulate the working of OR operation in ALU.<sub><code> </code></sub>
-
+Also made the respective changes to the parameter declarations. The following assembly code was loaded as .coe file into RAM to simulate the working of OR operation in ALU.
 
 ```
 LDAC 
@@ -927,10 +897,7 @@ STAC
 0 
 ```
 
-
-
-## 
-6. Result Analysing And Verification 
+## 6. Result Analysing And Verification 
 
 
     Analyzing obtained result (processed data from FPGA) is the very important task to get a clear idea about the accuracy of the designed ISA and algorithms. We need to get the error rate and accuracy for verification. For this an image which is down sampled by MATLAB software is used as the reference image to compare the output image of the processor. After this process a clear cut idea can be obtained about the efficiency and accuracy of the designed processor. 
