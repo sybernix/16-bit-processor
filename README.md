@@ -385,71 +385,43 @@ But the whole point of having BUS_A and ALU_out connected to almost all the regi
 
 Apart from the data inputs and outputs the ALU has few other IOs. The main one being ALU_control signal which is a 3bit control signal released by the Control Unit based on the current micro instruction. Based on the control signal the following operations are executed by the ALU. 
 
+* 000  	: NOP  	dataOut <= dataIn 	 	(used for data movement) 
+* 001  	: ADD  	dataOut <= RIn + dataIn 
+* 010  	: SUB  	dataOut <= dataIn-RIn 
+* 011  	: LSHIFT 	 	dataOut <= dataIn << RIn 
+* 100  	: RSHIFT 	dataOut <= dataIn >> RIn 
+* 101  : MOVR  dataOut <= Rin   (used for moving data from R) 
+* 110  : INC  data = dataIn + 1  (primarily used for incrementing PC) 
 
+Z flag is another output raised by ALU whenever the output of ALU becomes zero. This is used by the Control Unit whenever it wants to decide (e.g. JUMPNZ). Since Z is a flag (1bit register) it will hold the value until cleared. So, Control Unit has another dedicated bit, ZClear, which comes as an input to the ALU which will instruct the ALU to clear Z flag. 
 
-*   000  	: NOP  	dataOut <= dataIn 	 	(used for data movement) 
-*   001  	: ADD  	dataOut <= RIn + dataIn 
-*   010  	: SUB  	dataOut <= dataIn-RIn 
-*   011  	: LSHIFT 	 	dataOut <= dataIn << RIn 
-*   100  	: RSHIFT 	dataOut <= dataIn >> RIn 
-*   101  : MOVR  dataOut <= Rin   (used for moving data from R) 
-*   110  : INC  data = dataIn + 1  (primarily used for incrementing PC) 
+![alt_text](images/figure_11.jpg) 
+*Figure 3. 6 ALU*
 
-    Z flag is another output raised by ALU whenever the output of ALU becomes zero. This is used by the Control Unit whenever it wants to decide (e.g. JUMPNZ). Since Z is a flag (1bit register) it will hold the value until cleared. So, Control Unit has another dedicated bit, ZClear, which comes as an input to the ALU which will instruct the ALU to clear Z flag. 
+### 3.6 BusAMUx 
+As mentioned in the registers section the output of AR, DR, PC, TR, and AC are connected to the ALU input through BusA. So BusA should be able to forward one of the four inputs to its output (which is an input to the ALU). Hence BusA is modelled as a multiplexer so that it can forward one of the inputs to its output based on the control signal. The control signal to the busA is a 3bit control signal released by the Control Unit based on the current micro instruction.
 
+```
+000: AC
+001: AR
+010: PC
+011: DR
+100: TR 
+```
 
-
-
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image11.jpg)
- 
-_Figure 3. 6 ALU _
-
-
-### 
-3.6 BusAMUx 
-
-
-    As mentioned in the registers section the output of AR, DR, PC, TR, and AC are connected to the ALU input through BusA. So BusA should be able to forward one of the four inputs to its output (which is an input to the ALU). Hence BusA is modelled as a multiplexer so that it can forward one of the inputs to its output based on the control signal. The control signal to the busA is a 3bit control signal released by the Control Unit based on the current micro instruction.  
-
-000 	: AC 
-
-001 	: AR 
-
-010 	: PC 
-
-011 	: DR 
-
-100 	: TR 
-
-
-### 
-3.7 Write Enable Decoder 
-
-
+### 3.7 Write Enable Decoder 
 As discussed in the ALU section, in our implementation data movement is happening through ALU. Hence, we must select the register to which the data should be written in the time. Each register has its own write enable pin but having dedicated bits for each register would cost us 7bits in the control signal issued by the Control Unit. So, we have gone with the design choice of having a decoder which will receive a 3 bit control signal from the Control Unit and based on the signal enables only one register for the data to be written to. 
 
+### 3.8 Control Unit 
+Control Unit is the part of the processor that directs the operation of the processor. It releases control signals to various other units like ALU, registers, buses, memory etc. and control their operations. The control signal released by the Control Unit is based on the opcode of current instruction or micro instruction. 
 
-### 
-3.8 Control Unit 
+The control unit is driven by the system clock (10MHz). Apart from the clock, it has two inputs interfacing it with the Processing Unit, namely Z2CU IR2CU. As discussed earlier IR2CU is a 6bit line which carries the opcode of the current instruction from the Instruction Register. Z2CU is the 1bit line that indicates the state of the zero flag to the Control Unit. So that it can be used to take decisions.  
 
+Also, it has one input connection from the UART module. Since, the UART module is operating independent of the Processor (It is directly interfaced with the PC), there is a signal from UART module to indicate that the communication with the PC is done and the values are written to the RAM. Only after this bit is set high our Processor starts to function. That is, the Control Unit will be issuing control signals after getting this signal from UART module. This signal is named UART2RAMcompleted.  
 
-    Control Unit is the part of the processor that directs the operation of the processor. It releases control signals to various other units like ALU, registers, buses, memory etc. and control their operations. The control signal released by the Control Unit is based on the opcode of current instruction or micro instruction. 
+Similarly, it has an output bit interfaced with the UART module named ENDOPS. This indicates the end of the processing by the processor, so that the UART module can transmit back the result to the PC. 
 
-
-    The control unit is driven by the system clock (10MHz). Apart from the clock, it has two inputs interfacing it with the Processing Unit, namely Z2CU IR2CU. As discussed earlier IR2CU is a 6bit line which carries the opcode of the current instruction from the Instruction Register. Z2CU is the 1bit line that indicates the state of the zero flag to the Control Unit. So that it can be used to take decisions.  
-
-
-    Also, it has one input connection from the UART module. Since, the UART module is operating independent of the Processor (It is directly interfaced with the PC), there is a signal from UART module to indicate that the communication with the PC is done and the values are written to the RAM. Only after this bit is set high our Processor starts to function. That is, the Control Unit will be issuing control signals after getting this signal from UART module. This signal is named UART2RAMcompleted.  
-
-
-    Similarly, it has an output bit interfaced with the UART module named ENDOPS. This indicates the end of the processing by the processor, so that the UART module can transmit back the result to the PC. 
-
-
-    The main output of the Control Unit is the instruction which is 19bit long. It carries instruction to various sub units. It can be broken down as follows. 
-
+The main output of the Control Unit is the instruction which is 19bit long. It carries instruction to various sub units. It can be broken down as follows. 
 
 <table>
   <tr>
@@ -457,39 +429,18 @@ As discussed in the ALU section, in our implementation data movement is happenin
     RAM or ALU out to DR 
    </td>
    <td>
-    ALU 
-<p>
-
-    Control 
-<p>
-
-    Signal 
+    ALU Control Signal 
    </td>
    <td>
-    Bus Mux 
-<p>
-
-    select 
+    Bus Mux select 
    </td>
    <td>A 
    </td>
    <td>
-    Write 
-<p>
-
-    Enable 
-<p>
-
-    Decoder  
+    Write Enable Decoder  
    </td>
    <td>
-    RAM 
-<p>
-
-    Write 
-<p>
-
-    Enable 
+    RAM Write Enable 
    </td>
    <td>
     Z clear  
@@ -531,175 +482,80 @@ As discussed in the ALU section, in our implementation data movement is happenin
   </tr>
 </table>
 
+#### RAM or ALU out to DR  
+This bit is used to decide data from which line (RAM or ALU out bus) should be written to Data Register. 
 
- 
+#### ALU Control Signal 
+As discussed in ALU section this 3bit signal decides what operation should performed by the ALU. 
 
+#### Bus A Mux Select 
+This signal controls Bus A. Based on this signal output of one of the registers is forwarded to the input of ALU through Bus A. 
 
-## 
-RAM or ALU out to DR  
+#### Write Enable Decoder Select 
+This signal goes as an input to the Write Enable Decoder and chooses which register should be enabled for writing. 
 
+#### RAM Write Enable 
+This 1bit signal enables the processor to write to the RAM. When this bit is set the data in DR is written to the memory location in AR. 
 
-    This bit is used to decide data from which line (RAM or ALU out bus) should be written to Data Register. 
+#### Z clear
+This bit used to clear the Z flag set by ALU. 
 
+#### Next opcode and Select bit 
+As discussed in ISA section, our instructions have several micro instructions. So, when a new instruction is fetched we have to execute the opcode that is present in IR. But when we are executing a particular instruction we know exactly what would be the opcode of the next micro instruction. So, in cases when the next opcode is known it is fixed in the control signal itself.  
 
-## 
-ALU Control Signal 
+The Select bit is used to select whether to execute the opcode in the IR or to use the one in the next opcode field. This is set high only at the last micro instruction of the fetch cycle. 
 
+### 3.9 RAM  
+The RAM module is the primary memory used in our system. It is used to store both the instructions (program) and the data.
 
-    As discussed in ALU section this 3bit signal decides what operation should performed by the ALU. 
+![Dual Port RAM](images/figure_12.png)
+*Figure 3. 7 Dual Port RAM*
 
+The RAM is designed with 16bit address so that it can cater 65536 memory locations. Each of this memory locations are 16bit wide. The processor implemented by us is designed as a twoport memory. This is done to offer two independent interfaces for the UART module and processor to access the RAM. Each interface has 4 inputs and 1 output. The input lines are clock, address (16bit), data_in (16bit), and write_enable (1bit). The output is data_out which is also 16bits wide. 
 
-## 
-Bus A Mux Select 
+The clock used is the system clock running at 10MHz. The address line points to the current memory location to which we wish to, write to or rad from. The data_out line always carries the content of the location pointed by the address line. If the write_enable signal is set the data in the data_in line is written to the location pointed by the address. 
 
+The RAM implemented in this system has latency of 1 clock cycle. That is if a read or write signal is triggered by the processor it takes one more clock cycle for the data to be available in the data Register of the processor. This is acceptable and it can be seen in the micro instruction there is always a wait state after triggering the read signals. But some non-relevant task can be done in this idle cycle (like incrementing Programing Counter). 
 
-    This signal controls Bus A. Based on this signal output of one of the registers is forwarded to the input of ALU through Bus A. 
+### 3.10 Clocking module 
+This module is an IP Core module which is used to down sample and buffer the clock. The main reason for using this module is to reduce the phase different and physical time delay which may occur due to clock being connected to different modules which are generated at different locations. To achieve this the clocking module makes use of Phase locked loops, global buffers which gives high fan out, digital clock manager.   
 
+The clocking module implemented in our design has one input which is the onboard clock running at 100MHz. Then it outputs two outputs a down sampled clock at 10MHz and another 100MHz clock. We are getting the 100MHz clock to use in UART module from the output of the module rather than from the onboard clock due to the robust features the clocking module can add as mentioned above. 
 
-## 
-Write Enable Decoder Select 
+### 3.11 UART Module 
+The UART Module is designed as a finite state machine which incorporates few other sub modules as well. The sub modules are clock divider, transmitter and a receiver. 
 
+![Sub modules of UART](images/figure_13.jpg)
+*Figure 3. 7 Sub modules of UART*
 
-    This signal goes as an input to the Write Enable Decoder and chooses which register should be enabled for writing. 
+#### Clock divider (UART) 
+This module takes the 100MHz clock as an input and outputs 9600Hz clock which is the baud rate at which the UART is communicating with the external PC. The reason for not making this a part of the IP core clocking module at the top module and just getting the down sampled clock as an input to the UART module is that the IP core clocking module was not able to deliver the exact frequency due to the overhead of universal buffer and phase lock loops. Also, a buffer was not needed since this clock is being used only in one location. 
 
+Hence the clock is implemented as a module that counts at the positive edge of the input clock and flips the input at a certain count (5208). In this way it generates a down sampled clock as its output. 
 
-## 
-RAM Write Enable 
+#### Transmitter  
+This module takes a byte of data and transmits it serially bit by bit. This module runs at the speed of the down sampled clock (9600Hz). It takes two inputs data which is 8bit wide and a signal send to trigger the transmit. It has two outputs a serial transmitter line which is interfaced with the serial receiver of the external PC and another flag to indicate that it is busy while in the middle of transmitting a data. The busy flag is used to avoid data collision and corruption. 
 
+When the send bit is set, the transmitter first sets the transmitter line (which is by default high) to low which will indicate the receiving end that a data is about to come. This is called the start bit. Then at the next eight positive edges of the clock it transmits the 8bits of data serially and then sets the transmitter line to high, which is termed as the end bit. Throughout this process the busy flag is set high and at the end of these 10 its it is brought to low. 
 
-    This 1bit signal enables the processor to write to the RAM. When this bit is set the data in DR is written to the memory location in AR. 
+#### Receiver 
+The receiver module receives the serial data and converts it as an 8bit parallel data and gives it out. Unlike the transmitter module this runs at 100MHz, to offer higher resolution. This has 3 inputs and 2 outputs. The inputs are clock, serial receiver, and a signal to clear. The outputs are 8bit data, a data_ready flag to indicate a new byte is received and available. The clear input is used to clear the data available at the output. 
 
+The receiver operates by constantly checking in its serial receiver line to go down. When the serial receiver line is pulled down by the external PC transmitter it waits for finite time (half bit time) and check again for low value. This is done to ensure that it is the start bit and not a false trigger by some random noise. After this next 8 bits are stored in an internal buffer and final end-bit is ensured to be high. Then if it is ensured, the data in internal buffer is transferred to the data output line and  data ready flag is raised. 
 
-**Z clear  **
+#### State Diagram of the UART module 
+As described earlier the UART top module is implemented as a finite state machine and the state diagram of it can be seen below. 
 
+![State Diagram of UART Top Module](images/figure_14.jpg)
+*Figure 3. 8 State Diagram of UART Top Module*
 
-    This bit used to clear the Z flag set by ALU. 
+At first (State 0) the top module waits for the data_ready signal to be raised by the receiver sub module. When such it receives the signal, it writes the received data to the ram by forwarding it to the data_in of ram and setting write_enable of ram (State 1). Then in the next state it clears the recieved data increments the address resets the write_enable (State 2). 
 
+Then in state 2 it checks if all the data are received or not. If receiving is completed it moves to state 3 or else it goes back to state 0. In state 3 UART2RAM_completed flag is set so that the processor will start working. Also, in state 3 the variables (like address counter etc.) are reset since they are to be used in transmission too and then put to state 7 where it waits for the endops signal from processor. 
 
-## 
-Next opcode and Select bit 
+When endops is received the UART top module moves to state 4 where it sends each byte and then moves to state 5 which turns off send to avoid corruption. The UART top module oscillates between these two states till all the required data are sent and then it moves to state six where variables are reset. Finally, the UART top module goes back to state 0. 
 
-
-    As discussed in ISA section, our instructions have several micro instructions. So, when a new instruction is fetched we have to execute the opcode that is present in IR. But when we are executing a particular instruction we know exactly what would be the opcode of the next micro instruction. So, in cases when the next opcode is known it is fixed in the control signal itself.  
-
-
-    The Select bit is used to select whether to execute the opcode in the IR or to use the one in the next opcode field. This is set high only at the last micro instruction of the fetch cycle. 
-
-
-### 
-3.9 RAM  
-
-
-    The RAM module is the primary memory used in our system. It is used to store both the instructions (program) and the data.  
-
-
-    The RAM is designed with 16bit address so that it can cater 65536 memory locations. Each of this memory locations are 16bit wide. The processor implemented by us is designed as a twoport memory. This is done to offer two independent interfaces for the UART module and processor to access the RAM. Each interface has 4 inputs and 1 output. The input lines are clock, address (16bit), data_in (16bit), and write_enable (1bit). The output is data_out which is also 16bits wide. 
-
-
-    The clock used is the system clock running at 10MHz. The address line points to the current memory location to which we wish to, write to or rad from. The data_out line always carries the content of the location pointed by the address line. If the write_enable signal is set the data in the data_in line is written to the location pointed by the address. 
-
-
-    The RAM implemented in this system has latency of 1 clock cycle. That is if a read or write signal is triggered by the processor it takes one more clock cycle for the data to be available in the data Register of the processor. This is acceptable and it can be seen in the micro instruction there is always a wait state after triggering the read signals. But some non-relevant task can be done in this idle cycle (like incrementing Programing Counter). 
-
-
-### 
-        3.10 Clocking module 
-
-
-    This module is an IP Core module which is used to down sample and buffer the clock. The main reason for using this module is to reduce the phase different and physical time delay which may occur due to clock being connected to different modules which are generated at different locations. To achieve this the clocking module makes use of Phase locked loops, global buffers which gives high 
-
-
-    fan out, digital clock manager.   
-
-
-    The clocking module implemented in our design has one input which is the onboard clock running at 100MHz. Then it outputs two outputs a down sampled clock at 10MHz and another 100MHz clock. We are getting the 100MHz clock to use in UART module from the output of the module rather than from the onboard clock due to the robust features the clocking module can add as mentioned above. 
-
-
-### 
-3.11 UART Module 
-
-
-    The UART Module is designed as a finite state machine which incorporates few other sub modules as well. The sub modules are clock divider, transmitter and a receiver. 
-
-<p style="text-align: right">
-
-
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image12.jpg" width="" alt="alt_text" title="image_tooltip">
- </p>
-
-
-
-_Figure 3. 7 Sub modules of UART _
-
-
-## 
-Clock divider (UART) 
-
-
-    This module takes the 100MHz clock as an input and outputs 9600Hz clock which is the baud rate at which the UART is communicating with the external PC. The reason for not making this a part of the IP core clocking module at the top module and just getting the down sampled clock as an input to the UART module is that the IP core clocking module was not able to deliver the exact frequency due to the overhead of universal buffer and phase lock loops. Also, a buffer was not needed since this clock is being used only in one location. 
-
-
-    Hence the clock is implemented as a module that counts at the positive edge of the input clock and flips the input at a certain count (5208). In this way it generates a down sampled clock as its output. 
-
-
-## 
-Transmitter  
-
-
-    This module takes a byte of data and transmits it serially bit by bit. This module runs at the speed of the down sampled clock (9600Hz). It takes two inputs data which is 8bit wide and a signal send to trigger the transmit. It has two outputs a serial transmitter line which is interfaced with the serial receiver of the external PC and another flag to indicate that it is busy while in the middle of transmitting a data. The busy flag is used to avoid data collision and corruption. 
-
-
-    When the send bit is set, the transmitter first sets the transmitter line (which is by default high) to low which will indicate the receiving end that a data is about to come. This is called the start bit. Then at the next eight positive edges of the clock it transmits the 8bits of data serially and then sets the transmitter line to high, which is termed as the end bit. Throughout this process the busy flag is set high and at the end of these 10 its it is brought to low. 
-
-
-## 
-Receiver 
-
-
-    The receiver module receives the serial data and converts it as an 8bit parallel data and gives it out. Unlike the transmitter module this runs at 100MHz, to offer higher resolution. This has 3 inputs and 2 outputs. The inputs are clock, serial receiver, and a signal to clear. The outputs are 8bit data, a data_ready flag to indicate a new byte is received and available. The clear input is used to clear the data available at the output. 
-
-
-    The receiver operates by constantly checking in its serial receiver line to go down. When the serial receiver line is pulled down by the external PC transmitter it waits for finite time (half bit time) and check again for low value. This is done to ensure that it is the start bit and not a false trigger by some random noise. After this next 8 bits are stored in an internal buffer and final end-bit is ensured to be high. Then if it is ensured, the data in internal buffer is transferred to the data output line and  data ready flag is raised. 
-
-
-## 
-State Diagram of the UART module 
-
-
-    As described earlier the UART top module is implemented as a finite state machine and the state diagram of it can be seen below. 
-
-<p style="text-align: right">
-
-
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image13.jpg" width="" alt="alt_text" title="image_tooltip">
- </p>
-
-
-
-_Figure 3. 8 State Diagram of UART Top Module _
-
-
-    At first (State 0) the top module waits for the data_ready signal to be raised by the receiver sub module. When such it receives the signal, it writes the received data to the ram by forwarding it to the data_in of ram and setting write_enable of ram (State 1). Then in the next state it clears the recieved data increments the address resets the write_enable (State 2). 
-
-
-    Then in state 2 it checks if all the data are received or not. If receiving is completed it moves to state 3 or else it goes back to state 0. In state 3 UART2RAM_completed flag is set so that the processor will start working. Also, in state 3 the variables (like address counter etc.) are reset since they are to be used in transmission too and then put to state 7 where it waits for the endops signal from processor. 
-
-
-    When endops is received the UART top module moves to state 4 where it sends each byte and then moves to state 5 which turns off send to avoid corruption. The UART top module oscillates between these two states till all the required data are sent and then it moves to state six where variables are reset. Finally, the UART top module goes back to state 0. 
-
- 
-
- 
-
-
-## 
-4. Algorithm 
+## 4. Algorithm 
 
 
 ### 
