@@ -67,4 +67,9 @@
 !*.png
 !*.jpg
 
+# Exclude other files
+!*.py
+!*.xlsx
+!*.coe
+
 # End of https://www.toptal.com/developers/gitignore/api/xilinxvivado
