@@ -1,112 +1,29 @@
 # 16-bit Processor
-
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 1; ALERTS: 28.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-<a href="#gdcalert3">alert3</a>
-<a href="#gdcalert4">alert4</a>
-<a href="#gdcalert5">alert5</a>
-<a href="#gdcalert6">alert6</a>
-<a href="#gdcalert7">alert7</a>
-<a href="#gdcalert8">alert8</a>
-<a href="#gdcalert9">alert9</a>
-<a href="#gdcalert10">alert10</a>
-<a href="#gdcalert11">alert11</a>
-<a href="#gdcalert12">alert12</a>
-<a href="#gdcalert13">alert13</a>
-<a href="#gdcalert14">alert14</a>
-<a href="#gdcalert15">alert15</a>
-<a href="#gdcalert16">alert16</a>
-<a href="#gdcalert17">alert17</a>
-<a href="#gdcalert18">alert18</a>
-<a href="#gdcalert19">alert19</a>
-<a href="#gdcalert20">alert20</a>
-<a href="#gdcalert21">alert21</a>
-<a href="#gdcalert22">alert22</a>
-<a href="#gdcalert23">alert23</a>
-<a href="#gdcalert24">alert24</a>
-<a href="#gdcalert25">alert25</a>
-<a href="#gdcalert26">alert26</a>
-<a href="#gdcalert27">alert27</a>
-<a href="#gdcalert28">alert28</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
-
-
-                
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
- 
-
-
-    EN 3030 
-
-
-    CIRCUITS AND SYSTEM DESIGN 
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
+EN 3030 
+CIRCUITS AND SYSTEM DESIGN 
 
 ![drawing](https://docs.google.com/drawings/d/12345/export/png) 
 
-
-    FPGA BASED PROCESSOR 
-
-
-    IMPLEMENTATION 
-
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
+FPGA BASED PROCESSOR 
+IMPLEMENTATION 
 
 ![drawing](https://docs.google.com/drawings/d/12345/export/png) 
 
-**_Group Members 	 	 	 	 	 	 	Supervisor: _**
+Group Members
+S.Harishanth(140208H) 
+B.Madhushan(140360N) 
+V.Niruhan(140422H)
+T.Thivakaran(140625H)
 
-S.Harishanth   	(140208H) 	 	 	 	Dr.Jayathu Samarawickrama 
-
-B.Madhushan  	(140360N) 
-
-V.Niruhan 	 	(140422H) 
-
-T.Thivakaran  	(140625H) 
-
+Supervisor
+Dr.Jayathu Samarawickrama
  
-
- 
-
-<p style="text-align: right">
-<em>A Submitted Project Report In Partial Fulfillment Of The Requirement For The Module EN 3030. </em></p>
-
-
- 
-
- 
-
-
-            Department of Electronics and Telecommunication,  
-
-
-    University Of Moratuwa  
-
-
-    August 28, 2017  
-
+<em>A Submitted Project Report In Partial Fulfillment Of The Requirement For The Module EN 3030. </em>
+Department of Electronics and Telecommunication,  
+University Of Moratuwa  
+August 28, 2017  
 
 # Contents 
-
-
 
 1. Introduction ......................................................................................................................................... 3 
     1. Processor and CPU design ......................................................................................................... 3 
