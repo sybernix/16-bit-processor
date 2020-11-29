@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer_isim_beh.exe" -prj "E:/Circuit Systems and Design1/MyProcessor/Phase 21 - 1.7.2017/Processor to test/computer_beh.prj" "work.computer" "work.glbl" 

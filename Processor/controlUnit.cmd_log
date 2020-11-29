@@ -1,8 +1,0 @@
-vhdtdtfi -lib work {E:/Education/MyStuffFifthSemi/Circuit Systems and Design/MyProcessor/Phase 7 - 13.5.2017/Processor/controlUnit.v} -lang verilog -prj Processor -o controlUnit.spl -module controlUnit -template E:/dir/xilinx/14.5/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 controlUnit.spl {E:/Education/MyStuffFifthSemi/Circuit Systems and Design/MyProcessor/Phase 7 - 13.5.2017/Processor/controlUnit.sym} 
-xst -intstyle ise -ifn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/controlUnit.xst" -ofn "E:/Circuit Systems and Design1/MyProcessor/Phase 14 - 27.6.2017/Processor to test/controlUnit.syr" 
-ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx45-csg324-3 "controlUnit.ngc" controlUnit.ngd  
-map -intstyle ise -p xc6slx45-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o controlUnit_map.ncd controlUnit.ngd controlUnit.pcf 
-par -w -intstyle ise -ol high -mt off controlUnit_map.ncd controlUnit.ncd controlUnit.pcf 
-trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml controlUnit.twx controlUnit.ncd -o controlUnit.twr controlUnit.pcf 
-bitgen -intstyle ise -f controlUnit.ut controlUnit.ncd 
