@@ -334,131 +334,56 @@ This is the logic circuitry that performs the task at hand namely down sampling 
 
 Our Processor implementation is sub divided into two units namely Processing unit and Control Unit. The Processing Unit is comprised of the complete data path (ALU, Registers, Buses etc.) and responsible for performing operations and data manipulation. While the control Unit overlooks the operation by decoding the instructions and releasing the control signals. These units and their sub modules are explained in detail in the following sections. 
 
-<p style="text-align: right">
+![Organization of Sub modules within the processor](images/figure_8.jpg)
+*Figure 3. 3 Organization of Sub modules within the processor*
 
+### 3.3 Processing Unit 
+The Processing Unit is comprised of the complete data path and responsible for performing operations and data manipulation. It comprises of Registers, Buses Arithmetic Logic Unit, multiplexers, decoders etc. The processing unit is interfaced with RAM through the lines connecting AR and DR to RAM. All the submodules of the processing unit function based on the instructions released by the Control Unit. 
 
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+A detailed internal diagram of the Processing unit is shown below.  
 
+![Organization of sub modules inside the Processing Unit](images/figure_9.jpg)
+*Figure 3. 4 Organization of sub modules inside the Processing Unit*
 
-<img src="images/image8.jpg" width="" alt="alt_text" title="image_tooltip">
- </p>
+Each sub module of this section is explained in detail in their respective sections
 
+### 3.4 Registers 
+Registers are the modules which are used to store the data inside the processor while processing. There are seven registers in the implementation. Address Register (AR), Data Register (DR), Program Counter (PC), Instruction Register (IR), Accumulator (AC), Two general purpose registers (R, TR). All these registers can hold 16bits of data except IR which holds only 6bits of data. 
 
+![Register](images/figure_10.jpg)
+*Figure 3. 5 Register*
 
-_Figure 3. 3 Organization of Sub modules within the processor _
+All the registers are driven by the system clock (which is running at 10MHz). The registers have data_in through which data can be written to the registers. But at any given time the register will accept the data from data_in line only if the write_enable bit (which is another input) is set as high. The data in the registers are always exposed through the data_out line. The data_out of the registers AC, DR, PC, and TR are connected to Bus_A. The data_out of IR goes to the control unit as an input through IR2CU line. The data_out line of AR and DR are connected to RAM module through AR2RAM and DR2RAM respectively. The data_out of the register R is directly connected to ALU. 
 
+#### Accumulator (AC) 
+AC is used to store the immediate output of ALU. In our implementation for all arithmetic operations between data one input operand is always stored in AC (refer ISA).  
 
-### 
-3.3 Processing Unit 
+#### Register (R) 
+This is designed as a register that is directly connected to the ALU (refer the Datapath). So, it carries the second operand for all arithmetic operations between data.  
 
+#### Temporary Register (TR) 
+This is used as a temporary register to store intermediate results in the short run for some operations. So that it would reduce the latency of memory access. 
 
-    The Processing Unit is comprised of the complete data path and responsible for performing operations and data manipulation. It comprises of Registers, Buses Arithmetic Logic Unit, multiplexers, decoders etc. The processing unit is interfaced with RAM through the lines connecting AR and DR to RAM. All the submodules of the processing unit function based on the instructions released by the Control Unit. 
+#### Program Counter (PC) 
+This register always holds the address of the next instruction or address of next data depending on the situation. It is always made sure that it is always incremented at the execution of each instruction. Note that even incrementing PC is done by ALU to avoid loss of generality, so that all the arithmetic and logic operations are done by ALU and registers are synthesized as pure registers. 
 
+#### Instruction Register (IR) 
+The IR stores the opcode of the current instruction and releases it to the control unit. The data in the IR is updated at the end of each fetch cycle. 
 
-    A detailed internal diagram of the Processing unit is shown below.  
+#### Address Register (AR)  
+This register holds the address of memory location, from which data is to be read or to which data is to be written. The output of this is directly connected to the RAM. 
 
-<p style="text-align: right">
+#### Data Register (DR)
+This register holds the data which is to be written to the RAM or which is read from the RAM. The output of it is connected to both Bus_A and RAM. The input of it comes through a multiplexer which selects what data is to be written to DR (from RAM or ALU_out) based on the situation. 
 
+Both AR and DR are the interface through which our Processor communicates with the RAM. 
 
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+### 3.5 Arithmetic Logic Unit (ALU) 
+ALU is the module that handles all the arithmetic and logic operations done in the processor. It has two data inputs and one data outputs. One data input comes directly from R while the other input comes from Bus_A. But usually we have adhered to the common practice of having the other data in AC in case of arithmetic operation. The output of ALU (which is also a bus) can be written to any registers but here too we have kept it strictly to write it to AC when it is an arithmetic operation. The only arithmetic operation that by passes this rule is incrementing PC. 
 
+But the whole point of having BUS_A and ALU_out connected to almost all the register is to enable data movement to happen through ALU. Keeping in line with MIC 1 architecture we have made sure all the process in the processing unit go through ALU. During data movement ALU simply forwards the data_in to data_out.  
 
-<img src="images/image9.jpg" width="" alt="alt_text" title="image_tooltip">
- </p>
-
-
-
-_Figure 3. 4 Organization of sub modules inside the Processing Unit _
-
-
-    Each sub module of this section is explained in detail in their respective sections 
-
-
-### 
-3.4 Registers 
-
-
-    Registers are the modules which are used to store the data inside the processor while processing. There are seven registers in the implementation. Address Register (AR), Data Register (DR), Program Counter (PC), Instruction Register (IR), Accumulator (AC), Two general purpose registers (R, TR). All these registers can hold 16bits of data except IR which holds only 6bits of data. 
-
-
-
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image10.jpg "image_tooltip")
- 
-
-
-_Figure 3. 5 Register _
-
-
-    All the registers are driven by the system clock (which is running at 10MHz). The registers have data_in through which data can be written to the registers. But at any given time the register will accept the data from data_in line only if the write_enable bit (which is another input) is set as high. The data in the registers are always exposed through the data_out line. The data_out of the registers AC, DR, PC, and TR are connected to Bus_A. The data_out of IR goes to the control unit as an input through IR2CU line. The data_out line of AR and DR are connected to RAM module through AR2RAM and DR2RAM respectively. The data_out of the register R is directly connected to ALU. 
-
-
-## 
-Accumulator (AC) 
-
-
-    AC is used to store the immediate output of ALU. In our implementation for all arithmetic operations between data one input operand is always stored in AC (refer ISA).  
-
-
-## 
-Register (R) 
-
-
-    This is designed as a register that is directly connected to the ALU (refer the Datapath). So, it carries the second operand for all arithmetic operations between data.  
-
-
-## 
-Temporary Register (TR) 
-
-
-    This is used as a temporary register to store intermediate results in the short run for some operations. So that it would reduce the latency of memory access. 
-
-
-## 
-Program Counter (PC) 
-
-
-    This register always holds the address of the next instruction or address of next data depending on the situation. It is always made sure that it is always incremented at the execution of each instruction. Note that even incrementing PC is done by ALU to avoid loss of generality, so that all the arithmetic and logic operations are done by ALU and registers are synthesized as pure registers. 
-
-
-## 
-Instruction Register (IR) 
-
-
-    The IR stores the opcode of the current instruction and releases it to the control unit. The data in the IR is updated at the end of each fetch cycle. 
-
-
-## 
-Address Register (AR)  
-
-
-    This register holds the address of memory location, from which data is to be read or to which data is to be written. The output of this is directly connected to the RAM. 
-
-
-**Data Register (DR). **
-
-
-    This register holds the data which is to be written to the RAM or which is read from the RAM. The output of it is connected to both Bus_A and RAM. The input of it comes through a multiplexer which selects what data is to be written to DR (from RAM or ALU_out) based on the situation. 
-
-
-    Both AR and DR are the interface through which our Processor communicates with the RAM. 
-
-
-### 
-3.5 Arithmetic Logic Unit (ALU) 
-
-
-    ALU is the module that handles all the arithmetic and logic operations done in the processor. It has two data inputs and one data outputs. One data input comes directly from R while the other input comes from Bus_A. But usually we have adhered to the common practice of having the other data in AC in case of arithmetic operation. The output of ALU (which is also a bus) can be written to any registers but here too we have kept it strictly to write it to AC when it is an arithmetic operation. The only arithmetic operation that by passes this rule is incrementing PC. 
-
-
-    But the whole point of having BUS_A and ALU_out connected to almost all the register is to enable data movement to happen through ALU. Keeping in line with MIC 1 architecture we have made sure all the process in the processing unit go through ALU. During data movement ALU simply forwards the data_in to data_out.  
-
- 
-
-
-    Apart from the data inputs and outputs the ALU has few other IOs. The main one being ALU_control signal which is a 3bit control signal released by the Control Unit based on the current micro instruction. Based on the control signal the following operations are executed by the ALU. 
+Apart from the data inputs and outputs the ALU has few other IOs. The main one being ALU_control signal which is a 3bit control signal released by the Control Unit based on the current micro instruction. Based on the control signal the following operations are executed by the ALU. 
 
 
 
@@ -478,10 +403,8 @@ Address Register (AR)
 <p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image11.jpg "image_tooltip")
+![alt_text](images/image11.jpg)
  
-
-
 _Figure 3. 6 ALU _
 
 
@@ -1290,7 +1213,7 @@ STAC
 <p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image14.jpg "image_tooltip")
+![alt_text](images/image14.jpg)
 
 
  
@@ -1310,7 +1233,7 @@ STAC
 <p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image15.jpg "image_tooltip")
+![alt_text](images/image15.jpg)
 
 
 
@@ -1366,7 +1289,7 @@ Figure 6.3: Down sampled image using MATLAB
 <p id="gdcalert24" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert25">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image16.jpg "image_tooltip")
+![alt_text](images/image16.jpg)
 
 
  
@@ -1377,7 +1300,7 @@ Figure 6.3: Down sampled image using MATLAB
 <p id="gdcalert25" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert26">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image17.jpg "image_tooltip")
+![alt_text](images/image17.jpg)
 
 
  
@@ -1406,7 +1329,7 @@ Figure 6.3: Down sampled image using MATLAB
 <p id="gdcalert26" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image18.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert27">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image18.jpg "image_tooltip")
+![alt_text](images/image18.jpg)
 
 
  
@@ -1417,7 +1340,7 @@ Figure 6.3: Down sampled image using MATLAB
 <p id="gdcalert27" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image19.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert28">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image19.jpg "image_tooltip")
+![alt_text](images/image19.jpg)
 
 
  
