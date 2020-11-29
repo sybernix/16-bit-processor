@@ -64,35 +64,14 @@ In our project Xilinx FPGA design suite is used for the implementation of the pa
 * Simplicity of the architecture 
 * Using the memory in efficient manner are the factors that we considered while implementing the processor. 
 
- 
+ After the implementation of the processor, the processed output image should be compared with the output image processed image by the MATLAB. The pixel value of two output images is also compared for the verification. There were some limitations of input in our case. Because of the limited memory capacity we were able to give a grey color image with the maximum resolution of 200x200 as the input. And finally the SSD (Sum of Squared Difference) value of the two output image arrays is calculated by the following equation 
 
+![Equation](images/figure_2.jpg)
 
-    After the implementation of the processor, the processed output image should be compared with the output image processed image by the MATLAB. The pixel value of two output images is also compared for the verification. There were some limitations of input in our case. Because of the limited memory capacity we were able to give a grey color image with the maximum resolution of 200x200 as the input. And finally the SSD (Sum of Squared Difference) value of the two output image arrays is calculated by the following equation 
+Where f and g refer the two images. If this value is equal to zero then the two images are perfectly similar. Moreover an array of difference of relative pixel values also obtained and if it is equal to zero array then it ensures the verification.  
 
- 
-
-
-                
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.jpg "image_tooltip")
-
-
-  
-
-
-    Where f and g refer the two images. If this value is equal to zero then the two images are perfectly similar. Moreover an array of difference of relative pixel values also obtained and if it is equal to zero array then it ensures the verification.  
-
-
-## 
-2. Instruction set architecture  
-
-
-    A 16-bit processor architecture was designed for the purpose of filtering and down sampling an image with 8-bit pixel values. MIC-1 architecture was chosen as a reference. The basic components in the architecture are, 
-
-
+## 2. Instruction set architecture  
+A 16-bit processor architecture was designed for the purpose of filtering and down sampling an image with 8-bit pixel values. MIC-1 architecture was chosen as a reference. The basic components in the architecture are,
 
 1. Registers 
     1. PC – Program counter which holds the address of the next instruction in the ram. 
@@ -108,70 +87,9 @@ In our project Xilinx FPGA design suite is used for the implementation of the pa
 
 RAM has memory locations of length 16-bit and each byte is addressable. The memory bus is 16-bit. ALU is 16-bit and the registers are 16-bit. ALU takes two inputs and one is fixed input from AC and the other is from R.  
 
+![](images/figure_3.jpg)
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-<p style="text-align: right">
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image3.jpg" width="" alt="alt_text" title="image_tooltip">
- </p>
-
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-
-### 
-2.1 Instruction set  
+### 2.1 Instruction set  
 
 
     The processor has 6 bit instruction. The instruction table is shown below  
