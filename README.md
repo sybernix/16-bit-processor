@@ -626,108 +626,212 @@ figure;
 imshow(testout); 
 ```
 
-
- 
-
-
-### 
-4.3 Assembly Code Used 
-
- 
-
+### 4.3 Assembly Code Used 
 
 ```
-CLAC STAC address of x STAC address of y STAC address of intermediate LDAC address of n 
-MVAC2R 
-ADD STAC address of 2n LDAC address of 1 
-MVAC2R LDAC address of n SUB STAC address of n-1 ADD 
-ADD STAC address of n+1 MVAC2R LDAC address of first pixel 
-ADD STAC address of a STAC address of b LDAC address of 2 MVAC2R LDAC address of a LOAD 
-RSHIFT STAC address of intermediate LDAC address of 1 MVAC2R LDAC address of a SUB 
-LOAD 
-MVAC2TR LDAC address of a ADD 
-LOAD 
-MVAC2R 
-MVTR2AC ADD 
-MVAC2TR LDAC address of n MVAC2R LDAC address of a SUB 
-LOAD 
-MVAC2R 
-MVTR2AC ADD 
-MVAC2TR 
-LDAC address of n MVAC2R LDAC address of a ADD 
-LOAD 
-MVAC2R 
-MVTR2AC ADD 
-MVAC2TR LDAC address of 3 MVAC2R 
-MVTR2AC 
-RSHIFT 
-MVAC2R LDAC address of intermediate 
-ADD STAC address of intermediate LDAC address of n+1 MVAC2R LDAC address of a SUB 
-LOAD 
-MVAC2TR LDAC address of a ADD 
-LOAD 
-MVAC2R 
-MVTR2AC ADD 
-MVAC2TR LDAC address of n-1 MVAC2R LDAC address of a SUB 
-LOAD 
-MVAC2R 
-MVTR2AC ADD 
-MVAC2TR LDAC address of n-1 MVAC2R LDAC address of a ADD 
-LOAD 
-MVAC2R 
-MVTR2AC ADD 
-MVAC2TR LDAC address of 4 MVAC2R 
-MVTR2AC 
-RSHIFT 
-MVAC2R LDAC address of intermediate 
-ADD STAC address of new pixel LDAC special address MVAC2R LDAC address of 1 ADD STAC special address LDAC address of 2 MVAC2R LDAC address of a ADD STAC address of a LDAC address of x MVAC2R LDAC address of 1 ADD STAC address of x MVAC2R LDAC address of n/2 SUB 
-JPNZ 
-JUMP ADDRESS 
-LDAC 
-address of b MVAC2R LDAC address of 2n ADD STAC address of a STAC address of b CLAC STAC address of x LDAC address of y MVAC2R LDAC address of 1 ADD STAC address of y MVAC2R LDAC address of n/2 SUB 
-JPNZ 
-JUMP ADDRESS 
-ENDOPS 
+CLAC
+STAC
+address of x
+STAC
+address of y
+STAC
+address of intermediate
+LDAC
+address of n
+MVAC2R
+ADD
+STAC
+address of 2n
+LDAC
+address of 1
+MVAC2R
+LDAC
+address of n
+SUB
+STAC
+address of n-1
+ADD
+ADD
+STAC
+address of n+1
+MVAC2R
+LDAC
+address of first pixel
+ADD
+STAC
+address of a
+STAC
+address of b
+LDAC
+address of 2
+MVAC2R
+LDAC
+address of a
+LOAD
+RSHIFT
+STAC
+address of intermediate
+LDAC
+address of 1
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2TR
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+address of n
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+address of n
+MVAC2R
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+address of 3
+MVAC2R
+MVTR2AC
+RSHIFT
+MVAC2R
+LDAC
+address of intermediate
+ADD
+STAC
+address of intermediate
+LDAC
+address of n+1
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2TR
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+address of n-1
+MVAC2R
+LDAC
+address of a
+SUB
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+address of n-1
+MVAC2R
+LDAC
+address of a
+ADD
+LOAD
+MVAC2R
+MVTR2AC
+ADD
+MVAC2TR
+LDAC
+address of 4
+MVAC2R
+MVTR2AC
+RSHIFT
+MVAC2R
+LDAC
+address of intermediate
+ADD
+STAC
+address of new pixel
+LDAC
+special address
+MVAC2R
+LDAC
+address of 1
+ADD
+STAC
+special address
+LDAC
+address of 2
+MVAC2R
+LDAC
+address of a
+ADD
+STAC
+address of a
+LDAC
+address of x
+MVAC2R
+LDAC
+address of 1
+ADD
+STAC
+address of x
+MVAC2R
+LDAC
+address of n/2
+SUB
+JPNZ
+JUMP ADDRESS
+LDAC
+address of b
+MVAC2R
+LDAC
+address of 2n
+ADD
+STAC
+address of a
+STAC
+address of b
+CLAC
+STAC
+address of x
+LDAC
+address of y
+MVAC2R
+LDAC
+address of 1
+ADD
+STAC
+address of y
+MVAC2R
+LDAC
+address of n/2
+SUB
+JPNZ
+JUMP ADDRESS
+ENDOPS
 ```
 
-
-  
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-
-## 
-5. Testing, Simulations and Modifications 
-
-
-### 
-5.1 Testing & Simulations 
-
-
-    The processor was built module-by-module in the following order, 
-
-
-
+## 5. Testing, Simulations and Modifications 
+### 5.1 Testing & Simulations 
+The processor was built module-by-module in the following order, 
 1. Register 
 2. ALU 
 3. Processing Unit 
