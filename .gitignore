@@ -63,4 +63,8 @@
 !*.bmm
 !*.xmp
 
+# Exclude images
+!*.png
+!*.jpg
+
 # End of https://www.toptal.com/developers/gitignore/api/xilinxvivado
