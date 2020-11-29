@@ -1,0 +1,6 @@
+verilog work "writeEnableMux.v"
+verilog work "Register.v"
+verilog work "IRRegister.v"
+verilog work "BusAMux.v"
+verilog work "ALU.v"
+verilog work "processingUnit.v"

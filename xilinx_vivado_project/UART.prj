@@ -1,0 +1,4 @@
+verilog work "tx.v"
+verilog work "rx.v"
+verilog work "clock_divider.v"
+verilog work "UART.v"
