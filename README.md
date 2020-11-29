@@ -591,7 +591,7 @@ Our approach to the problem is applying the Gaussian kernel not to every pixel b
 
 Also note that the Gaussian kernel values are chosen to be inverse of the exponents of 2 because the ALU that was built for the processor doesn’t have an actual division or multiplication operation which are costly. Instead right-shift and left-shift bit-wise operations were incorporated into the ALU to be used in place of division and multiplication respectively. These operations are computationally efficient and require less hardware to realize. Since the requirement of the project was very specific to Gaussian filtering and down sampling to half the original size, costly ALU operations were dropped in favor of shifting with the intention of cleverly exploiting the carefully chosen values for Gaussian kernel. This is not a limitation of the processor, but rather a hardware-efficient way of achieving the project goals. 
 
-![Flow chart for the algorithm](images/figure_15.png)
+![Flow chart for the algorithm](images/figure_15.png)\
 *Figure 4.2 – Flow chart for the algorithm*
 
 ![Illustration of choosing pixels to apply kernel](images/figure_16.png)
@@ -857,23 +857,23 @@ During the project viva, we were asked to modify the code and enable ALU to perf
 parameter NOP=2'b000, ADD=2'b001, SUB=2'b010, LSHIFT=2'b011, RSHIFT=3'b100, MOVR=3'b101, INC=3'b110; 
 
 always @(controlSignal or dataIn or RIn or zClear) 
- 	begin 
- 	 	case (controlSignal)
-            NOP: dataOut <= dataIn; 
- 	 	 	ADD: dataOut <= RIn + dataIn; 
- 	 	 	SUB: dataOut <= dataIn-RIn; 
- 	 	 	LSHIFT: dataOut <= dataIn << RIn; 
- 	 	 	RSHIFT: dataOut <= dataIn >> RIn; 
- 	 	 	MOVR: dataOut <= RIn; 
- 	 	 	INC:
-                begin 
- 	 	 	 	    data = dataIn + 1; 
- 	 	 	 	 	dataOut <= data[15:0]; 
- 	 	 	 	end 
- 	 	 	default dataOut <= 16'b0000000000000000; 
- 	 	endcase 
- 	end 
- 	assign Z = !(|dataOut);
+ 	begin
+        case (controlSignal)
+            NOP: dataOut <= dataIn;
+            ADD: dataOut <= RIn + dataIn;
+            SUB: dataOut <= dataIn-RIn;
+            LSHIFT: dataOut <= dataIn << RIn;
+            RSHIFT: dataOut <= dataIn >> RIn;
+            MOVR: dataOut <= RIn;
+            INC:
+                begin
+                    data = dataIn + 1;
+                    dataOut <= data[15:0];
+                end
+            default dataOut <= 16'b0000000000000000;
+        endcase
+    end
+    assign Z = !(|dataOut);
 endmodule 
 ```
 
