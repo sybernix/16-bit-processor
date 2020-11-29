@@ -32,96 +32,37 @@
     2. Results Verification And Analysis
     3. Error Analysis
 7. Design Summary
+8. Appendices
+    1. Appendix I Verilog Code
 
-<p style="text-align: right">
- .......................................................................................................................................................... 33 </p>
+## 1. Introduction 
+The process of something in software usually takes particular amount of time to get processed since it is executed sequentially. But in most of the applications like high speed image processing applications less processing time is expected. In that case we need parallel processing which cannot be done at software level. Therefore we need to do it at hardware level to reduce the processing time. The main objective of this project is to design a processor and CPU (central processing unit) which is for doing a specific task and simulate it using the Verilog hardware description language and at last to implement it in hardware by using FPGA (Field Programmable Gate Array).This report describes about the processor and CPU design, the test codes (MATLAB code and Verilog code) used for verifications and the physical hardware implementation. 
 
+### 1.1 Processor and CPU design 
+The central processing unit (CPU) is an electronic circuitry within the computer that performs arithmetic, logical, control and input/output (I/O) operations to carry out the instructions of a computer program. Processing unit and control unit are the two fundamental components of a CPU. The principal components of processing unit includes arithmetic logic unit (ALU) that performs arithmetic and logic operations and processor registers that supply operands to the ALU and store the results of ALU operations. The control unit orchestrates the fetching (from memory) and execution of instructions by directing the coordinated operations of the ALU, registers and other components (Multiplexer and decoders).The processor is a register based, clock driven, multipurpose programmable electronic device which accepts binary data as input and process it according to the instructions stored in memory and provides the result as output. Processor incorporates the functions of central processing unit (CPU) of a computer on a single or few integrated circuits. The processor contains both combinational and sequential logic.  
 
+![Basic block diagram of CPU](images/figure_1.png)
+*Basic block diagram of CPU*
 
-
-1. Appendices ........................................................................................................................................ 36 
-
-    9.1 Appendix I Verilog Code .......................................................................................................... 36 
-
-
- 
-
-
-## 
-1. Introduction 
+### 1.2 Task  
+Implementing a processor and CPU design to give the output as filtered and down sampled image of the given input image. 
 
 
-    The process of something in software usually takes particular amount of time to get processed since it is executed sequentially. But in most of the applications like high speed image processing applications less processing time is expected. In that case we need parallel processing which cannot be done at software level. Therefore we need to do it at hardware level to reduce the processing time. The main objective of this project is to design a processor and CPU (central processing unit) which is for doing a specific task and simulate it using the Verilog hardware description language and at last to implement it in hardware by using FPGA (Field Programmable Gate Array).This report describes about the processor and CPU design, the test codes (MATLAB code and Verilog code) used for verifications and the physical hardware implementation. 
+For the completion of this task, first the CPU should get data from the serial input and save to main memory. Then do the processing part. After processing the processed data should be returned to the memory and finally the result should be displayed. This main task consists of three sub tasks. 
 
+* <b>Controlling and storing input data signal in main memory</b><br/>
+This task include the UART implementation in FPGA. First serial data is sent to the UART port by serial data transmitting software (MATLAB) and it is received by implemented UART receiver using Verilog in FPGA. At last received data is stored in the main memory which is already implemented in FPGA. 
 
-### 
-1.1 Processor and CPU design 
+* <b>Filtering and Down sampling the saved image</b><br/>
+High frequency components in the image could be problematical for the accuracy of the image after down sampling. Therefore the saved image is filtered and down sampled to reduce the effect of high frequency components in the image. These processes (filtering and down sampling) are implemented on the FPGA. The processed data is stored in the main memory.
 
+* <b>Controlling and displaying the processed image</b><br/>
+UART transmitter is implemented on the FPGA to get the processed data from FPGA to computer. MATLAB is used to collect the data. 
 
-    The central processing unit (CPU) is an electronic circuitry within the computer that performs arithmetic, logical, control and input/output (I/O) operations to carry out the instructions of a computer program. Processing unit and control unit are the two fundamental components of a CPU. The principal components of processing unit includes arithmetic logic unit (ALU) that performs arithmetic and logic operations and processor registers that supply operands to the ALU and store the results of ALU operations. The control unit orchestrates the fetching (from memory) and execution of instructions by directing the coordinated operations of the ALU, registers and other components (Multiplexer and decoders).The processor is a register based, clock driven, multipurpose programmable electronic device which accepts binary data as input and process it according to the instructions stored in memory and provides the result as output. Processor incorporates the functions of central processing unit (CPU) of a computer on a single or few integrated circuits. The processor contains both combinational and sequential logic.  
-
- 
-
- 
-
-
-            
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/drawings/d/12345/export/png)
-
- 
-
-
-### 
-1.2 Task  
-
-
-    Implementing a processor and CPU design to give the output as filtered and down sampled image of the given input image. 
-
-
-    For the completion of this task, first the CPU should get data from the serial input and save to main memory. Then do the processing part. After processing the processed data should be returned to the memory and finally the result should be displayed. This main task consists of three sub tasks. 
-
-
-## 
-    ▪ Controlling and storing input data signal in main memory 
-
-
-        This task include the UART implementation in FPGA. First serial data is sent to the UART port by serial data transmitting software (MATLAB) and it is received by implemented UART receiver using Verilog in FPGA. At last received data is stored in the main memory which is already implemented in FPGA. 
-
-
-     
-
-
-## 
-    ▪ Filtering and Down sampling the saved image 
-
-
-        High frequency components in the image could be problematical for the accuracy of the image after down sampling. Therefore the saved image is filtered and down sampled to reduce the effect of high frequency components in the image. These processes (filtering and down sampling) are implemented on the FPGA. The processed data is stored in the main memory. 
-
-
-     
-
-
-## 
-    ▪ Controlling and displaying the processed image 
-
-
-        UART transmitter is implemented on the FPGA to get the processed data from FPGA to computer. MATLAB is used to collect the data. 
-
-
-     
-
-
-    In our project Xilinx FPGA design suite is used for the implementation of the particular task specified processor. 
-
-
-
-*   Processing the data in minimum time 
-*   Simplicity of the architecture 
-*   Using the memory in efficient manner   are the factors that we considered while implementing the processor. 
+In our project Xilinx FPGA design suite is used for the implementation of the particular task specified processor. 
+* Processing the data in minimum time 
+* Simplicity of the architecture 
+* Using the memory in efficient manner are the factors that we considered while implementing the processor. 
 
  
 
