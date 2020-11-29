@@ -221,17 +221,18 @@ Opcode for fetch1 is given as 000000 for the first time fetch is executed and lo
 Select bit is 1 in only one occasion when fetch is over the instruction in the IR register must be executed.  
 
 #### Fetching instruction 
-Fetching instruction consist of 4 stages 
-
- 	Fetch1 -   AR<=PC 
- 	Fetch2 -   DR<=RAM, PC<=PC+1 
- 	Fetch3 -   wait 
- 	Fetch4 -   IR<=DR 
+Fetching instruction consist of 4 stages
+```
+Fetch1 -   AR<=PC 
+Fetch2 -   DR<=RAM, PC<=PC+1 
+Fetch3 -   wait 
+Fetch4 -   IR<=DR
+```
 
 #### Decoding instruction 
 After fetching instructions from the instruction memory, the CPU has to identify which instruction has been fetched thereby invoking the correct execution cycle. This task is done by the controlling unit. 
 
- #### Executing instruction 
+#### Executing instruction 
 * ADD instruction\
 ADD instruction can be executed by one stage\
 `AC<=AC+R`
@@ -302,102 +303,36 @@ These instructions can be done in one stage. AC is shifted by a value in the R r
 * LOAD instruction\
 LOAD instruction can be done in four stages\
 This is used fetch the data from the RAM with the address that accumulator hold. 
-```
-LOAD1 - AR<=AC
-LOAD2 - DR<=RAM
-LOAD3 - WAIT
-LOAD4 - AC<=DR
-```
+    ```
+    LOAD1 - AR<=AC
+    LOAD2 - DR<=RAM
+    LOAD3 - WAIT
+    LOAD4 - AC<=DR
+    ```
 
-### 
-2.3 State diagram of the CPU 
+### 2.3 State diagram of the CPU
+![State diagram of the CPU](images/figure_5.jpg)
 
+## 3. Modules 
 
-<p style="text-align: right">
+### 3.1 Top Module 
+This contains all the sub units that makes up our system. It houses the Processor, RAM, UART module and a clocking module. The processor is the main heart of our system. While the RAM is a two port RAM interfaced with the processor and UART module. The UART module is used for data transmission with an external computer. The clocking module is used to down sample the clock and make it robust. 
 
+The top module is interfaced with the board as follows.  
+* The clock input is connected to the onboard clock which runs at 100MHz. 
+* The serial receiver and transmitter is connected with the micro USB port for serial communication. 
+* Some state indicating outputs are connected to onboard LEDs. 
 
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![External View of Top Module](images/figure_6.jpg)
+*Figure 3. 1 External View of Top Module*
 
+![Internal Organization of the Top module](images/figure_7.jpg)
+*Figure 3. 2 Internal Organization of the Top module*
 
-<img src="images/image5.jpg" width="" alt="alt_text" title="image_tooltip">
- </p>
+### 3.2 Processor  
+This is the logic circuitry that performs the task at hand namely down sampling an image all the other modules are merely supporting and facilitating the function of the processor. The processor runs at 10MHz. The processor is interfaced with RAM for getting data. It is also interfaced with the UART module to know the status of the UART module and inform its status to the UART module. 
 
-
- 	 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-
-## 
-3. Modules 
-
-
-### 
-3.1 Top Module 
-
-
-    This contains all the sub units that makes up our system. It houses the Processor, RAM, UART module and a clocking module. The processor is the main heart of our system. While the RAM is a two port RAM interfaced with the processor and UART module. The UART module is used for data transmission with an external computer. The clocking module is used to down sample the clock and make it robust. 
-
-
-    The top module is interfaced with the board as follows.  
-
-
-
-*   The clock input is connected to the onboard clock which runs at 100MHz. 
-*   The serial receiver and transmitter is connected with the micro USB port for serial communication. 
-*   Some state indicating outputs are connected to onboard LEDs. 
-
-
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.jpg "image_tooltip")
- 
-
-
-_Figure 3. 1 External View of Top Module _
-
-<p style="text-align: right">
-
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image7.jpg" width="" alt="alt_text" title="image_tooltip">
- </p>
-
-
-
-_Figure 3. 2 Internal Organization of the Top module _
-
-
-### 
-3.2 Processor  
-
-
-    This is the logic circuitry that performs the task at hand namely down sampling an image all the other modules are merely supporting and facilitating the function of the processor. The processor runs at 10MHz. The processor is interfaced with RAM for getting data. It is also interfaced with the UART module to know the status of the UART module and inform its status to the UART module. 
-
-
-    Our Processor implementation is sub divided into two units namely Processing unit and Control Unit. The Processing Unit is comprised of the complete data path (ALU, Registers, Buses etc.) and responsible for performing operations and data manipulation. While the control Unit overlooks the operation by decoding the instructions and releasing the control signals. These units and their sub modules are explained in detail in the following sections. 
+Our Processor implementation is sub divided into two units namely Processing unit and Control Unit. The Processing Unit is comprised of the complete data path (ALU, Registers, Buses etc.) and responsible for performing operations and data manipulation. While the control Unit overlooks the operation by decoding the instructions and releasing the control signals. These units and their sub modules are explained in detail in the following sections. 
 
 <p style="text-align: right">
 
