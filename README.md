@@ -90,16 +90,13 @@ RAM has memory locations of length 16-bit and each byte is addressable. The memo
 ![](images/figure_3.jpg)
 
 ### 2.1 Instruction set  
-
-
-    The processor has 6 bit instruction. The instruction table is shown below  
-
+The processor has 6 bit instruction. The instruction table is shown below  
 
 <table>
   <tr>
-   <td><strong>    Instruction  </strong>
+   <td><strong>Instruction</strong>
    </td>
-   <td>   <strong>  opcode </strong>
+   <td><strong>opcode</strong>
    </td>
   </tr>
   <tr>
@@ -212,287 +209,105 @@ RAM has memory locations of length 16-bit and each byte is addressable. The memo
   </tr>
 </table>
 
-
- 
-
-
-    Our processor micro instruction is 19 bits long  
-
-
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.jpg "image_tooltip")
-
-
- 
-
- 
-
-
-    These micro instruction is hard coded in the control unit. So according to the opcode it can give the micro instruction to ALU, Bus A, write enable mux, and the next opcode to the processing unit. 
-
- 
-
- 
-
- 
-
-
-### 
-2.2 Fetch decode execute cycle 
-
-
-    Opcode for fetch1 is given as 000000 for the first time fetch is executed and looking at the control unit the next opcode is taken and there is a select bit assigned in the micro instruction. If the select bit is 1 the opcode is taken from the Instruction Register. And if the select bit is 0 the next opcode is taken from the micro instruction itself. 
-
-
-    Select bit is 1 in only one occasion when fetch is over the instruction in the IR register must be executed.  
-
- 
-
-
-## 
-Fetching instruction 
-
-
-    Fetching instruction consist of 4 stages 
-
- 	Fetch1 -   AR&lt;=PC 
-
- 	Fetch2 -   DR&lt;=RAM, PC&lt;=PC+1 
-
- 	Fetch3 -    wait 
-
- 	Fetch4 -    IR&lt;=DR 
-
- 
-
-
-## 
- Decoding instruction 
-
-
-    After fetching instructions from the instruction memory, the CPU has to identify which instruction has been fetched thereby invoking the correct execution cycle. This task is done by the controlling unit. 
-
- 
-
-
-## 
-Executing instruction 
-
-
-     ADD instruction 
-
-
-            ADD instruction can be executed by one stage 
-
-
-## 
- 	 	AC&lt;=AC+R 
-
-
-     SUB instruction 
-
-
-            SUB instruction can be also executed by one stage 
-
-
-## 
-            AC&lt;=AC-R 
-
-
-     NOP instruction 
-
-
-            NOP instruction can be also executed by one stage. 
-
-
-            This operation does nothing. It increments PC by one 
-
-
-## 
-            PC&lt;=PC+1 
-
-
-         
-
- 
-
-
-
-*   LDAC instruction 
-
-            LDAC instruction can be executed in 7 stages. 
-
-
-            LDAC1 - AR&lt;=PC 
-
-
-            LDAC2 - DR&lt;=RAM, PC&lt;=PC+1 
-
-
-            LDAC3 - WAIT 
-
-
-            LDAC4 - AR&lt;=DR 
-
-
-            LDAC5 - DR&lt;=RAM 
-
-
-            LDAC6 - WAIT 
-
-
-            LDAC7 - AC&lt;=DR 
-
-*   MVAC2R, MVR2AC, MVAC2TR, MVTR2DR, MVTR2AC instructions 
-
-            These instructions can be done in one stage. 
-
-
-            R&lt;=AC 
-
-
-            AC&lt;=R 
-
-
-            TR&lt;=AC 
-
-
-            DR&lt;=TR 
-
-
-            AC&lt;=TR 
-
-
-         
-
-*   STAC instruction 
-
-                                STAC instruction can be executed in six stages. 
-
-
-            STAC1 - AR&lt;=PC 
-
-
-            STAC2 - DR&lt;=RAM, PC&lt;=PC+1 
-
-
-            STAC3 - WAIT 
-
-
-            STAC4 - AR&lt;=DR 
-
-
-            STAC5 - DR&lt;=AC 
-
-
-            STAC6 - RAM&lt;=DR 
-
-*   JUMP instruction 
-
-            JUMP instruction can be executed in four stages. 
-
-
-            JUMP1 - AR&lt;=PC 
-
-
-            JUMP2 - DR&lt;=RAM, PC&lt;=PC+1 
-
-
-            JUMP3 - WAIT 
-
-
-            JUMP4 - PC&lt;=DR 
-
-
-         
-
-*   JUMPNZ instruction 
-
-            JUMPNZ instruction can be executed in four stages. This instruction will be executed        when flag Z=0  
-
-
-            JUMPNZ1 - AR&lt;=PC 
-
-
-            JUMPNZ2 - DR&lt;=RAM, PC&lt;=PC+1 
-
-
-            JUMPNZ3 - WAIT 
-
-
-            JUMPNZ4 - PC&lt;=DR 
-
-
-         
-
-
-            When flag Z=1 
-
-
-## 
-            PC&lt;=PC+1 
-
-*   CLAC instruction 
-
-            CLAC instruction can be executed in a stage. It is used to clear the accumulator. 
-
-
-            AC&lt;=0 
-
-
-         
-
-*   LSHIFT,RSHIFT instruction 
-
-            These instructions can be done in one stage. AC is shifted by a value in the R register. 
-
-
-            AC&lt;=AC&lt;<R 
-
-
-            AC&lt;=AC>>R 
-
-*   LOAD instruction 
-
-            LOAD instruction can be done in four stages 
-
-
-            This is used fetch the data from the RAM with the address that accumulator hold. 
-
-
-         
-
-
-            LOAD1 - AR&lt;=AC 
-
-
-            LOAD2 - DR&lt;=RAM 
-
-
-            LOAD3 - WAIT 
-
-
-            LOAD4 - AC&lt;=DR 
-
-
-     
-
-
-          
-
-
-         
-
-
-         
-
-
-         
-
+Our processor micro instruction is 19 bits long  
+
+![ISA Explained](images/figure_4.jpg)
+
+These micro instruction is hard coded in the control unit. So according to the opcode it can give the micro instruction to ALU, Bus A, write enable mux, and the next opcode to the processing unit. 
+
+### 2.2 Fetch decode execute cycle 
+Opcode for fetch1 is given as 000000 for the first time fetch is executed and looking at the control unit the next opcode is taken and there is a select bit assigned in the micro instruction. If the select bit is 1 the opcode is taken from the Instruction Register. And if the select bit is 0 the next opcode is taken from the micro instruction itself. 
+
+Select bit is 1 in only one occasion when fetch is over the instruction in the IR register must be executed.  
+
+#### Fetching instruction 
+Fetching instruction consist of 4 stages 
+
+ 	Fetch1 -   AR<=PC 
+ 	Fetch2 -   DR<=RAM, PC<=PC+1 
+ 	Fetch3 -   wait 
+ 	Fetch4 -   IR<=DR 
+
+#### Decoding instruction 
+After fetching instructions from the instruction memory, the CPU has to identify which instruction has been fetched thereby invoking the correct execution cycle. This task is done by the controlling unit. 
+
+ #### Executing instruction 
+* ADD instruction\
+ADD instruction can be executed by one stage\
+`AC<=AC+R`
+* SUB instruction\
+SUB instruction can be also executed by one stage\
+`AC<=AC-R`
+* NOP instruction\
+NOP instruction can be also executed by one stage.\
+This operation does nothing. It increments PC by one\
+`PC<=PC+1`
+* LDAC instruction\
+LDAC instruction can be executed in 7 stages.
+    ```
+    LDAC1 - AR<=PC
+    LDAC2 - DR<=RAM, PC<=PC+1
+    LDAC3 - WAIT
+    LDAC4 - AR<=DR
+    LDAC5 - DR<=RAM
+    LDAC6 - WAIT
+    LDAC7 - AC<=DR
+    ```
+* MVAC2R, MVR2AC, MVAC2TR, MVTR2DR, MVTR2AC instructions\
+These instructions can be done in one stage. 
+    ```
+    R<=AC
+    AC<=R
+    TR<=AC
+    DR<=TR
+    AC<=TR
+    ```
+* STAC instruction\
+STAC instruction can be executed in six stages. 
+    ```
+    STAC1 - AR<=PC
+    STAC2 - DR<=RAM, PC<=PC+1
+    STAC3 - WAIT
+    STAC4 - AR<=DR
+    STAC5 - DR<=AC
+    STAC6 - RAM<=DR
+    ```
+* JUMP instruction\
+JUMP instruction can be executed in four stages.
+    ```
+    JUMP1 - AR<=PC
+    JUMP2 - DR<=RAM, PC<=PC+1
+    JUMP3 - WAIT
+    JUMP4 - PC<=DR
+    ```
+* JUMPNZ instruction\
+JUMPNZ instruction can be executed in four stages. This instruction will be executed when flag Z=0  
+    ```
+    JUMPNZ1 - AR<=PC
+    JUMPNZ2 - DR<=RAM, PC<=PC+1
+    JUMPNZ3 - WAIT
+    JUMPNZ4 - PC<=DR
+    ```
+    When flag Z=1 
+    `PC<=PC+1`
+* CLAC instruction\
+CLAC instruction can be executed in a stage. It is used to clear the accumulator.
+`AC<=0`
+* LSHIFT,RSHIFT instruction\
+These instructions can be done in one stage. AC is shifted by a value in the R register. 
+    ```
+    AC<=AC<<R
+    AC<=AC>>R 
+    ```
+* LOAD instruction\
+LOAD instruction can be done in four stages\
+This is used fetch the data from the RAM with the address that accumulator hold. 
+```
+LOAD1 - AR<=AC
+LOAD2 - DR<=RAM
+LOAD3 - WAIT
+LOAD4 - AC<=DR
+```
 
 ### 
 2.3 State diagram of the CPU 
@@ -712,12 +527,12 @@ Address Register (AR)
 
 
 
-*   000  	: NOP  	dataOut &lt;= dataIn 	 	(used for data movement) 
-*   001  	: ADD  	dataOut &lt;= RIn + dataIn 
-*   010  	: SUB  	dataOut &lt;= dataIn-RIn 
-*   011  	: LSHIFT 	 	dataOut &lt;= dataIn &lt;< RIn 
-*   100  	: RSHIFT 	dataOut &lt;= dataIn >> RIn 
-*   101  : MOVR  dataOut &lt;= Rin   (used for moving data from R) 
+*   000  	: NOP  	dataOut <= dataIn 	 	(used for data movement) 
+*   001  	: ADD  	dataOut <= RIn + dataIn 
+*   010  	: SUB  	dataOut <= dataIn-RIn 
+*   011  	: LSHIFT 	 	dataOut <= dataIn << RIn 
+*   100  	: RSHIFT 	dataOut <= dataIn >> RIn 
+*   101  : MOVR  dataOut <= Rin   (used for moving data from R) 
 *   110  : INC  data = dataIn + 1  (primarily used for incrementing PC) 
 
     Z flag is another output raised by ALU whenever the output of ALU becomes zero. This is used by the Control Unit whenever it wants to decide (e.g. JUMPNZ). Since Z is a flag (1bit register) it will hold the value until cleared. So, Control Unit has another dedicated bit, ZClear, which comes as an input to the ALU which will instruct the ALU to clear Z flag. 
@@ -2362,7 +2177,7 @@ input clk,send; input [7:0] data; output reg busy; output reg tx;
  	else if(state == 2'b01) begin 
  	 	if(bit_counter < 8) begin 
 <p style="text-align: right">
- 	 	 	tx  	 	&lt;= data[bit_counter];  	 	 	bit_counter  	&lt;= bit_counter + 1; 
+ 	 	 	tx  	 	<= data[bit_counter];  	 	 	bit_counter  	<= bit_counter + 1; 
 </p>
  	 	end 
  	 	else begin 
@@ -2374,13 +2189,13 @@ input clk,send; input [7:0] data; output reg busy; output reg tx;
 
 	<code> 	 	tx   </code>
    </td>
-   <td><code>&lt;= 1; </code>
+   <td><code><= 1; </code>
    </td>
   </tr>
   <tr>
    <td><code> 	 	state   	end  	end </code>
    </td>
-   <td><code>&lt;= 2'b10; </code>
+   <td><code><= 2'b10; </code>
    </td>
   </tr>
 </table>
@@ -2533,7 +2348,7 @@ always@(posedge clk_out) begin   	if (state==0)begin   	 	//next_RAMAddressByUAR
 ```
 
 
-	` 	UARTdata2RAM &lt;= data_o  ; `
+	` 	UARTdata2RAM <= data_o  ; `
 
 
 ```
